@@ -2,22 +2,44 @@ import apiClient from "./api";
 
 export const uploadService = {
   uploadVideo: async (file, onProgress) => {
-    const formData = new FormData();
-    formData.append("video", file);
+    const CHUNK_SIZE = 50 * 1024 * 1024; // 50MB chunks
+    const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+    const uploadId = Date.now().toString();
+    const fileName = file.name;
 
-    const response = await apiClient.post("/upload/videos", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      onUploadProgress: (progressEvent) => {
-        if (onProgress && progressEvent.total) {
-          const percentCompleted = Math.round(
-            (progressEvent.loaded * 100) / progressEvent.total
-          );
-          onProgress(percentCompleted);
-        }
-      },
-    });
+    let response;
+
+    for (let chunkIndex = 0; chunkIndex < totalChunks; chunkIndex++) {
+      const start = chunkIndex * CHUNK_SIZE;
+      const end = Math.min(start + CHUNK_SIZE, file.size);
+      const chunk = file.slice(start, end);
+
+      const formData = new FormData();
+      formData.append("chunk", chunk, "chunk.bin");
+      formData.append("chunkIndex", chunkIndex);
+      formData.append("totalChunks", totalChunks);
+      formData.append("fileName", fileName);
+      formData.append("uploadId", uploadId);
+
+      response = await apiClient.post("/upload/videos/chunk", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          if (onProgress) {
+            // Calculate progress for current chunk
+            const chunkProgress = (progressEvent.loaded / progressEvent.total) * 100;
+            // Calculate total progress
+            const totalProgress = Math.round(
+              ((chunkIndex * 100) + chunkProgress) / totalChunks
+            );
+            onProgress(Math.min(totalProgress, 99)); // Cap at 99% until final response
+          }
+        },
+      });
+    }
+
+    if (onProgress) onProgress(100);
     return response.data;
   },
 

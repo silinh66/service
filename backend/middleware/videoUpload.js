@@ -34,6 +34,7 @@ const fileFilter = (req, file, cb) => {
     "video/x-msvideo",
     "video/x-ms-wmv",
     "video/webm",
+    "application/octet-stream", // Allow chunks
   ];
 
   if (allowedTypes.includes(file.mimetype)) {
