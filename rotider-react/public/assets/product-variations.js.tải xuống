@@ -1,0 +1,310 @@
+const spinner = '<svg class="spinner"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+    <path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" fill="#ff9d00"/>
+</svg>'
+
+document.addEventListener('DOMContentLoaded', function () {
+    const categoryDropdown = document.getElementById('new-order-category');
+    const serviceContainer = document.getElementById('ZOOZOO-service-container');
+    const variationContainer = document.getElementById('ZOOZOO-variation-container');
+    const descriptionContainer = document.getElementById('ZOOZOO-product-description-container');
+    const addOnEffectContainer = document.getElementById('ZOOZOO-add-on-effect-container');
+    const metadataContainer = document.getElementById('ZOOZOO-metadata-container');
+    const videoFields = document.getElementById('Video Editing-meta');
+    const photoFields = document.getElementById('Photo Editing-meta');
+
+    // Fetch URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCategory = urlParams.get('category');
+    const selectedService = urlParams.get('service');
+
+    if (categoryDropdown) {
+        categoryDropdown.addEventListener('change', function () {
+            const categoryId = categoryDropdown.value;
+
+            if (categoryId) {
+                fetchProducts(categoryId, selectedService);
+            } else {
+                serviceContainer.innerHTML = '';
+            }
+        });
+
+        // Pre-select category if available in URL parameters
+        if (selectedCategory) {
+            categoryDropdown.value = selectedCategory;
+            triggerChangeEvent(categoryDropdown);
+        }
+    }
+
+    if (serviceContainer) {
+        serviceContainer.addEventListener('change', function (event) {
+            if (event.target && event.target.id === 'new-order-service') {
+                onProductSelectionChange(event);
+            }
+        });
+    }
+
+    function fetchAddOnEffects() {
+        const data = new FormData();
+        data.append('action', 'fetch_add_on_effects');
+        let html = '<label class="min-w-40">Add On Effects</label>'
+        html += '<div id="add-on-effect-checkboxes" class="flex flex-wrap gap-x-8 gap-y-4">';
+        html += spinner; html+= '</div>';
+        addOnEffectContainer.innerHTML = html
+        fetch(prefix_vars.ajaxurl, {
+            method: 'POST',
+            body: data,
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.data?.products.length > 0) {
+                    html = '<label class="min-w-40">Add On Effects</label>';
+                    html += '<div id="add-on-effect-checkboxes" class="flex flex-wrap gap-x-8 gap-y-4">';
+    
+                    data.data?.products.forEach(product => {
+                        html += `
+<label class="flex items-center">
+    <input type="checkbox" name="add-on-effects[]" value="${product.id}" class="add-on-checkbox">
+        <span class="text-nowrap">${product.label}</span>
+    </label>
+                        `;
+                    });
+    
+                    html += '</div>';
+                    addOnEffectContainer.innerHTML = html;
+                } else {
+                    addOnEffectContainer.innerHTML = '<p>No add-on effects available.</p>';
+                }
+            })
+            .catch(error => console.error('Error fetching add-on effects:', error));
+    }
+    
+
+    function fetchProducts(categoryId, preSelectedService = null) {
+        serviceContainer.innerHTML = '';
+        variationContainer.innerHTML = '';
+        descriptionContainer.innerHTML = '';
+        addOnEffectContainer.innerHTML = '';
+        const data = new FormData();
+        data.append('action', 'fetch_products');
+        data.append('category_id', categoryId);
+
+        let html = '<label for="new-order-service" class="min-w-40">Service<span class="text-red-500">*</span>
+</label>'
+        html += spinner;
+        serviceContainer.innerHTML = html
+
+        fetch(prefix_vars.ajaxurl, {
+            method: 'POST',
+            body: data,
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.data?.products.length > 0) {
+                    html = '<label for="new-order-service" class="min-w-40">Service<span class="text-red-500">*</span>
+</label>';
+                    html += '<select id="new-order-service" name="option" required>';
+                    html += '<option value="" selected disabled hidden>Choose service</option>';
+
+                    data.data?.products.forEach(product => {
+                        html += `<option data-category='${product.category}' value='${product.id}' data-description='${product.description}' data-has-variation='${product.hasVariation}'>${product.label}</option>`;
+                    });
+
+                    html += '</select>';
+                    serviceContainer.innerHTML = html;
+
+                    // If a service was pre-selected, set it after the dropdown is populated
+                    if (preSelectedService) {
+                        const productDropdown = document.getElementById('new-order-service');
+                        if (productDropdown) {
+                            productDropdown.value = preSelectedService;
+                            triggerChangeEvent(productDropdown);
+                        }
+                    }
+                } else {
+                    serviceContainer.innerHTML = '';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    
+
+    function fetchVariations(productId, hasVariation) {
+        const data = new FormData();
+        data.append('action', 'fetch_product_variations');
+        data.append('product_id', productId);
+
+        if (hasVariation) {
+            let html = '<label for="variation-dropdown" class="min-w-40">Variation<span class="text-red-500">*</span></label>'
+            html += spinner;
+            variationContainer.innerHTML = html;
+
+            fetch(prefix_vars.ajaxurl, {
+                method: 'POST',
+                body: data,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.data?.variations.length > 0) {
+                        let html = '<label for="variation-dropdown" class="min-w-40">Variation<span class="text-red-500">*</span></label>';
+                        html += '<select id="variation-dropdown" name="product-variation" required>';
+                        html += '<option value="" selected disabled hidden>Choose variation</option>';
+
+                        data.data?.variations.forEach(variation => {
+                            html += `<option value="${variation.id}">${variation.label} - ${variation.price}</option>`;
+                        });
+
+                        html += '</select>';
+                        variationContainer.innerHTML = html;
+                    } else {
+                        variationContainer.innerHTML = '';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        } else {
+            variationContainer.innerHTML = '';
+        }
+    }
+
+    function triggerChangeEvent(element) {
+        // Trigger the change event programmatically
+        const event = new Event('change', { bubbles: true });
+        element.dispatchEvent(event);
+    }
+
+    function onProductSelectionChange(event) {
+        const productDropdown = event.target; // Get the dropdown that triggered the event
+        const productId = productDropdown.value;
+    
+        // Clear variations if no product is selected
+        if (!productId) {
+            variationContainer.innerHTML = '';
+            descriptionContainer.innerHTML = '';
+            metadataContainer?.classList.add('hidden');
+            return;
+        }
+
+        const selectedOption = productDropdown.options[productDropdown.selectedIndex];
+        const hasVariation = selectedOption?.dataset.hasVariation == 'true';
+        const description = selectedOption?.dataset.description || '';
+        const serviceCategory = selectedOption?.dataset.category || '';
+
+        // Fetch variations for the selected product
+        fetchVariations(productId, hasVariation);
+    
+        // Get selected option & extract data attributes
+        
+    
+        // Update product description
+        if (description) {
+            descriptionContainer.innerHTML = `
+<label class="min-w-40">Description</label>
+<p class="text-gray-600">${description}</p>
+<input type="hidden" id="new-order-order-name" name="service_desc" value="${description}" required />
+            `;
+        } else {
+            descriptionContainer.innerHTML = '';
+        }
+    
+        // Hide all metadata fields by default
+        document.querySelectorAll('.metadata-fields').forEach(field => field.classList.add('hidden'));
+        metadataContainer?.classList.add('hidden');
+    
+        // Show relevant metadata fields based on the selected category
+        switch (serviceCategory) {
+            case 'Video Editing':
+                fetchAddOnEffects();
+                metadataContainer?.classList.remove('hidden');
+                videoFields?.classList.remove('hidden');
+                break;
+            case 'Photo Editing':
+                addOnEffectContainer.innerHTML = '';
+                metadataContainer?.classList.remove('hidden');
+                photoFields?.classList.remove('hidden');
+                break;
+        }
+    }
+    
+});
+function openDetailModal(orderId) {
+    fetchOrderDetails(orderId)
+        .then(orderData => {
+            if (orderData.meta_data.length === 0) {
+                const orderProductData = document.getElementById('order-product-data');
+                document.getElementById('order-type-data').classList.add('hidden');
+                orderProductData.classList.remove('hidden');
+                const products = Object.values(orderData.order_product);
+                orderProductData.innerHTML = '';
+                products.forEach(item => {
+                    const newElement = document.createElement('div');
+
+                    newElement.innerHTML = `
+                        <div class="flex gap-x-16">
+<div>
+<span>Product name: </span>
+<span>${item.name}</span>
+</div>
+<div>
+<span>Cost: </span>
+<span>${item.subtotal}</span>
+</div>
+<div>
+<span>Quantity: </span>
+<span>${item.quantity}</span>
+</div>
+<div>
+<span>Total: </span>
+<span>${item.total}</span>
+</div>
+</div>
+                    `;
+
+                    orderProductData.appendChild(newElement);
+                });
+            } else {
+                document.getElementById('order-product-data').classList.add('hidden');
+                document.getElementById('order-type-data').classList.remove('hidden');
+                document.getElementById('order_type').innerHTML = `${orderData.order_type}`;
+                document.getElementById('variation').innerHTML = `${orderData.variation}`;
+                document.getElementById('description').innerHTML = `${orderData.description}`;
+                document.getElementById('resolution').innerHTML = `${orderData.resolution}`;
+                document.getElementById('format').innerHTML = `${orderData.format}`;
+                document.getElementById('address').innerHTML = `${orderData.address}`;
+                document.getElementById('length').innerHTML = `${orderData.length}`;
+                document.getElementById('effects').innerHTML = `${orderData.effects}`;
+                document.getElementById('music').innerHTML = `${orderData.music}`;
+                document.getElementById('sample').innerHTML = `${orderData.sample}`;
+                document.getElementById('note').innerHTML = `${orderData.note}`;
+            }
+            document.getElementById('order_id').innerText = `${orderData.id}`;
+            document.getElementById('customer_name').innerText = `${orderData.customer_name}`;
+            document.getElementById('order_name').innerText = `${orderData.order_name}`;
+            document.getElementById('order_submitted').innerText = `${orderData.order_submitted}`;
+            document.getElementById('instructions').innerText = `${orderData.instructions}`;
+
+            document.getElementById('detailModal').classList.remove('hidden');
+        })
+        .catch(error => console.error('Error fetching order details:', error));
+}
+
+function closeModal() {
+    document.getElementById('detailModal').classList.add('hidden');
+}
+function fetchOrderDetails(orderId) {
+    return fetch(prefix_vars.ajaxurl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            action: 'get_order_details',
+            order_id: orderId
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                return data.data;
+            } else {
+                throw new Error(data.data);
+            }
+        });
+}

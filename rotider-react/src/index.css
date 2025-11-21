@@ -1,0 +1,84 @@
+/* Copied inline styles from original HTML */
+
+:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 7 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 7 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 7 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 7 Pro";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-regular: normal 400 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-light: normal 300 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-thin: normal 100 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 7 Brands";
+  /* ... more font awesome vars ... */
+}
+
+/* Custom CSS from style block */
+:root {
+    --primary-color: #151714;
+    --fs-color-primary: #151714;
+    --fs-color-secondary: #fffafa;
+    --fs-color-success: #ff9d00;
+    --fs-color-alert: #b20000;
+    --fs-experimental-link-color: #334862;
+    --fs-experimental-link-color-hover: #111;
+}
+.tooltipster-base {
+    --tooltip-color: #fff;
+    --tooltip-bg-color: #000;
+}
+.off-canvas-right .mfp-content, .off-canvas-left .mfp-content {
+    --drawer-width: 300px;
+}
+.off-canvas .mfp-content.off-canvas-cart {
+    --drawer-width: 360px;
+}
+.container-width, .full-width .ubermenu-nav, .container, .row{max-width: 1110px}
+.row.row-collapse{max-width: 1080px}
+.row.row-small{max-width: 1102.5px}
+.row.row-large{max-width: 1140px}
+.header-main{height: 83px}
+#logo img{max-height: 83px}
+#logo{width:115px;}
+.header-bottom{min-height: 10px}
+.header-top{min-height: 30px}
+.transparent .header-main{height: 90px}
+.transparent #logo img{max-height: 90px}
+.has-transparent + .page-title:first-of-type,
+.has-transparent + #main > .page-title,
+.has-transparent + #main > div > .page-title,
+.has-transparent + #main .page-header-wrapper:first-of-type .page-title{padding-top: 90px;}
+.header.show-on-scroll,.stuck .header-main{height:70px!important}
+.stuck #logo img{max-height: 70px!important}
+.header-bg-color {background-color: rgba(237,237,237,0)}
+.header-bottom {background-color: #f1f1f1}
+.top-bar-nav > li > a{line-height: 16px }
+.header-main .nav > li > a{line-height: 16px }
+@media (max-width: 549px) {
+    .header-main{height: 70px}
+    #logo img{max-height: 70px}
+}
+body{font-family: Roboto, sans-serif;}
+body {font-weight: 400;font-style: normal;}
+.nav > li > a {font-family: Roboto, sans-serif;}
+.mobile-sidebar-levels-2 .nav > li > ul > li > a {font-family: Roboto, sans-serif;}
+.nav > li > a,.mobile-sidebar-levels-2 .nav > li > ul > li > a {font-weight: 700;font-style: normal;}
+h1,h2,h3,h4,h5,h6,.heading-font, .off-canvas-center .nav-sidebar.nav-vertical > li > a{font-family: Roboto, sans-serif;}
+h1,h2,h3,h4,h5,h6,.heading-font,.banner h1,.banner h2 {font-weight: 700;font-style: normal;}
+.alt-font{font-family: "Dancing Script", sans-serif;}
+.alt-font {font-weight: 400!important;font-style: normal!important;}
+.has-equal-box-heights .box-image {padding-top: 75%;}
+@media screen and (min-width: 550px){
+    .products .box-vertical .box-image{min-width: 0px!important;width: 0px!important;}
+}
+.nav-vertical-fly-out > li + li {border-top-width: 1px; border-top-style: solid;}
+.label-new.menu-item > a:after{content:"New";}
+.label-hot.menu-item > a:after{content:"Hot";}
+.label-sale.menu-item > a:after{content:"Sale";}
+.label-popular.menu-item > a:after{content:"Popular";}
+
+/* Additional styles to fix React migration issues */
+img {
+    max-width: 100%;
+    height: auto;
+}

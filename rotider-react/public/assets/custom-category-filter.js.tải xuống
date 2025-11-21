@@ -1,0 +1,45 @@
+jQuery(document).ready(function ($) {
+    // Trigger AJAX request for "All services" on page load
+    var defaultCategory = 'all'; // Default category slug
+
+    $.ajax({
+        url: categoryFilter.ajax_url,
+        type: "POST",
+        data: {
+            action: "filter_products_by_category",
+            category: defaultCategory,
+        },
+        success: function (response) {
+            if (response) {
+                $(".products").html(response); // Replace product content
+            }
+        },
+    });
+
+    // Handle button clicks
+    $(".ZOOZOO-category-filter-button").on("click", function () {
+        // Remove active class from all buttons
+        $(".ZOOZOO-category-filter-button").removeClass("active");
+
+        // Add active class to clicked button
+        $(this).addClass("active");
+
+        // Get the selected category
+        var category = $(this).data("category");
+
+        // Perform an AJAX request
+        $.ajax({
+            url: categoryFilter.ajax_url,
+            type: "POST",
+            data: {
+                action: "filter_products_by_category",
+                category: category,
+            },
+            success: function (response) {
+                if (response) {
+                    $(".products").html(response); // Replace product content
+                }
+            },
+        });
+    });
+});
