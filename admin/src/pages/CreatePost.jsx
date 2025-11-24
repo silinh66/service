@@ -87,6 +87,7 @@ export default function CreatePost() {
   const [videoUrl, setVideoUrl] = useState("");
   const [uploadingVideo, setUploadingVideo] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [videoFormat, setVideoFormat] = useState("");
   const [status, setStatus] = useState("draft");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -243,6 +244,7 @@ export default function CreatePost() {
         status: publishStatus,
         featured_image: imagePreview || null,
         videos: videos.length > 0 ? videos : null,
+        video_format: videoFormat || null,
       };
 
       await postService.createPost(postData);
@@ -403,6 +405,21 @@ export default function CreatePost() {
                 ))}
               </Select>
             </FormControl>
+
+            {category === "Video Editing" && (
+              <FormControl fullWidth sx={{ mb: 3 }}>
+                <InputLabel>Định dạng video</InputLabel>
+                <Select
+                  value={videoFormat}
+                  label="Định dạng video"
+                  onChange={(e) => setVideoFormat(e.target.value)}
+                >
+                  <MenuItem value="">-- Chọn định dạng --</MenuItem>
+                  <MenuItem value="horizontal">📺 Ngang (Horizontal)</MenuItem>
+                  <MenuItem value="vertical">📱 Dọc (Vertical)</MenuItem>
+                </Select>
+              </FormControl>
+            )}
 
             <FormControl fullWidth>
               <InputLabel>Trạng thái</InputLabel>

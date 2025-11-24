@@ -1,0 +1,473 @@
+[
+  {
+    "id": 1,
+    "title": "Architecture",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_1.jpg",
+    "link": "/WebsiteTemplate/Architecture/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/11_Architecture-services/index.html"
+  },
+  {
+    "id": 2,
+    "title": "Artist",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_2.jpg",
+    "link": "/WebsiteTemplate/Artist/index.html",
+    "externalLink": "https://naru.flatheme.net/?storefront=envato-elements"
+  },
+  {
+    "id": 3,
+    "title": "CEO",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_3.jpg",
+    "link": "/WebsiteTemplate/CEO/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/14_CEO/index.html"
+  },
+  {
+    "id": 4,
+    "title": "CHEF MALAVA",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_4.jpg",
+    "link": "/WebsiteTemplate/CHEF_MALAVA/index.html"
+  },
+  {
+    "id": 5,
+    "title": "CarRepair",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_5.jpg",
+    "link": "/WebsiteTemplate/CarRepair/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/05_Car-repair-services/index.html"
+  },
+  {
+    "id": 6,
+    "title": "CleaningService",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_6.jpg",
+    "link": "/WebsiteTemplate/CleaningService/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/17_Cleaning-service/index.html"
+  },
+  {
+    "id": 7,
+    "title": "Coffee",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_7.jpg",
+    "link": "/WebsiteTemplate/Coffee/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/08_Coffeebar/index.html"
+  },
+  {
+    "id": 8,
+    "title": "Contruction",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_8.jpg",
+    "link": "/WebsiteTemplate/Contruction/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/09_Contruction-services-1/index.html"
+  },
+  {
+    "id": 9,
+    "title": "Contruction2",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_9.jpg",
+    "link": "/WebsiteTemplate/Contruction2/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/10_Contruction-services-2/index.html"
+  },
+  {
+    "id": 10,
+    "title": "Couching",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_10.jpg",
+    "link": "/WebsiteTemplate/Couching/index.html",
+    "externalLink": "https://mutationmedia.net/COACHING/?storefront=envato-elements"
+  },
+  {
+    "id": 11,
+    "title": "Dentist",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_11.jpg",
+    "link": "/WebsiteTemplate/Dentist/index.html",
+    "externalLink": "https://max-themes.net/demos/mediz/dentist/index.html"
+  },
+  {
+    "id": 12,
+    "title": "Design",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_12.jpg",
+    "link": "/WebsiteTemplate/Design/index.html",
+    "externalLink": "https://harnishdesign.net/demo/html/namu/index-onepage-3.html"
+  },
+  {
+    "id": 13,
+    "title": "Developer",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_13.jpg",
+    "link": "/WebsiteTemplate/Developer/index.html",
+    "externalLink": "https://mers-react.vercel.app/"
+  },
+  {
+    "id": 14,
+    "title": "Doctor",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_14.jpg",
+    "link": "/WebsiteTemplate/Doctor/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/24_Healthcare/index.html"
+  },
+  {
+    "id": 15,
+    "title": "Education",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_15.jpg",
+    "link": "/WebsiteTemplate/Education/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/06_Education/index.html"
+  },
+  {
+    "id": 16,
+    "title": "Electricity",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_16.jpg",
+    "link": "/WebsiteTemplate/Electricity/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/19_Electricity-service/index.html"
+  },
+  {
+    "id": 17,
+    "title": "Fitness",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_17.jpg",
+    "link": "/WebsiteTemplate/Fitness/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/18_Fitness/index.html"
+  },
+  {
+    "id": 18,
+    "title": "Freelancer",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_18.jpg",
+    "link": "/WebsiteTemplate/Freelancer/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/30_Freelancer/index.html"
+  },
+  {
+    "id": 19,
+    "title": "Garden",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_19.jpg",
+    "link": "/WebsiteTemplate/Garden/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/07_Garden/index.html"
+  },
+  {
+    "id": 20,
+    "title": "Handyman",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_20.jpg",
+    "link": "/WebsiteTemplate/Handyman/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/22_Handyman/index.html"
+  },
+  {
+    "id": 21,
+    "title": "Harold",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_21.jpg",
+    "link": "/WebsiteTemplate/Harold/index.html",
+    "externalLink": "https://themesdesign.in/harold/layout/index.html"
+  },
+  {
+    "id": 22,
+    "title": "Immigration",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_22.jpg",
+    "link": "/WebsiteTemplate/Immigration/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/28_Immigration/index.html"
+  },
+  {
+    "id": 23,
+    "title": "Interior",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_23.jpg",
+    "link": "/WebsiteTemplate/Interior/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/15_Interior/index.html"
+  },
+  {
+    "id": 24,
+    "title": "Invest",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_24.jpg",
+    "link": "/WebsiteTemplate/Invest/index.html",
+    "externalLink": "https://inversweb.com/product/html/reeni/index-04.html"
+  },
+  {
+    "id": 25,
+    "title": "InvestorRelations",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_25.jpg",
+    "link": "/WebsiteTemplate/InvestorRelations/index.html"
+  },
+  {
+    "id": 26,
+    "title": "Keri",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_26.jpg",
+    "link": "/WebsiteTemplate/Keri/index.html",
+    "externalLink": "https://kerrivpreview.netlify.app/html/index_3"
+  },
+  {
+    "id": 27,
+    "title": "Lawyer",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_27.jpg",
+    "link": "/WebsiteTemplate/Lawyer/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/26_Lawyer/index.html"
+  },
+  {
+    "id": 28,
+    "title": "Lawyer 2",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_28.jpg",
+    "link": "/WebsiteTemplate/Lawyer 2/index.html"
+  },
+  {
+    "id": 29,
+    "title": "Lawyer 3",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_29.jpg",
+    "link": "/WebsiteTemplate/Lawyer 3/index.html"
+  },
+  {
+    "id": 30,
+    "title": "MakeUp",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_30.jpg",
+    "link": "/WebsiteTemplate/MakeUp/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/02_Makeup-artist/index.html"
+  },
+  {
+    "id": 31,
+    "title": "Marketing",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_31.jpg",
+    "link": "/WebsiteTemplate/Marketing/index.html",
+    "externalLink": "https://tanshcreative.com/copr-st-preview/?storefront=envato-elements"
+  },
+  {
+    "id": 32,
+    "title": "Mental Health",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_32.jpg",
+    "link": "/WebsiteTemplate/Mental Health/index.html",
+    "externalLink": "https://html.merku.love/talking-minds/?storefront=envato-elements"
+  },
+  {
+    "id": 34,
+    "title": "Namu",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_34.jpg",
+    "link": "/WebsiteTemplate/Namu/index.html",
+    "externalLink": "https://harnishdesign.net/demo/html/namu/index.html"
+  },
+  {
+    "id": 35,
+    "title": "PT",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_35.jpg",
+    "link": "/WebsiteTemplate/PT/index.html",
+    "externalLink": "https://bslthemes.com/html/samantha/?storefront=envato-elements"
+  },
+  {
+    "id": 36,
+    "title": "Pet Clinic",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_36.jpg",
+    "link": "/WebsiteTemplate/Pet Clinic/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/29_Pet-clinic/index.html"
+  },
+  {
+    "id": 37,
+    "title": "Photography",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_37.jpg",
+    "link": "/WebsiteTemplate/Photography/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/23_Photography/index.html"
+  },
+  {
+    "id": 38,
+    "title": "PlumbingService",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_38.jpg",
+    "link": "/WebsiteTemplate/PlumbingService/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/21_Plumbing-service/index.html"
+  },
+  {
+    "id": 39,
+    "title": "ProductDesigner",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_39.jpg",
+    "link": "/WebsiteTemplate/ProductDesigner/index.html",
+    "externalLink": "https://themesdesign.in/harold/layout/index-2.html"
+  },
+  {
+    "id": 40,
+    "title": "Renovation",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_40.jpg",
+    "link": "/WebsiteTemplate/Renovation/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/13_Renovation-services/index.html"
+  },
+  {
+    "id": 41,
+    "title": "Restaurant",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_41.jpg",
+    "link": "/WebsiteTemplate/Restaurant/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/12_Restaurant/index.html"
+  },
+  {
+    "id": 42,
+    "title": "Saloon",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_42.jpg",
+    "link": "/WebsiteTemplate/Saloon/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/16_Saloon/index.html"
+  },
+  {
+    "id": 43,
+    "title": "Social",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_43.jpg",
+    "link": "/WebsiteTemplate/Social/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/20_NGO/index.html"
+  },
+  {
+    "id": 44,
+    "title": "Solar",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_44.jpg",
+    "link": "/WebsiteTemplate/Solar/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/03_Solar-service/index.html"
+  },
+  {
+    "id": 45,
+    "title": "Stylist",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_45.jpg",
+    "link": "/WebsiteTemplate/Stylist/index.html",
+    "externalLink": "https://inversweb.com/product/html/reeni/index-09-white.html"
+  },
+  {
+    "id": 46,
+    "title": "Teacher",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_46.jpg",
+    "link": "/WebsiteTemplate/Teacher/index.html",
+    "externalLink": "https://html.merku.love/shelly/?storefront=envato-elements"
+  },
+  {
+    "id": 47,
+    "title": "Tour",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_47.jpg",
+    "link": "/WebsiteTemplate/Tour/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/04_Tour/index.html"
+  },
+  {
+    "id": 48,
+    "title": "Tourist",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_48.jpg",
+    "link": "/WebsiteTemplate/Tourist/index.html",
+    "externalLink": "https://keen-sundae-f40659.netlify.app/?storefront=envato-elements"
+  },
+  {
+    "id": 49,
+    "title": "Website Design",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_49.jpg",
+    "link": "/WebsiteTemplate/Website Design/index.html",
+    "externalLink": "https://www.madebydesignesia.com/themes/nathan/07_index.html"
+  },
+  {
+    "id": 50,
+    "title": "Wedding",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_50.jpg",
+    "link": "/WebsiteTemplate/Wedding/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/27_Wedding-day/index.html"
+  },
+  {
+    "id": 51,
+    "title": "WeddingPlanner",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_51.jpg",
+    "link": "/WebsiteTemplate/WeddingPlanner/index.html",
+    "externalLink": "https://up2client.com/envato/digi-vcard/html-v2/main-file/25_Wedding-planner/index.html"
+  },
+  {
+    "id": 52,
+    "title": "Youtuber",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_52.jpg",
+    "link": "/WebsiteTemplate/Youtuber/index.html",
+    "externalLink": "https://inversweb.com/product/html/reeni/index-15-white.html"
+  },
+  {
+    "id": 53,
+    "title": "portfolio",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_53.jpg",
+    "link": "/WebsiteTemplate/portfolio/index.html"
+  },
+  {
+    "id": 55,
+    "title": "vcard-personal-portfolio",
+    "tag": "Website Template",
+    "tagColor": "tag-blue",
+    "image": "/assets/thumbnails/thumbnail_55.jpg",
+    "link": "/WebsiteTemplate/vcard-personal-portfolio/index.html"
+  }
+]

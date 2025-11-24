@@ -1,373 +1,267 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from 'react';
+import { io } from 'socket.io-client';
+import axios from 'axios';
 import {
   Box,
-  Paper,
   Typography,
-  Grid,
+  Paper,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemText,
+  ListItemAvatar,
   Avatar,
   TextField,
   IconButton,
-  Badge,
   Divider,
-  InputAdornment,
-  Chip,
-} from "@mui/material";
-import {
-  Send as SendIcon,
-  Search as SearchIcon,
-  AttachFile as AttachIcon,
-  MoreVert as MoreIcon,
-  Person as PersonIcon,
-} from "@mui/icons-material";
+  Badge
+} from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import SearchIcon from '@mui/icons-material/Search';
+import PersonIcon from '@mui/icons-material/Person';
 
-const conversations = [
-  {
-    id: 1,
-    customer: "Nguyễn Văn A",
-    lastMessage: "Cho mình hỏi về gói dịch vụ Premium...",
-    time: "10 phút trước",
-    unread: 2,
-    online: true,
-  },
-  {
-    id: 2,
-    customer: "Trần Thị B",
-    lastMessage: "Cảm ơn anh/chị đã hỗ trợ!",
-    time: "1 giờ trước",
-    unread: 0,
-    online: false,
-  },
-  {
-    id: 3,
-    customer: "Lê Văn C",
-    lastMessage: "Khi nào có kết quả ạ?",
-    time: "2 giờ trước",
-    unread: 1,
-    online: true,
-  },
-  {
-    id: 4,
-    customer: "Phạm Thị D",
-    lastMessage: "Mình cần tư vấn về Virtual Staging",
-    time: "3 giờ trước",
-    unread: 0,
-    online: false,
-  },
-];
+const Messages = () => {
+  const [conversations, setConversations] = useState([]);
+  const [activeConversationId, setActiveConversationId] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [socket, setSocket] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const messagesEndRef = useRef(null);
 
-const initialMessages = [
-  {
-    id: 1,
-    sender: "customer",
-    text: "Xin chào, mình muốn hỏi về dịch vụ Photo Editing của bên bạn",
-    time: "14:30",
-  },
-  {
-    id: 2,
-    sender: "admin",
-    text: "Chào bạn! Cảm ơn bạn đã quan tâm đến dịch vụ của chúng mình. Bạn có thể cho mình biết thêm về yêu cầu của bạn được không?",
-    time: "14:32",
-  },
-  {
-    id: 3,
-    sender: "customer",
-    text: "Mình có khoảng 50 ảnh bất động sản cần chỉnh sửa. Bên bạn có gói nào phù hợp không?",
-    time: "14:35",
-  },
-  {
-    id: 4,
-    sender: "admin",
-    text: "Với 50 ảnh, mình recommend gói Premium cho bạn. Gói này bao gồm:\n- Chỉnh màu chuyên nghiệp\n- Loại bỏ vật dụng không mong muốn\n- HDR Processing\n- Sky replacement\n- Thời gian: 3-5 ngày",
-    time: "14:37",
-  },
-  {
-    id: 5,
-    sender: "customer",
-    text: "Cho mình hỏi về gói dịch vụ Premium thêm được không?",
-    time: "14:40",
-  },
-];
+  // Initialize Socket.io
+  useEffect(() => {
+    const newSocket = io('http://localhost:5001');
+    setSocket(newSocket);
 
-export default function Messages() {
-  const [selectedConversation, setSelectedConversation] = useState(
-    conversations[0]
-  );
-  const [messages, setMessages] = useState(initialMessages);
-  const [newMessage, setNewMessage] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+    newSocket.on('new_conversation', (conversation) => {
+      setConversations((prev) => [conversation, ...prev]);
+    });
 
-  const handleSendMessage = () => {
-    if (newMessage.trim()) {
-      const message = {
-        id: messages.length + 1,
-        sender: "admin",
-        text: newMessage,
-        time: new Date().toLocaleTimeString("vi-VN", {
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
+    return () => newSocket.close();
+  }, []);
+
+  // Fetch conversations
+  useEffect(() => {
+    const fetchConversations = async () => {
+      try {
+        const token = localStorage.getItem('adminToken');
+        const response = await axios.get('http://localhost:5001/api/messages/conversations', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setConversations(response.data);
+      } catch (error) {
+        console.error("Error fetching conversations:", error);
+      }
+    };
+
+    fetchConversations();
+  }, []);
+
+  // Join conversation room and fetch messages
+  useEffect(() => {
+    if (socket && activeConversationId) {
+      socket.emit('join_conversation', activeConversationId);
+
+      const fetchMessages = async () => {
+        try {
+          const token = localStorage.getItem('adminToken');
+          const response = await axios.get(`http://localhost:5001/api/messages/conversations/${activeConversationId}`, {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          setMessages(response.data);
+          scrollToBottom();
+        } catch (error) {
+          console.error("Error fetching messages:", error);
+        }
       };
-      setMessages([...messages, message]);
-      setNewMessage("");
+
+      fetchMessages();
+
+      const handleReceiveMessage = (message) => {
+        if (message.conversation_id === activeConversationId) {
+          setMessages((prev) => [...prev, message]);
+          scrollToBottom();
+        }
+        // Update last message in conversation list
+        setConversations(prev => prev.map(conv =>
+          conv.conversation_id === message.conversation_id
+            ? { ...conv, last_message: message.message, updated_at: new Date() }
+            : conv
+        ).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)));
+      };
+
+      socket.on('receive_message', handleReceiveMessage);
+
+      return () => {
+        socket.off('receive_message', handleReceiveMessage);
+      };
+    }
+  }, [socket, activeConversationId]);
+
+  // Auto-scroll when messages change
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleSendMessage = async () => {
+    if (!newMessage.trim() || !activeConversationId) return;
+
+    try {
+      const token = localStorage.getItem('adminToken');
+      await axios.post(`http://localhost:5001/api/messages/conversations/${activeConversationId}`, {
+        message: newMessage
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      setNewMessage('');
+      scrollToBottom();
+    } catch (error) {
+      console.error("Error sending message:", error);
     }
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
-
-  const filteredConversations = conversations.filter((conv) =>
-    conv.customer.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredConversations = conversations.filter(conv =>
+    conv.customer_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    conv.customer_email?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const activeConversation = conversations.find(c => c.conversation_id === activeConversationId);
 
   return (
-    <Box>
-      <Typography variant="h4" gutterBottom sx={{ mb: 3, fontWeight: 700 }}>
-        Tin nhắn
-      </Typography>
-
-      <Paper sx={{ height: "calc(100vh - 200px)", display: "flex" }}>
-        {/* Conversation List */}
-        <Box
-          sx={{
-            width: 350,
-            borderRight: 1,
-            borderColor: "divider",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Box sx={{ p: 2 }}>
-            <TextField
-              fullWidth
-              size="small"
-              placeholder="Tìm kiếm cuộc hội thoại..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Box>
-          <Divider />
-          <List sx={{ flex: 1, overflow: "auto", p: 0 }}>
-            {filteredConversations.map((conv) => (
+    <Box sx={{ display: 'flex', height: 'calc(100vh - 100px)', bgcolor: '#f5f5f5', p: 3 }}>
+      <Paper sx={{ width: 360, display: 'flex', flexDirection: 'column', mr: 2 }}>
+        <Box sx={{ p: 2 }}>
+          <Typography variant="h6" gutterBottom>Tin nhắn</Typography>
+          <TextField
+            fullWidth
+            size="small"
+            placeholder="Tìm kiếm cuộc hội thoại..."
+            InputProps={{
+              startAdornment: <SearchIcon color="action" sx={{ mr: 1 }} />,
+            }}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </Box>
+        <Divider />
+        <List sx={{ flex: 1, overflow: 'auto' }}>
+          {filteredConversations.map((conv) => (
+            <React.Fragment key={conv.conversation_id}>
               <ListItem
-                key={conv.id}
                 button
-                selected={selectedConversation.id === conv.id}
-                onClick={() => setSelectedConversation(conv)}
-                sx={{
-                  "&.Mui-selected": {
-                    bgcolor: "action.selected",
-                  },
-                }}
+                selected={activeConversationId === conv.conversation_id}
+                onClick={() => setActiveConversationId(conv.conversation_id)}
+                alignItems="flex-start"
               >
                 <ListItemAvatar>
-                  <Badge
-                    variant="dot"
-                    color={conv.online ? "success" : "default"}
-                    overlap="circular"
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "right",
-                    }}
-                  >
-                    <Avatar sx={{ bgcolor: "primary.main" }}>
-                      <PersonIcon />
-                    </Avatar>
-                  </Badge>
+                  <Avatar sx={{ bgcolor: '#1976d2' }}>
+                    {conv.customer_name?.charAt(0).toUpperCase()}
+                  </Avatar>
                 </ListItemAvatar>
                 <ListItemText
                   primary={
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
-                        {conv.customer}
+                    <Box display="flex" justifyContent="space-between">
+                      <Typography variant="subtitle2" noWrap>
+                        {conv.customer_name}
                       </Typography>
-                      {conv.unread > 0 && (
-                        <Chip
-                          label={conv.unread}
-                          size="small"
-                          color="primary"
-                          sx={{ height: 20, minWidth: 20 }}
-                        />
+                      {conv.unread_count > 0 && (
+                        <Badge badgeContent={conv.unread_count} color="primary" />
                       )}
                     </Box>
                   }
                   secondary={
-                    <Box>
-                      <Typography
-                        variant="body2"
-                        noWrap
-                        sx={{ color: "text.secondary" }}
-                      >
-                        {conv.lastMessage}
-                      </Typography>
-                      <Typography
-                        variant="caption"
-                        sx={{ color: "text.secondary" }}
-                      >
-                        {conv.time}
-                      </Typography>
-                    </Box>
+                    <Typography variant="body2" color="text.secondary" noWrap>
+                      {conv.last_message}
+                    </Typography>
                   }
                 />
               </ListItem>
-            ))}
-          </List>
-        </Box>
+              <Divider component="li" />
+            </React.Fragment>
+          ))}
+        </List>
+      </Paper>
 
-        {/* Chat Area */}
-        <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          {/* Chat Header */}
-          <Box
-            sx={{
-              p: 2,
-              borderBottom: 1,
-              borderColor: "divider",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <Badge
-                variant="dot"
-                color={selectedConversation.online ? "success" : "default"}
-                overlap="circular"
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "right",
-                }}
-              >
-                <Avatar sx={{ bgcolor: "primary.main" }}>
-                  <PersonIcon />
-                </Avatar>
-              </Badge>
+      <Paper sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        {activeConversationId ? (
+          <>
+            <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider', display: 'flex', alignItems: 'center' }}>
+              <Avatar sx={{ bgcolor: '#1976d2', mr: 2 }}>
+                {activeConversation?.customer_name?.charAt(0).toUpperCase()}
+              </Avatar>
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                  {selectedConversation.customer}
-                </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  {selectedConversation.online
-                    ? "Đang hoạt động"
-                    : "Ngoại tuyến"}
-                </Typography>
+                <Typography variant="subtitle1">{activeConversation?.customer_name}</Typography>
+                <Typography variant="caption" color="text.secondary">Đang hoạt động</Typography>
               </Box>
             </Box>
-            <IconButton>
-              <MoreIcon />
-            </IconButton>
-          </Box>
 
-          {/* Messages */}
-          <Box
-            sx={{
-              flex: 1,
-              overflow: "auto",
-              p: 3,
-              bgcolor: "grey.50",
-            }}
-          >
-            {messages.map((message) => (
-              <Box
-                key={message.id}
-                sx={{
-                  display: "flex",
-                  justifyContent:
-                    message.sender === "admin" ? "flex-end" : "flex-start",
-                  mb: 2,
-                }}
-              >
+            <Box sx={{ flex: 1, overflow: 'auto', p: 2, bgcolor: '#fafafa' }}>
+              {messages.map((msg, index) => (
                 <Box
+                  key={index}
                   sx={{
-                    maxWidth: "70%",
-                    bgcolor:
-                      message.sender === "admin" ? "primary.main" : "white",
-                    color:
-                      message.sender === "admin" ? "white" : "text.primary",
-                    px: 2,
-                    py: 1.5,
-                    borderRadius: 2,
-                    boxShadow: 1,
+                    display: 'flex',
+                    justifyContent: msg.sender_type === 'admin' ? 'flex-end' : 'flex-start',
+                    mb: 2
                   }}
                 >
-                  <Typography variant="body1" sx={{ whiteSpace: "pre-wrap" }}>
-                    {message.text}
-                  </Typography>
-                  <Typography
-                    variant="caption"
+                  <Paper
                     sx={{
-                      display: "block",
-                      mt: 0.5,
-                      opacity: 0.8,
+                      p: 2,
+                      maxWidth: '70%',
+                      bgcolor: msg.sender_type === 'admin' ? '#1976d2' : '#fff',
+                      color: msg.sender_type === 'admin' ? '#fff' : 'text.primary',
+                      borderRadius: 2
                     }}
                   >
-                    {message.time}
-                  </Typography>
+                    <Typography variant="body1">{msg.message}</Typography>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        display: 'block',
+                        mt: 1,
+                        opacity: 0.7,
+                        textAlign: 'right'
+                      }}
+                    >
+                      {new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    </Typography>
+                  </Paper>
                 </Box>
-              </Box>
-            ))}
-          </Box>
+              ))}
+              <div ref={messagesEndRef} />
+            </Box>
 
-          {/* Message Input */}
-          <Box
-            sx={{
-              p: 2,
-              borderTop: 1,
-              borderColor: "divider",
-              bgcolor: "background.paper",
-            }}
-          >
-            <Box sx={{ display: "flex", gap: 1, alignItems: "flex-end" }}>
-              <IconButton size="small">
-                <AttachIcon />
-              </IconButton>
+            <Box sx={{ p: 2, borderTop: 1, borderColor: 'divider', display: 'flex' }}>
               <TextField
                 fullWidth
-                multiline
-                maxRows={4}
                 placeholder="Nhập tin nhắn..."
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                variant="outlined"
+                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                 size="small"
+                sx={{ mr: 1 }}
               />
-              <IconButton
-                color="primary"
-                onClick={handleSendMessage}
-                disabled={!newMessage.trim()}
-                sx={{
-                  bgcolor: "primary.main",
-                  color: "white",
-                  "&:hover": { bgcolor: "primary.dark" },
-                  "&:disabled": { bgcolor: "action.disabledBackground" },
-                }}
-              >
+              <IconButton color="primary" onClick={handleSendMessage}>
                 <SendIcon />
               </IconButton>
             </Box>
+          </>
+        ) : (
+          <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h6" color="text.secondary">
+              Chọn một cuộc hội thoại để bắt đầu
+            </Typography>
           </Box>
-        </Box>
+        )}
       </Paper>
     </Box>
   );
-}
+};
+
+export default Messages;

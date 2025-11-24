@@ -1,0 +1,99 @@
+@media (max-width: 400px) {
+	.services-content{
+		padding: 12px;
+	}
+	.client-sec .slick-slide {
+		margin: 0 16px;
+	}
+}
+@media (max-width: 370px) {
+	.scan-btn{
+		width: 50px;
+		height: 50px;
+	}
+	.scan-btn img{
+		width: 30px;
+		height: 30px;
+	}
+	.bg-img2{
+		display: none;
+	}
+}
+@media (max-width: 320px) {
+	.profile-sec{
+		top: -55px;
+	}
+	.oval-frame{
+		width: 100px;
+	}
+	.mt-30{
+		margin-top: 25px;
+	}
+	.appointment-form{
+		flex-wrap: wrap;
+	}
+	.appointment-date{
+		width: 100%;
+	}
+	.appointment-sec .about-title h2:after,
+	.blog-sec .about-title h2:after {
+		margin-right: -85%;
+	}
+	.testimonial-sec .about-title h2:after{
+		margin-right: -60%;
+	}
+	.scan-btn img {
+		width: 24px;
+		height: 24px;
+	}
+	.scan-btn{
+		width: 48px;
+		height: 48px;
+	}
+	.plus-btn{
+		padding: 10px;
+	}
+	.add-to-btn-sec{
+		padding: 6px 6px 6px 18px;
+	}
+	.services-bottom-wrap {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.product-img img,
+	.hero-bottom-img img{
+		width: 100%;
+	}
+	.product-bottom-wrap{
+		display: block !important;
+	}
+	.plan-details h2{
+		font-size: 40px;
+		line-height: 45px;
+	}
+	.scanner img {
+		width: 100%;
+		height: auto;
+	}
+	.scan-content {
+		width: 100%;
+		height: auto;
+	}
+}
+@media (max-width: 280px) {
+	.add-to-contact-wrap{
+		flex-wrap: wrap;
+	}
+	.add-to-btn{
+		margin-left: inherit;
+	}
+	.social-media-content {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.btn1 {
+		width: 100%;
+	}
+	.qr-btn {
+        flex-wrap: wrap;
+    }
+}

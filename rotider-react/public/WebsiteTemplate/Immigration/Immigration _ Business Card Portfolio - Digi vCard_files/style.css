@@ -1,0 +1,1036 @@
+/*------------------------------------------------------------------
+Project:Immigration Template
+Author: The_Krishna        
+-------------------------------------------------------------------*/
+
+/*----------------Table of contents Start---------------------------
+1.Default css
+2.Hero css
+3.Profile css
+4.Social media css
+5.Testimonial css
+6.Category css
+7.About us css
+8.Country css
+9.Appointment css
+10.Blog css
+11.Inquiry css
+12.Contact css
+13.Bottom css
+14.Scanner modal popup css
+15.Share modal popup css
+16.Single blog css
+17.Background css
+18.Preloader css
+
+---------Table of contents End-----------------------------------*/
+
+/*------------------------ [Color codes] ------------------------                     
+Background:#000000, #232a35, #eb315a
+Content: #eb315a, #ffffff, #dbdbdb  
+-------------------------------------------------------------------*/
+
+/************************ 1.Default css ***************************/
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	width: 100%;
+	height: 100%;
+}
+*, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+a:focus, a {
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+} 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
+}
+body {
+	max-width: 425px;
+	margin: 0 auto;
+	background: #000000;
+}
+svg{
+	vertical-align: middle;
+}
+input{
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+	border: none;
+	outline: none;
+	width: 100%;
+}
+textarea{
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+	resize: none;
+}
+ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+.overflow{
+	overflow-y: scroll;
+}
+.container{
+	padding: 0 16px;
+}
+.mt-30{
+	margin-top: 30px;
+}
+.mt-15{
+	margin-top: 15px;
+}
+.mt-20{
+	margin-top: 20px;
+}
+.mt-10{
+	margin-top: 10px;
+}
+.mt-5{
+	margin-top: 5px !important;
+}
+.pt-20{
+	padding-top: 20px;
+}
+.mlr-auto{
+	margin-left: auto;
+	margin-right: auto;
+}
+::-webkit-scrollbar { 
+	display: none; 
+}
+.red-filter{
+	filter: brightness(0) saturate(100%) invert(41%) sepia(77%) saturate(6599%) hue-rotate(332deg) brightness(98%) contrast(88%);
+}
+.site-content{
+	width: 100%;
+	height: 100%;
+}
+
+/************************ 2.Hero css ***************************/
+.ceo-content {
+	position: relative;
+	background: #232a35;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+.hero-top-sec {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 16px 0 16px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.header-logo {
+	width: 72px;
+	height: 72px;
+	border-radius: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(180deg, rgba(11, 19, 21, 0.80) 0%, rgba(11, 19, 21, 0.20) 100%);
+	backdrop-filter: blur(5px);
+}
+.custom-language-btn {
+	margin: 0;
+	border-radius: 16px;
+	background: #eb315a !important;
+	backdrop-filter: blur(5px);
+	padding: 4px 8px 4px 8px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	border: none !important;
+	color: var(--14, #ffffff) !important;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.dropdown-toggle::after {
+	content: url(../svg/up-arrow.svg) !important;
+	border: 0;
+	width: 24px;
+	height: 24px;
+	margin-left: auto;
+}
+.dropdown-item {
+	color: var(--14, #000000);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.flag-icon {
+	width: 25px;
+	height: 20px;
+	margin-right: 10px;
+}
+.dropdown-item:active,
+.dropdown-item:hover{
+	background: #eb315a2e !important;
+	color: black!important;
+}
+.custom-language-btn:hover{
+	color: white !important;
+}
+.bg-shape{
+	filter: brightness(0) saturate(100%) invert(14%) sepia(47%) saturate(309%) hue-rotate(178deg) brightness(92%) contrast(93%);
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+}
+
+/************************ 3.Profile css ***************************/
+.hero-bottom-sec {
+	text-align: center;
+	margin-top: -50px;
+	position: relative;
+}
+.client-img {
+	border: 3px solid #fff;
+	border-radius: 50%;
+	width: 120px;
+}
+.client-name {
+	color: var(--11, #eb315a);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 36px;
+}
+.client-title {
+	color: var(--14, #ffffff);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+/************************ 4.Social media css ***************************/
+.social-icon-content {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	transition: all 0.35s;
+}
+.social-icon-content-wrap {
+	background: #eb315a;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	position: relative;
+	clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+	transition: all .3s ease;
+}
+.social-icon-para p {
+	color: #ffffff;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.social-icon-content-wrap:hover {
+	clip-path: none;
+	transition: all .3s ease;
+}
+
+/************************ 5.Testimonial css ***************************/
+.top-title h2 {
+	color: var(--11, #eb315a);
+	font-family: Poppins;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
+	text-transform: capitalize;
+}
+.testimonial-content {
+	padding: 16px;
+	border-radius: 5px;
+	position: relative;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.client-details-content {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.client-img-testimonial img{
+	border-radius: 50%;
+}
+.client-details p {
+	color: #A6A6A6;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 22px;
+	font-family: Poppins;
+}
+.client-details h3 {
+	color: #ffffff;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-family: Poppins;
+	font-weight: 800;
+}
+.quotes-para p {
+	color: #ffffff;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.slick-dots,
+.slick-dots {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+}
+.slick-dots button,
+.slick-dots button {
+	display: block;
+	width: 10px;
+	height: 10px;
+	padding: 0;
+	border: none;
+	background-color: #ffffff;
+	text-indent: -9999px;
+}
+.slick-dots li.slick-active button,
+.slick-dots li.slick-active button {
+	background-color: #eb315a;
+}
+
+/************************ 6.Category css ***************************/
+.category-img {
+	position: relative;
+}
+.icon {
+	width: 60px;
+	height: 60px;
+	background: #eb315a;
+	border-radius: 10px;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.category-content {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 16px;
+}
+.text-holder h3 {
+	color: #ffffff;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-family: Poppins;
+	font-weight: 600;
+}
+.text-holder p {
+	color: #A6A6A6;
+	font-size: 14px;
+	text-align: center;
+	line-height: 20px;
+	font-family: Poppins;
+	font-weight: 400;
+}
+.category-img img {
+	border-radius: 24px;
+}
+
+/************************ 7.About us css ***************************/
+.about-title {
+	color: #ffffff;
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+	text-transform: uppercase;
+}
+.about-us-img img{
+	border-radius: 24px;
+	width: 100%;
+}
+.text1 p {
+	color: #d7d7d7;
+	font-size: 14px;
+	line-height: 26px;
+	font-family: Poppins;
+	font-weight: 400;
+}
+i.fa.fa-check-circle {
+	color: #eb315a;
+	padding-right: 5px;
+}
+ul.list-style-two li {
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 20px;
+	font-family: Poppins;
+	font-weight: 400;
+}
+.top-title img{
+	filter: brightness(0) saturate(100%) invert(83%) sepia(96%) saturate(18%) hue-rotate(235deg) brightness(108%) contrast(101%);
+	padding-right: 5px;
+}
+
+/************************ 8.Country css ***************************/
+.gallery-box {
+	overflow: hidden;
+	position: relative;
+}
+.gallery-box .gallery-img {
+	position: relative;
+	overflow: hidden;
+}
+.gallery-box .gallery-img > img {
+	transition: all 0.3s cubic-bezier(0.3, 0.1, 0.58, 1);
+}
+.gallery-box .gallery-img:after {
+	content: " ";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	transition: all 0.3s cubic-bezier(0.3, 0.1, 0.58, 1);
+}
+.gallery-box .gallery-detail {
+	opacity: 0;
+	color: #ffffff;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: translate(0%, 0%);
+	background: #eb315a;
+	background: #eb315a;
+	border-radius: 12px;
+	width: fit-content;
+	margin: 0 auto;
+}
+.gallery-box:hover .gallery-detail {
+	top: 50%;
+	opacity: 1;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 0.3s cubic-bezier(0.3, 0.1, 0.58, 1);
+}
+
+/************************ 9.Appointment css ***************************/
+.appointment-bg{
+	background-image: url(../images/main-img/appointment-bg.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+	width: 100%;
+	height: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.appointment-overlay{
+	background: linear-gradient(#25302ea6, #131211);
+	bottom: 0;
+	content: "";
+	height: 100%;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+.appointment-content {
+	position: relative;
+}
+.appointment-content h2 {
+	color: #ffffff;
+	font-size: 30px;
+	text-align: center;
+	line-height: 40px;
+	font-family: Poppins;
+	font-weight: 600;
+}
+
+/************************ 10.Blog css ***************************/
+.post-tags {
+	padding: 16px;
+	border-bottom: 1px solid #36383e;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+.post-tags a {
+	padding: 5px 22px;
+	background-color: #36383e;
+	border-radius: 50px;
+	text-transform: capitalize;
+	color: #ffffff;
+	font-family: Poppins;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.single-blog .title {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+.content a {
+	color: #ffffff;
+	font-size: 20px;
+	text-align: center;
+	line-height: 24px;
+	font-family: Poppins;
+	font-weight: 500;
+}
+.content p {
+	color: #a6a6a6;
+	font-size: 12px;
+	line-height: 24px;
+	font-family: Poppins;
+	font-weight: 400;
+}
+.blog-bottom-sec {
+	background-color: #1f2025;
+	border-radius: 3px;
+	padding: 24px;
+}
+.read-more a {
+	padding: 10px;
+	border: 2px solid #eb315a;
+	border-radius: 8px;
+	color: #ffffff;
+	font-size: 14px;
+	text-align: center;
+	line-height: 24px;
+	font-family: Poppins;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+}
+.read-more a:hover {
+	background: #eb315a;
+	color: #ffffff;
+	transition: all .3s ease;
+}
+
+/************************ 11.Inquiry css ***************************/
+.info-person ,
+.contact-content h4{
+	color: var(--14, #ffffff);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 14px;
+	width: 100%;
+	text-transform: uppercase;
+}
+.input-wrapper-form {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 6px;
+	width: 100%;
+}
+.view-product a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 5px;
+	background: var(--15, #eb315a);
+	padding:12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	border: 2px solid #eb315a;
+	transition: all .3s ease;
+	text-transform: capitalize;
+}
+.view-product a:before{
+	content: "";
+	background: white;
+	position: absolute;
+	z-index: -1;
+	display: block;
+	top: 100%;
+	bottom: -100%;
+	left: 0;
+	right: 0;
+	transition: all 0.35s;
+}
+.view-product a:hover::before {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	transition: all 0.35s;
+}
+.view-product a:hover{
+	color: #eb315a;
+}
+.input-wrapper-form input, 
+.input-wrapper-form textarea,
+.contact-content p {
+	color: var(--10, #dbdbdb);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	background: transparent;
+}
+
+/************************ 12.Contact css ***************************/
+.contact-details {
+	display: flex;
+	gap: 12px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 12px;
+}
+.contact-icon {
+	border-radius: 6px;
+	background: var(--2, #eb315a);
+	padding: 10px;
+	width: 44px;
+	height: 44px;
+}
+.contact-content p{
+	color: var(--2, #a6a6a6) !important;
+	transition: all .3s ease; 
+}
+.contact-content p:hover{
+	text-decoration: underline;
+	color: #eb315a !important;
+	transition: all .3s ease; 
+}
+.contact-list {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.contact-list .time-txt {
+	font-weight: 400;
+	width: 55%;
+}
+.days-txt {
+	font-weight: 500;
+}
+.contact-content {
+	width: 90%;
+}
+.days-txt,
+.contact-list .time-txt{
+	color: var(--2, #a6a6a6);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	line-height: 26px;
+}
+
+/************************ 13.Bottom css ***************************/
+.add-to-contact-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.scan-btn {
+	width: 60px;
+	height: 60px;
+	background: var(--15, #eb315a);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.add-to-btn-sec {
+	display: flex;
+	align-items: center;
+	border-radius: 30px;
+	background: var(--2, #000);
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.32);
+	padding: 6px 6px 6px 30px;
+	justify-content: end;
+	width: fit-content;
+	gap: 8px;
+}
+.add-txt {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+.plus-btn {
+	border-radius: 24px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+.add-to-contact {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	max-width: 425px;
+	left: 0;
+	right: 0;
+	padding-bottom: 20px;
+	z-index: 99;
+}
+.footer p {
+	color: var(--2, #fff);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.map-img iframe {
+	width: 100%;
+	height: 250px;
+	border-radius: 12px;
+}
+.add-to-btn {
+	margin-left: auto;
+}
+
+/************************* 14.Scanner modal popup css ***************************/
+#product-modal,
+#share-media-modal,
+#blog1-modal {
+	background: linear-gradient(180deg, rgba(18, 21, 28, 0.56) 0%, rgba(18, 21, 28, 0.24) 100%);
+	backdrop-filter: blur(4px);
+}
+#product-modal .modal-content,
+#share-media-modal .modal-content {
+	border-radius: 24px;
+}
+.scan-content {
+	text-align: center;
+	border: 2px solid #eb315a;
+	height: auto;
+	width: 250px;
+	margin: 0 auto;
+	padding: 12px;
+	border-radius: 8px;
+}
+.scanner img {
+	width: 100%;
+    height: auto;
+}
+.scan-txt {
+	padding: 14px;
+	background: #eb315a;
+	border-radius: 8px;
+}
+.scan-txt p {
+	color: var(--2, #fff);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.btn1 a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 8px;
+	background: #000000;
+	padding: 12px 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.qr-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+.btn1 {
+	width: 140px;
+}
+.modal-title{
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px; 
+}
+
+/************************ 15.Share modal popup css ***************************/
+.social-media-content {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 16px;
+}
+.social-media-img {
+	width: 60px;
+	height: 60px;
+	background: transparent;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease; 
+}
+.social-media-img:hover {
+	background: #eb315a;
+	transition: all .3s ease;
+}
+.social-media-img img {
+	filter: brightness(0) saturate(100%) invert(0%) sepia(99%) saturate(3%) hue-rotate(13deg) brightness(99%) contrast(100%);
+	width: 30px;
+	height: 30px;
+}
+.social-media-img:hover.social-media-img img{
+	filter: brightness(0) saturate(100%) invert(100%) sepia(2%) saturate(7%) hue-rotate(323deg) brightness(104%) contrast(102%);
+	transition: all .3s ease;
+}
+
+/************************ 16.Single blog css ***************************/
+#blog-main .product-sec-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: space-between;
+}
+.product-content-main {
+	background: #232a35;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	padding-bottom: 20px;
+}
+.product-title {
+	color: var(--2, #ffffff);
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	text-transform: uppercase;
+}
+.buy-now a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 5px;
+	background: var(--15, #eb315a);
+	padding: 8px 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+}
+.btn-close{
+	opacity: 1;
+}
+.btn-close:focus{
+	box-shadow: none;
+}
+.project-details h2 {
+	color: var(--2, #000000);
+	font-family: Poppins;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 35px;
+	text-align: center;
+}
+.project-details p {
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--14, #737373);
+	text-align: center;
+}
+.blog-modal-img {
+	border-radius: 24px;
+}
+.border-blog {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 12px;
+}
+.project-details1 p {
+	font-family: Poppins;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--14, #737373);
+}
+.blog-list li {
+	color: var(--29, #271F1F);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	margin-top: 10px;
+}
+
+/************************ 17.Background css ***************************/
+.background-img {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	right: 0;
+	z-index: -1;
+}
+.shape3 {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.shape7 {
+	position: absolute;
+	bottom: 20px;
+}
+
+/************************ 18.Preloader css ***************************/
+.preloader {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: auto;
+	background: -o-radial-gradient(circle, #333, #000) no-repeat;
+	background: radial-gradient(circle, #333, #000) no-repeat;
+	z-index: 999;
+	text-align: center;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.preloader img{
+	-webkit-animation: movingplane 4s cubic-bezier(0.51, 0.45, 0.75, 0.72) infinite;
+	transition: all 0.3s ease 0s;
+	width: 150px;
+}
+@keyframes movingplane {
+	0% { 
+		margin-left: 0;
+	}
+	25% { 
+		bottom: -90px;
+		margin-left: 20px;
+	}
+	50% {
+		bottom: -80px;
+		margin-left: 40px;
+	}
+	75% {
+		bottom: -70px;
+		margin-left: 60px;
+
+	}
+	100% {
+		bottom: -60px;
+		margin-left: 80px;
+		opacity: .08;
+	}
+}

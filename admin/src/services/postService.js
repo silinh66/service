@@ -79,4 +79,9 @@ export const postService = {
     const response = await apiClient.post(`/posts/${id}/views`);
     return response.data;
   },
+
+  updatePostOrder: async (posts) => {
+    const response = await apiClient.put("/posts/reorder", { posts });
+    return response.data;
+  },
 };

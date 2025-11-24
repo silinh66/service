@@ -1,0 +1,93 @@
+@media (max-width:425px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    video {
+        width: 100%;
+    }
+}
+@media (min-width:380px) and (max-width:425px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (max-width:380px) {
+    .container {
+        width: 100%;
+    }
+    .video-bg img {
+        left: 0px;
+        bottom: 3%;
+    }
+    .contact-time-list {
+        width: 100%;
+    }
+    iframe {
+        width: 100%;
+        height: 180px;
+        max-height: 100%;
+    }
+    .image-sec-about {
+        max-width: 240px;
+    }
+    .design-counter {
+        width: 120px;
+    }
+    .counter-deta {
+        font-size: 24px;
+        line-height: 20px;
+    }
+    .imager-about {
+        max-width: 185px;
+    }
+    .title-data-about {
+        font-size: 17px;
+        line-height: 24px;
+    }
+    .title-main-design {
+        margin: 20px 0;
+    }
+    .services-title {
+        font-size: 17px;
+        line-height: 26px;
+    }
+    .title-desc {
+        margin-top: 0px;
+    }
+    .image-detail-person {
+        max-width: 130px;
+        max-height: 130px;
+    }
+    .border-data {
+        left: 5px;
+        top: 5px;
+        width: 120px;
+        height: 120px;
+    }
+    .bloger-title-data-main {
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .viewer-name {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .image-vide {
+        width: 60px;
+        height: 60px;
+    }
+    .title-data-services {
+        font-size: 17px;
+        line-height: 28px;
+    }
+    .faq-question p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@media (min-width:280px) and (max-width:320px) {
+    .container {
+        width: 100%;
+    }
+}

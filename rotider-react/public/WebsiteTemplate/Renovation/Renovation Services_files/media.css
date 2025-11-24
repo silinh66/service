@@ -1,0 +1,146 @@
+@media (max-width:425px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    video {
+        width: 100%;
+    }
+}
+@media (min-width:380px) and (max-width:425px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (max-width:380px) {
+    .container {
+        width: 100%;
+    }
+    .video-bg img {
+        left: 0px;
+        bottom: 3%;
+    }
+    .contact-time-list {
+        width: 100%;
+    }
+    iframe {
+        width: 100%;
+        height: 180px;
+        max-height: 100%;
+    }
+    .image-about-second {
+        max-width: 220px;
+        bottom: -15%;
+    }
+    .title-about {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .title-work {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .blog-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .video-bg .wave {
+        position: absolute;
+        bottom: 1%;
+    }
+    .image-sport {
+        max-width: 220px;
+    }
+    .image-about-main img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+    }
+    .right-image {
+        bottom: -30%;
+    }
+    .main-title-all-design {
+        margin: 20px 0;
+        margin-bottom: 10px;
+    }
+    .title-data-sec {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .service-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .services-image {
+        border: 0px solid #FFF;
+    }
+    .bg-title {
+        font-size: 32px;
+    }
+    .about-desc {
+        color: #141415;
+        margin-top: 0px;
+    }
+    .gallary-image {
+        border: 0px;
+    }
+    .overlay-gallary {
+        padding: 10px;
+    }
+    .image-detail-person {
+        max-width: 140px;
+        max-height: 140px;
+    }
+    .border-data {
+        width: 125px;
+        height: 125px;
+    }
+    .title-desc-portfolio {
+        font-size: 15px;
+    }
+    .title-blog {
+        font-size: 18px;
+    }
+    .blog-detail {
+        margin: 0;
+    }
+    .title-blog-desc {
+        font-size: 13px;
+        line-height: normal;
+    }
+    .design-button {
+        margin-top: 20px;
+    }
+    .test-detail {
+        padding: 20px 15px;
+    }
+    .data-view-main {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 100%;
+    }
+    .send-data {
+        font-size: 14px;
+        line-height: 24px;
+        text-align: justify;
+        margin-top: 5px;
+    }
+    .add-to-btn-sec {
+        padding: 6px 6px 6px 8px;
+    }
+    .title-data-services {
+        font-size: 17px;
+        line-height: 28px;
+    }
+    .faq-question p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@media (min-width:280px) and (max-width:320px) {
+    .container {
+        width: 100%;
+    }
+}

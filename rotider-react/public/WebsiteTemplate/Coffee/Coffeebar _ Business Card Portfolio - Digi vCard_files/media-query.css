@@ -1,0 +1,107 @@
+@media (max-width: 991px) {
+	.shape5,
+	.shape4,
+	.shape3,
+	.shape6{
+		display: none;
+	}
+}
+@media (max-width: 400px) {
+	.offer-coffee-img img{
+		width: 100%;
+	}
+}
+@media (max-width: 370px) {
+	.scan-btn{
+		width: 50px;
+		height: 50px;
+	}
+	.scan-btn img{
+		width: 30px;
+		height: 30px;
+	}
+}
+@media (max-width: 320px) {
+	.scan-btn img {
+		width: 24px;
+		height: 24px;
+	}
+	.scan-btn{
+		width: 48px;
+		height: 48px;
+	}
+	.plus-btn{
+		padding: 10px;
+	}
+	.offer-coffee-img img{
+		width: 100%;
+	}
+	.add-to-btn {
+		margin-left: initial !important;
+	}
+	.menu-sec{
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.menu2-descri{
+		justify-content: center;
+		gap: 12px;
+	}
+	.singleblog1-content5-sec-full{
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.buy-now {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.menupage2-drink-para{
+		text-align: center;
+	}
+	.mt-30 {
+		margin-top: 25px;
+	}
+	.offer-content-bottom h3{
+		font-size: 25px;
+		line-height: 30px;
+	}
+	.scan-content {
+		width: 100%;
+		height: auto;
+	}
+	.scanner img{
+		width: 100%;
+		height: auto;
+	}
+	.add-to-btn-sec {
+		padding: 6px 6px 6px 18px;
+	}
+}
+@media (max-width: 280px) {
+	.add-to-contact-wrap{
+		flex-wrap: wrap;
+	}
+	.add-to-btn{
+		margin-right: auto;
+	}
+	.add-to-btn {
+		margin-right: auto;
+	}
+	.about-details h3{
+		font-size: 16px;
+		line-height: 26px;
+	}
+	.menupage2-drink-para{
+		text-align: center;
+	}
+	.coffee-offer{
+		padding: 0 16px;
+	}
+	.qr-btn{
+		flex-wrap: wrap;
+	}
+	.btn1 {
+		width: 100%;
+	}
+}

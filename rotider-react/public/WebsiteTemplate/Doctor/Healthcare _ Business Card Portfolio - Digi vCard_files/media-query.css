@@ -1,0 +1,72 @@
+@media (max-width: 991px) {
+	.background-img{
+		display: none;
+	}
+}
+@media (max-width: 400px) {
+	.about-thumb-area .exp-bx span{
+		font-size: 16px;
+	}
+}
+@media (max-width: 370px) {
+	.scan-btn{
+		width: 50px;
+		height: 50px;
+	}
+	.scan-btn img{
+		width: 30px;
+		height: 30px;
+	}
+	.about-thumb-area ul li:nth-child(1), .about-thumb-area ul li:nth-child(3),
+	.about-thumb-area ul li:nth-child(2), .about-thumb-area ul li:nth-child(4) {
+		width: 100%;
+	}
+	.about-thumb-area .exp-bx{
+		padding: 30px;
+	}
+}
+@media (max-width: 320px) {
+	.scan-btn img {
+		width: 24px;
+		height: 24px;
+	}
+	.scan-btn{
+		width: 48px;
+		height: 48px;
+	}
+	.plus-btn{
+		padding: 10px;
+	}
+	.scanner img {
+		width: 100%;
+		height: auto;
+	}
+	.scan-content {
+		width: 100%;
+		height: auto;
+	}
+	.mt-30 {
+		margin-top: 25px;
+	}
+	.add-to-btn-sec{
+		padding: 6px 6px 6px 18px;
+	}
+}
+@media (max-width: 280px) {
+	.add-to-contact-wrap{
+		flex-wrap: wrap;
+	}
+	.add-to-btn{
+		margin-left: inherit;
+	}
+	.about-content h2{
+		font-size: 20px;
+		line-height: 30px;
+	}
+	.btn1 {
+		width: 100%;
+	}
+	.qr-btn{
+		flex-wrap: wrap;
+	}
+}

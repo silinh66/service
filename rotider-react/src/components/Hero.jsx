@@ -36,9 +36,11 @@ const Hero = () => {
                 decoding="async"
                 width="512"
                 height="287"
-                src="/assets/Hero-header-section.png"
+                src="/assets/Hero-header-section.jpg"
                 className="bg attachment-original size-original"
                 alt="hero header section"
+                //set blur background
+                style={{ filter: "blur(5px)" }}
               />
             </div>
             <div className="banner-layers container">
@@ -326,7 +328,7 @@ const Hero = () => {
                                 className="text text-q-banner"
                               >
                                 <h3>
-                                  <strong>8+ Years</strong>
+                                  <strong>10+ Years</strong>
                                 </h3>
                                 <p>Experience Editor</p>
                               </div>

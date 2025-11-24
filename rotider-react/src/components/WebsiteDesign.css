@@ -1,0 +1,177 @@
+/* WebsiteDesign.css */
+.website-design-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    font-family: "SST W55 Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* Approximating Sony's font */
+    color: #000;
+    position: relative;
+}
+
+.wd-slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wd-control-arrow {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-bottom: 2px solid #000;
+    /* Changed to black for visibility on light bg */
+    cursor: pointer;
+    position: absolute;
+    transition: opacity 0.3s;
+    opacity: 0.7;
+    z-index: 10;
+}
+
+.wd-control-arrow:hover {
+    opacity: 1;
+}
+
+.wd-control-prev {
+    border-left: 2px solid #000;
+    transform: rotate(45deg);
+    left: -30px;
+    /* Adjust position */
+}
+
+.wd-control-next {
+    border-right: 2px solid #000;
+    transform: rotate(-45deg);
+    right: -30px;
+    /* Adjust position */
+}
+
+/* Visually Hidden Utility */
+.vh {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.wd-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.wd-title {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    color: #1f1f1f;
+}
+
+.wd-description {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.wd-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+.wd-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+.wd-card:hover {
+    opacity: 0.8;
+}
+
+.wd-image-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    /* Placeholder bg */
+}
+
+.wd-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.wd-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 4px 8px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+}
+
+.wd-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+}
+
+/* Tag Colors */
+.tag-brown {
+    background-color: #a05a2c;
+}
+
+.tag-red {
+    background-color: #c0392b;
+}
+
+.tag-gold {
+    background-color: #bfa15f;
+}
+
+.tag-blue {
+    background-color: #2c3e50;
+}
+
+/* Dark blue/grey from image */
+.tag-purple {
+    background-color: #5b4282;
+}
+
+.tag-green {
+    background-color: #4a7c59;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .wd-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .wd-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wd-title {
+        font-size: 1.5rem;
+    }
+}

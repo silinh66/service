@@ -25,8 +25,7 @@ const Header = () => {
                             {/* Logo */}
                             <div id="logo" className="flex-col logo">
                                 <Link to="/" title="ZOOZOO – Real Estate Photo Editing and Video Editing" rel="home">
-                                    <img width="1020" height="574" src="https://yt3.googleusercontent.com/44rY4UUb3o0sKE3yaxn_pdJub7-BGA4t6_fiMe5IMUg5reXtL4iFa_dVZsUUK2fQPkJ4Kc7uhQ=s160-c-k-c0x00ffffff-no-rj" className="header_logo header-logo" alt="ZOOZOO – Real Estate Photo Editing and Video Editing" />
-                                    <img width="947" height="512" src="https://yt3.googleusercontent.com/44rY4UUb3o0sKE3yaxn_pdJub7-BGA4t6_fiMe5IMUg5reXtL4iFa_dVZsUUK2fQPkJ4Kc7uhQ=s160-c-k-c0x00ffffff-no-rj" className="header-logo-dark" alt="ZOOZOO – Real Estate Photo Editing and Video Editing" />
+                                    <span className="header-logo-text">ZOOZOOSTUDIO</span>
                                 </Link>
                             </div>
 
@@ -48,7 +47,7 @@ const Header = () => {
                                         <Link to="/" aria-current="page" className="nav-top-link">Home page</Link>
                                     </li>
                                     <li id="menu-item-38" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38 menu-item-design-default has-dropdown">
-                                        <a href="#" className="nav-top-link" aria-expanded="false" aria-haspopup="menu">Service<i className="icon-angle-down"></i></a>
+                                        <a href="#" className="nav-top-link" aria-expanded="false" aria-haspopup="menu">Service</a>
                                         <ul className="sub-menu nav-dropdown nav-dropdown-default">
                                             <li id="menu-item-1307" className="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-1307 nav-dropdown-col">
                                                 <a href="/product-category/photo-editing/">Photo Editing</a>

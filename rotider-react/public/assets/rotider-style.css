@@ -1,6 +1,6 @@
 :root {
   --main-color-lighter: #ffedd5;
-  --main-color: #ff9d00;
+  --main-color: #4081f7ff;
   --border-color: #919eab;
   --text-disabled: #919eab;
   --text-primary: #212b36;
@@ -9,7 +9,7 @@
 }
 
 .line-clamp-2 {
-	overflow: hidden;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -33,22 +33,22 @@
 }
 
 .ZOOZOO-btn.add_to_cart_button {
-	margin-left: auto;
+  margin-left: auto;
   border-radius: 9999px;
 }
 
 .ZOOZOO-shadow {
-	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
 .product-small .box-excerpt.line-clamp-2 {
-	height: 37px;
-	width: 100%;
+  height: 37px;
+  width: 100%;
   margin-bottom: 12px;
 }
 
 .product-small .box-text {
-	padding: 16px;
+  padding: 16px;
 }
 
 .ZOOZOO-category-filter-buttons {
@@ -72,10 +72,13 @@
 }
 
 .ZOOZOO-category-filter-button.active {
-  background-color: var(--main-color); /* Active button background color */
-  color: #fff; /* Active button text color */
+  background-color: var(--main-color);
+  /* Active button background color */
+  color: #fff;
+  /* Active button text color */
   font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for emphasis */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Optional shadow for emphasis */
 }
 
 .product-page-title {
@@ -86,6 +89,7 @@
   justify-content: center;
   width: 50%;
   margin: 0 auto 20px auto;
+
   & .single_variation_wrap {
     text-align: center;
   }
@@ -93,8 +97,10 @@
 
 .single-product .cart .ZOOZOO-btn {
   border-radius: 9999px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for emphasis */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Optional shadow for emphasis */
   margin: auto;
+
   &:hover {
     background-color: var(--main-color-lighter);
   }
@@ -124,8 +130,8 @@
   filter: grayscale(0);
 }
 
-.im-slider .flickity-viewport{
-	height: 350px !important;
+.im-slider .flickity-viewport {
+  height: 350px !important;
 }
 
 .link_donwload {
@@ -142,6 +148,7 @@
   border-left: 4px solid #950606;
   padding: 4px;
   padding-left: 16px;
+
   .single-revision__timestamp {
     font-size: 0.8rem;
     font-weight: 500;
@@ -153,8 +160,9 @@
 }
 
 .fade-item {
-    opacity: 0; /* Initially hidden */
-    transition: opacity 1s ease-out, transform 1s ease-out;
+  opacity: 0;
+  /* Initially hidden */
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 /* Right side fades in from right */
@@ -174,7 +182,8 @@
 }
 
 .spinner {
-  width: 20px; /* Adjust size as needed */
+  width: 20px;
+  /* Adjust size as needed */
   height: 20px;
   animation: spin 1s linear infinite;
   display: inline-block;
@@ -183,7 +192,7 @@
 
 @keyframes spin {
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -448,7 +457,8 @@
   color: var(--text-primary);
 }
 
-.ZOOZOO-blog-category-groups, .ZOOZOO-blog-subcategories {
+.ZOOZOO-blog-category-groups,
+.ZOOZOO-blog-subcategories {
   display: flex;
   flex-direction: column;
   row-gap: 4rem;
@@ -464,7 +474,9 @@
 }
 
 .ZOOZOO-pagination__item {
-  & a, & span {
+
+  & a,
+  & span {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
@@ -475,15 +487,20 @@
     background-color: #fff;
     cursor: pointer;
     border-right: none;
+
     &:hover {
       background-color: rgba(255, 171, 0, 0.2);
     }
+
     &.current {
       background-color: #F4F6F8;
     }
   }
+
   &:last-child {
-    & a, & span {
+
+    & a,
+    & span {
       border-right: 1px solid var(--border-outlined);
     }
   }
@@ -581,6 +598,7 @@
 /* Draw Attention plugin style */
 div.hotspots-image-container {
   background-color: transparent !important;
+
   & div.hotspots-map-container {
     background-color: transparent !important;
   }

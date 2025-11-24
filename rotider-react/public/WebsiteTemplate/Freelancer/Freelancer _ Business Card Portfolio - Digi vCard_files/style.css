@@ -1,0 +1,1281 @@
+/*------------------------------------------------------------------
+Project:Freelancer Template
+Author: The_Krishna        
+-------------------------------------------------------------------*/
+
+/*----------------Table of contents Start---------------------------
+1.Default css
+2.Hero css
+3.Profile css
+4.Social media css
+5.Services css
+6.Product css
+7.Portfolio css
+8.Testimonial css
+9.Client css
+10.Appointment css
+11.Datepicker css
+12.Blog css
+13.Inquiry css
+14.Contact css
+15.Bottom css
+16.Scanner modal popup css
+17.Share modal popup css
+18.Single product css
+19.Porfolio css
+20.Single blog css
+21.Preloader css
+
+---------Table of contents End-----------------------------------*/
+
+/*------------------------ [Color codes] ------------------------                     
+Background: #E8C9E7 
+Content:    #311CB4, #737373 ,#000000, #A6A6A6
+-------------------------------------------------------------------*/
+
+/************************ 1.Default css ***************************/
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	width: 100%;
+	height: 100%;
+}
+*, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+a:focus, a {
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+} 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
+}
+body {
+	height: 100%;
+	background: #E8C9E7;
+	max-width: 425px;
+	margin: 0 auto;
+}
+svg{
+	vertical-align: middle;
+}
+input{
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+	border: none;
+	outline: none;
+	width: 100%;
+}
+textarea{
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+	resize: none;
+}
+ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+.overflow{
+	overflow-y: scroll;
+}
+.container{
+	padding: 0 16px;
+}
+.mt-30{
+	margin-top: 30px;
+}
+.mt-15{
+	margin-top: 15px;
+}
+.mt-20{
+	margin-top: 20px;
+}
+.mt-10{
+	margin-top: 10px;
+}
+.mt-5{
+	margin-top: 5px !important;
+}
+.pt-20{
+	padding-top: 20px;
+}
+.mlr-auto{
+	margin-left: auto;
+	margin-right: auto;
+}
+.purple-filter{
+	filter: brightness(0) saturate(100%) invert(13%) sepia(54%) saturate(6412%) hue-rotate(249deg) brightness(87%) contrast(107%);
+}
+::-webkit-scrollbar { 
+	display: none; 
+}
+.site-content{
+	width: 100%;
+	height: 100%;
+}
+
+/************************ 2.Hero css ***************************/
+.ceo-content {
+	position: relative;
+	background: white;
+	padding-bottom: 20px;
+}
+.header {
+	background: url(../images/hero-sec/hero-img.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	width: 100%;
+	height: 180px;
+}
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 15px 16px 0 16px;
+}
+.header-logo {
+	width: 72px;
+	height: 72px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.20) 100%);
+	backdrop-filter: blur(8px);
+}
+.custom-language-btn {
+	padding: 0;
+	margin: 0;
+	padding: 4px 8px 4px 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 32px;
+	border-width: 0 !important;
+	border-radius: 16px;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.20) 100%);
+	backdrop-filter: blur(8px);
+	color: var(--1, #FFF) !important;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.dropdown-toggle::after {
+	content: url(../svg/up-arrow.svg) !important;
+	border: 0;
+	width: 24px;
+	height: 24px;
+	margin-left: auto;
+}
+.dropdown-item, 
+.profile-name p, 
+.sercices-details p {
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.dropdown-item {
+	color: #000000 !important;
+}
+.flag-icon {
+	width: 25px;
+	height: 20px;
+	margin-right: 10px;
+}
+.dropdown-item.active, 
+.dropdown-item:active {
+	background: rgb(49 28 180 / 8%) !important;
+}
+.dropdown-item:focus, 
+.dropdown-item:hover {
+	color: var(--bs-dropdown-link-hover-color);
+	background: rgb(49 28 180 / 8%) !important;
+}
+
+/************************ 3.Profile css ***************************/
+.profile-content {
+	margin-top: -60px;
+}
+.oval-frame {
+	border: 5px solid white;
+	border-radius: 50%;
+}
+.profile-name h1, 
+.services-top h2 {
+	color: var(--11, #311CB4);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 36px;
+}
+.profile-title, .sercices-details p {
+	font-weight: 400 !important;
+	line-height: 24px !important;
+}
+
+/************************ 4.Social media css ***************************/
+.social-icon-content {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.social-icon-content-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	background: rgb(49 28 180 / 8%);
+	border-radius: 12px;
+	padding: 8px;
+}
+.social-icon-content-wrap:hover {
+	background: #311CB4;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px 12px 5px 12px;
+}
+.social-icon-content-wrap:hover img {
+	filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(304deg) brightness(104%) contrast(102%);
+	transition: all 0.3s ease-in-out;
+}
+
+/************************ 5.Services css ***************************/
+.services-sec {
+	background: url(../images/services/bg-img.png);
+	background-color: rgb(49 28 180 / 8%);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	width: 100%;
+	padding: 30px 0;
+}
+.services-top h2{
+	line-height: 30px !important;
+	text-transform: uppercase;
+}
+.services-content {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 10px 10px 15px 10px;
+}
+.sercices-details h3, 
+.client-title h3, 
+.product-bottom h3 {
+	color: var(--2, #000);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+.sercices-img img {
+	border-radius: 6px;
+	width: 100%;
+}
+.services-sec .slick-dots,
+.client-logo .slick-dots {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+}
+.services-sec .slick-dots button,
+.client-logo .slick-dots button {
+	display: block;
+	width: 10px;
+	height: 10px;
+	padding: 0;
+	border: none;
+	border-radius: 5px;
+	background-color: #A6A6A6;
+	text-indent: -9999px;
+}
+.services-sec .slick-dots li.slick-active button,
+.client-logo .slick-dots li.slick-active button {
+	background-color: #311CB4;
+	width: 30px;
+	height: 10px;
+}
+.sercices-details p,
+.product-txt{
+	text-align: center;
+}
+
+/************************ 6.Product css ***************************/
+.product-content {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 10px 10px 15px 10px;
+}
+.prodcut-top {
+	position: relative;
+	width: auto;
+}
+.product-img img {
+	border-radius: 6px;
+	width: 100%;
+}
+.prodcut-price {
+	width: fit-content;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+}
+.prodcut-price p {
+	border-radius: 5px;
+	background: var(--11, #311CB4);
+	padding: 3px 8px;
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 18px;
+}
+.client-title p, 
+.product-txt,
+.testimonial-para,
+.footer p {
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.view-product a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 5px;
+	background: var(--11, #311CB4);
+	padding: 8px 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	margin: 0 auto;
+	border: 1px solid transparent;
+	transition: all 0.3s ease-in-out;
+}
+.view-product a:hover{
+	border: 1px solid #311CB4;
+	color: #311CB4;
+	background: transparent;
+	transition: all 0.3s ease-in-out;
+}
+.product-sec{
+	padding: 30px 0;
+}
+.product-bottom-single .buy-now {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+/************************ 7.Portfolio css ***************************/
+.portfolio-sec, .inquiry-sec {
+	background: rgb(49 28 180 / 8%);
+	padding: 30px 0;
+}
+.portfolio-img img,
+.blog-content img{
+	border-radius: 12px;
+	width: 100%;
+}
+.map-img iframe{
+	width: 100%;
+	height: 250px;
+	border-radius: 12px;
+}
+#lightcase-info #lightcase-caption{
+	display: none !important;
+}
+.lightcase-icon-close:before {
+	content: url(../images/portfolio/close-icon.png);
+}
+.slick-list {
+	padding-left: 16px;
+}
+.slick-slide {
+	padding-right: 16px;
+}
+
+/************************ 8.Testimonial css ***************************/
+.details-sec,
+.appointment-sec {
+	padding: 30px 0;
+}
+.testimonial-para {
+	color: var(--2, #000) !important;
+}
+.testimonial-sec-profile {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.testimonial-client-img img{
+	border-radius: 50%;
+}
+#testimonial-slider .carousel-control-next-icon, 
+#testimonial-slider .carousel-control-prev-icon {
+	width: 24px;
+	height: 24px;
+}
+#testimonial-slider .carousel-control-next, #testimonial-slider .carousel-control-prev {
+	position: absolute;
+	display: inline-flex;
+	opacity: 1;
+	width: 40px;
+	height: 40px;
+	background-color: rgb(0 0 0 / 10%);
+	border-radius: 50%;
+	top: unset;
+	z-index: 0;
+}
+#testimonial-slider .carousel-control-prev-icon {
+	background-image: url(../svg/left-slider-icon.svg) !important;
+}
+#testimonial-slider .carousel-control-next-icon {
+	background-image: url(../svg/right-slider-icon.svg) !important;
+}
+#testimonial-slider .carousel-control-prev {
+	left: 75%;
+	bottom: 10px;
+}
+#testimonial-slider .carousel-control-next {
+	right: 0;
+	bottom: 10px;
+}
+
+/************************ 9.Client css ***************************/
+.logo-slide-wrap {
+	width: 100%;
+	height: 65px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+}
+.client-logo-wrap .slick-slide{
+	padding: 0 15px 0 0;
+}
+.client-logo-bottom{
+	margin-left: 15px;
+}
+
+/************************ 10.Appointment css ***************************/
+.appointment-bottom .appointment-date {
+	display: flex;
+	gap: 30px;
+}
+.appointment-bottom .input-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 8px;
+	width: 100%;
+}
+.info-person, .contact-content h4 {
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 14px;
+	text-transform: uppercase;
+	width: 100%;
+}
+.date-list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 15px;
+	width: 100%;
+}
+.appointment-date-list {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 8px;
+}
+.appointment-form input,
+.input-wrapper-form input,
+.contact-content p {
+	color: var(--10, #A6A6A6);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+/************************ 11.Datepicker css ***************************/
+.ui-datepicker-header a.ui-datepicker-next {
+	right: 0;
+	background: url(../svg/right-arrow.svg);
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: 50%;
+}
+.ui-datepicker-header a.ui-datepicker-prev {
+	left: 0;
+	background: url(../svg/right-arrow.svg);
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: 50%;
+	transform: rotate(180deg);
+}
+.ui-datepicker-header a>span {
+	display: none;
+}
+#ui-datepicker-div {
+	display: none;
+	background-color: #fff;
+	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+	margin-top: 0.25rem;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.ui-datepicker-calendar thead th {
+	padding: 0.25rem 0;
+	text-align: center;
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: #78909C;
+}
+.ui-datepicker-calendar tbody td {
+	width: 2.5rem;
+	text-align: center;
+	padding: 0;
+}
+div#ui-datepicker-div {
+	z-index: 500 !important;
+}
+.ui-datepicker-calendar tbody td a {
+	display: block;
+	border-radius: 0.25rem;
+	line-height: 2rem;
+	transition: 0.3s all;
+	color: #546E7A;
+	font-size: 0.875rem;
+	text-decoration: none;
+}
+.ui-datepicker-calendar tbody td a:hover {
+	background: rgb(49 28 180 / 8%);
+	color: white;
+}
+.ui-datepicker-calendar tbody td a.ui-state-active {
+	background-color: #311cb4;
+	color: white;
+}
+.ui-datepicker-header a.ui-corner-all {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	width: 2rem;
+	height: 2rem;
+	margin: 0.5rem;
+	border-radius: 0.25rem;
+	transition: 0.3s all;
+}
+.ui-datepicker-title {
+	text-align: center;
+	line-height: 32px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+/************************ 12.Blog css ***************************/
+.blog-content {
+	position: relative;
+}
+.blog-overlay {
+	content: "";
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.90) 100%);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 12px;
+}
+.blog-title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 20px;
+}
+.blog-title p{
+	color: var(--1, #FFF);
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+.blog-sec .carousel-control-next,
+.blog-sec .carousel-control-prev {
+	width: 40px;
+	height: 40px;
+	background: white;
+	opacity: 1;
+	border-radius: 50%;
+	margin: auto;
+	z-index: 0;
+}
+.blog-sec .carousel-control-next {
+	right: 10px;
+}
+.blog-sec .carousel-control-prev{
+	left: 10px;
+}
+.blog-sec .carousel-control-next-icon, 
+.blog-sec .carousel-control-prev-icon{
+	width: 24px;
+	height: 24px;
+}
+#testimonial-slider .carousel-control-next-icon, 
+#blog-slider .carousel-control-next-icon {
+	background-image: url(../svg/right-slider-icon.svg) !important;
+}
+#testimonial-slider .carousel-control-prev-icon, 
+#blog-slider .carousel-control-prev-icon {
+	background-image: url(../svg/left-slider-icon.svg) !important;
+}
+.btn-close {
+	opacity: 1;
+}
+.btn-close:focus {
+	box-shadow: none;
+}
+
+/************************ 13.Inquiry css ***************************/
+.input-wrapper-form {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 6px;
+	width: 100%;
+}
+
+/************************ 14.Contact css ***************************/
+.contact-details {
+	display: flex;
+	gap: 12px;
+	border-radius: 12px;
+	background: rgb(49 28 180 / 8%);
+	padding: 12px;
+}
+.contact-icon {
+	border-radius: 6px;
+	background: var(--2, #000);
+	padding: 10px;
+	width: 44px;
+	height: 44px;
+}
+.contact-content p{
+	color: var(--2, #000) !important;
+	transition: all 0.3s ease-in-out;
+}
+.contact-content p:hover {
+	text-decoration: underline;
+	color: #311cb4 !important;
+	transition: all 0.3s ease-in-out;
+}
+.days-txt, 
+.contact-list .time-txt {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	line-height: 26px;
+}
+.days-txt {
+	font-weight: 500;
+}
+.contact-list .time-txt {
+	font-weight: 400;
+	width: 55%;
+}
+.contact-list {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.contact-content {
+	width: 90%;
+}
+
+/************************ 15.Bottom css ***************************/
+.add-to-contact-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.scan-btn {
+	width: 60px;
+	height: 60px;
+	background: var(--11, #311CB4);
+	filter: drop-shadow(0px 4px 8px rgba(49, 28, 180, 0.32));
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.add-to-btn-sec {
+	display: flex;
+	align-items: center;
+	border-radius: 30px;
+	background: var(--2, #000);
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.32);
+	padding: 6px 6px 6px 30px;
+	justify-content: end;
+	width: fit-content;
+	gap: 8px;
+}
+.add-txt {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+.plus-btn {
+	border-radius: 24px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+.add-to-contact {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	max-width: 425px;
+	left: 0;
+	right: 0;
+	padding-bottom: 20px;
+}
+.footer p {
+	color: var(--2, #000);
+	text-align: center;
+}
+.add-to-btn {
+	margin-left: auto;
+}
+
+/************************ 16.Scanner modal popup css ***************************/
+#product-modal,
+#share-media-modal,
+#portfolio-modal,
+#blog-modal {
+	background: linear-gradient(180deg, rgb(18 21 28 / 66%) 0%, rgb(18 21 28 / 72%) 100%);
+	backdrop-filter: blur(4px);
+}
+#product-modal .modal-content,
+#share-media-modal .modal-content {
+	border-radius: 24px;
+}
+.scan-content {
+	text-align: center;
+	border: 2px solid #311CB4;
+	height: auto;
+	width: 250px;
+	margin: 0 auto;
+	padding: 12px;
+	border-radius: 8px;
+}
+.scanner img {
+	width: 100%;
+    height: auto;
+}
+.scan-txt {
+	padding: 14px;
+	background: #311CB4;
+	border-radius: 8px;
+}
+.scan-txt p {
+	color: var(--2, #fff);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.btn1 a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 8px;
+	background: #000000;
+	padding: 12px 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.qr-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+.btn1 {
+	width: 140px;
+}
+.modal-title{
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
+}
+
+/************************ 17.Share modal popup css ***************************/
+.social-media-content {
+	display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+.social-media-img {
+	width: 60px;
+	height: 60px;
+	background: transparent;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease; 
+}
+.social-media-img:hover {
+	background: #311CB4;
+	transition: all .3s ease;
+}
+.social-media-img img {
+	filter: brightness(0) saturate(100%) invert(0%) sepia(99%) saturate(3%) hue-rotate(13deg) brightness(99%) contrast(100%);
+	width: 30px;
+	height: 30px;
+}
+.social-media-img:hover.social-media-img img{
+	filter: brightness(0) saturate(100%) invert(100%) sepia(2%) saturate(7%) hue-rotate(323deg) brightness(104%) contrast(102%);
+	transition: all .3s ease;
+}
+
+/************************ 18.Single product css ***************************/
+.product-content-main {
+	background: white;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	padding-bottom: 20px;
+	max-width: 425px;
+	left: 0;
+	right: 0;
+	position: relative;
+	margin: 0 auto;
+}
+#product-main .product-sec-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: space-between;
+}
+.product-title {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	text-transform: uppercase;
+}
+.buy-now a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 5px;
+	background: var(--15, #311cb4);
+	padding: 8px 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+}
+.feedback-email input, .custom-textarea-product, .custom-select-subject select {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6) !important;
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 14px;
+	width: 100%;
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	margin-top: 5px;
+}
+.discard-btn a {
+	background: #737373;
+	color: white;
+}
+.product-btn {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: end;
+}
+#product-modal .prodcut-price{
+	position: relative;
+	top: 8px;
+	right: 0;
+}
+#product-main .product-content {
+	width: auto;
+}
+#product-modal .product-txt,
+#product-modal .product-bottom h3{
+	text-align: left;
+}
+.custom-lbl-feedback {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+/************************ 19.Porfolio css ***************************/
+.title {
+	font-family: Poppins;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 40px;
+	color: var(--2, #000);
+}
+.title1 {
+	font-family: Poppins;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px;
+	color: var(--2, #000);
+	text-transform: uppercase;
+}
+.desc p {
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.portfolio_info_items {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
+}
+.key {color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+.value {
+	font-family: Poppins;
+	font-size: 16px;
+	color: var(--14, #737373);
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; 
+}
+
+/************************ 20.Single blog css ***************************/
+.date-onner-coment-main {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.date-onner-coment-sub-text {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+.Icon-Set {
+	margin-right: 5px;
+	filter: brightness(0) saturate(100%)
+}
+.blog-bottom-content h2 {
+	font-family: Poppins;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+	color: var(--2, #000);
+	text-align: center;
+}
+.blog-bottom-content p,
+.blog-content-middle p,
+.avater-content p{
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.blog-content-middle h4{
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+.info-list li {
+	position: relative;
+	padding-left: 40px;
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	display: flex;
+	align-items: center;
+}
+.info-list li:before {
+	content: "";
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	background: #737373;
+	border-radius: 50%;
+	left: 20px;
+}
+.blog-tags-share .blog-tags {
+	display: flex;
+	align-items: center;
+}
+.blog-tags-share .blog-tags h6 {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+.blog-tags-share .blog-tags ul {
+	display: flex;
+}
+.blog-tags-share .blog-tags ul li {
+	margin-left: 12px;
+}
+.blog-tags-share .blog-tags ul li a{
+	color: var(--14, #737373);
+}
+.blog-tags-share .blog-share li a {
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	color: black !important;
+	border: 2px solid black;
+}
+.blog-tags-share {
+	border-top: 1px solid rgba(56, 56, 56, .12);
+	border-bottom: 1px solid rgba(56, 56, 56, .12);
+	padding: 8px 0;
+}
+.profile-content-wrap {
+	padding: 12px;
+	text-align: center;
+	border-radius: 12px;
+	border: 2px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+}
+.avater-content span {
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.blog-popup-img img {
+	border-radius: 24px;
+}
+.background-img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.blog-content:hover img {
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/************************ 21.Preloader css ***************************/
+canvas {
+	position: fixed;
+	top: 0;
+	z-index: -1;
+	height: 100vh;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.preloader {
+	background: radial-gradient(circle, #333, #000) no-repeat;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 999999999999999999;
+	right: 0;
+	bottom: 0;
+	transition-duration: 1s;
+	transition-timing-function: cubic-bezier(0.86, 0, 0.09, 1);
+}
+.loader {
+	display: grid;
+	grid-template: 1fr 1fr/1fr 1fr;
+	gap: 40%;
+	width: 80px;
+	aspect-ratio: 1/1;
+	animation: rotate 2s linear infinite;
+}
+.loader .dot {
+	width: 100%;
+	aspect-ratio: 1/1;
+	background-color: #ffffff;
+	animation: scale 2s infinite alternate;
+}
+.loader .dot:nth-child(3) {
+	order: 1;
+}
+.loader .dot:nth-child(1) {
+	animation-delay: -0.5s;
+}
+.loader .dot:nth-child(2) {
+	animation-delay: -1s;
+}
+.loader .dot:nth-child(3) {
+	animation-delay: -1.5s;
+}
+.loader .dot:nth-child(4) {
+	animation-delay: -2s;
+}
+@keyframes scale {
+	0% {
+		scale: 0.1;
+	}
+	100% {
+		scale: 1;
+	}
+}
+@keyframes rotate {
+	0% {
+		rotate: 0deg;
+	}
+	100% {
+		rotate: 360deg;
+	}
+}

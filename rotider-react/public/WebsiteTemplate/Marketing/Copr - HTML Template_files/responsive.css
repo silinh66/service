@@ -1,0 +1,40 @@
+@media (min-width: 1400px) {
+.container { max-width: 1140px }
+}
+
+@media (max-width: 1024px) {
+.dtr-portfolio-grid-2col .dtr-portfolio-item, .dtr-portfolio-grid-3col .dtr-portfolio-item, .dtr-portfolio-grid-4col .dtr-portfolio-item { width: 50%; }
+}
+
+@media (max-width: 992px) {
+.container { width: 100%; max-width: 100%; }
+.small-device-top-space { margin-top: 30px !important; }
+.dtr-footer-col-shrink, .padding-r-50 { padding-right: 0; }
+.width-50-center-align, .width-50-right-align, .width-50-left-align { width: 100%; margin: 0; }
+.dtr-about__heading { margin: 10px 0 0 35px; }
+.dtr-testimonial__content { padding: 0; }
+.hero-text-shrink { max-width: 100%; }
+.dtr-footer-btn, .dtr-copyright-col-2 { text-align: left; }
+#dtr-topbar, #dtr-header-global, #dtr-header-global.header-fixed, .dtr-navigation-trigger, .dtr-sidemenu-wrapper, .dtr-sidemenu-scroll, .dtr-navigation-close-trigger, .dtr-navigation-close-trigger.is-visible { display: none; }
+#dtr-responsive-header, .slicknav_menu, #dtr-resp-menu-button { display: block; }
+.dtr-hamburger { display: inline-block; }
+.dtr-page-title { padding: 60px 0 !important }
+}
+
+@media (max-width: 782px) {
+.hero-section { padding: 100px 0; }
+.heading-404 { font-size: 7em; }
+.dtr-intro--spaced-col { display: block; text-align: center; }
+.dtr-intro--spaced-col .dtr-intro__heading { margin-bottom: 30px; }
+.dtr-skills { display: block; margin-bottom: 20px; }
+.dtr-skills__heading { display: block; margin: 0 0 5px 0; padding: 0;  }
+.dtr-skills__dots { display: block; margin-left: 0; text-align: left; }
+.hero-wheel, .home-2-star, .resume-star, .contact-star, .dtr-about2__circle-text { display: none; }
+.dtr-about2__sign-wrap { position: relative; bottom: auto; right: auto; margin-top: 20px; }
+.dtr-portfolio-grid-2col, .dtr-portfolio-grid-3col, .dtr-portfolio-grid-4col { margin: 0; }
+.dtr-portfolio-grid-2col .dtr-portfolio-item, .dtr-portfolio-grid-3col .dtr-portfolio-item, .dtr-portfolio-grid-4col .dtr-portfolio-item { width: 100%; padding: 0; }
+.dtr-single-post-nav { display: block; }
+.dtr-single-nav__prev { width: 100%; padding-right: 0; }
+.dtr-single-nav__next { width: 100%; padding-left: 0; margin-top: 30px; text-align: left; }
+#dtr-footer-section .text-right { text-align: left; }
+}

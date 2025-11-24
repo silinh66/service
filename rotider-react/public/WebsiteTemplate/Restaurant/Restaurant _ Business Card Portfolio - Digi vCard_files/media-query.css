@@ -1,0 +1,79 @@
+@media (max-width: 370px) {
+	.scan-btn{
+		width: 50px;
+		height: 50px;
+	}
+	.scan-btn img{
+		width: 30px;
+		height: 30px;
+	}
+}
+@media (max-width: 320px) {
+	.scan-btn img {
+		width: 24px;
+		height: 24px;
+	}
+	.scan-btn{
+		width: 48px;
+		height: 48px;
+	}
+	.plus-btn{
+		padding: 10px;
+	}
+	.singleblog1-content5-sec-full {
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.mt-30{
+		margin-top: 25px;
+	}
+	.scan-content {
+		width: 100%;
+		height: auto;
+	}
+	.scanner img{
+		width: 100%;
+		height: auto;
+	}
+	.top-title h2{
+		font-size: 20px;
+	}
+	.appointment-form{
+		flex-wrap: wrap;
+	}
+	.appointment-date{
+		width: 100%;
+	}
+	.add-to-btn-sec{
+		padding: 6px 6px 6px 18px;
+	}
+}
+@media (max-width: 280px) {
+	.add-to-contact-wrap{
+		flex-wrap: wrap;
+	}
+	.add-to-btn{
+		margin-left: inherit;
+	}
+	.homepage1-menu-content{
+		flex-wrap: wrap;
+		text-align: center;
+		justify-content: center;
+	}
+	.appointment-form{
+		flex-wrap: wrap;
+	}
+	.appointment-date {
+		width: 100%;
+	}
+	.singleblog1-content4-sec-full {
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+	.qr-btn{
+		flex-wrap: wrap;
+	}
+	.btn1 {
+		width: 100%;
+	}
+}

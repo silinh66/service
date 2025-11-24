@@ -1,0 +1,128 @@
+@media (max-width: 400px) {
+	.appointment-bottom .appointment-date{
+		gap: 16px;
+	}
+	.date-list{
+		gap: 12px;
+	}
+	.blog-title p{
+		font-size: 16px;
+		line-height: 24px;
+	}
+	.blog-title{
+		padding: 12px;
+	}
+	#testimonial-slider .carousel-control-prev{
+		left: 70%;
+	}
+}
+@media (max-width: 370px) {
+	.scan-btn{
+		width: 50px;
+		height: 50px;
+	}
+	.scan-btn img{
+		width: 30px;
+		height: 30px;
+	}
+	.bg-img2{
+		display: none;
+	}
+	.view-product a{
+		padding: 12px;
+	}
+}
+@media (max-width: 320px) {
+	.profile-sec{
+		top: -55px;
+	}
+	.mt-30{
+		margin-top: 25px;
+	}
+	.oval-frame{
+		width: 100px;
+	}
+	.appointment-form{
+		flex-wrap: wrap;
+	}
+	.appointment-date{
+		width: 100%;
+	}
+	.appointment-sec .about-title h2:after,
+	.blog-sec .about-title h2:after {
+		margin-right: -85%;
+	}
+	.testimonial-sec .about-title h2:after{
+		margin-right: -60%;
+	}
+	.scan-btn img {
+		width: 24px;
+		height: 24px;
+	}
+	.scan-btn{
+		width: 48px;
+		height: 48px;
+	}
+	.plus-btn{
+		padding: 10px;
+	}
+	.date-list{
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.prodcut-top{
+		width: auto;
+	}
+	.date-onner-coment-main{
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.scan-content {
+		width: 100%;
+		height: auto;
+	}
+	.scanner img{
+		width: 100%;
+		height: auto;
+	}
+	.blog-sec .carousel-control-next,
+	.blog-sec .carousel-control-prev{
+		top: -20px;
+	}
+	.add-to-btn-sec{
+		padding: 6px 6px 6px 18px;
+	}
+}
+@media (max-width: 280px) {
+	.add-to-contact-wrap{
+		flex-wrap: wrap;
+	}
+	.add-to-btn{
+		margin-left: inherit;
+	}
+	.qr-btn{
+		flex-wrap: wrap;
+	}
+	.portfolio-sec, .inquiry-sec{
+		padding: 15px 0px;
+	}
+	.blog-tags-share .blog-tags{
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	.btn1 {
+		width: 100%;
+	}
+	#testimonial-slider .carousel-control-next, #testimonial-slider .carousel-control-prev{
+		display: none;
+	}
+	.title1{
+		font-size: 20px;
+		line-height: 30px;
+	}
+	.testimonial-sec-profile{
+		justify-content: space-around;
+	}
+	.testimonial-content{
+		text-align: center;
+	}
+}

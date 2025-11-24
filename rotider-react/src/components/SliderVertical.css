@@ -1,0 +1,331 @@
+/* SliderVertical CSS adapted from SonySlider.css */
+.hero-vertical,
+.hero-controls-vertical {
+    position: relative;
+    width: 100%;
+}
+
+.hero-controls-vertical {
+    height: 25px;
+    padding-bottom: 18px;
+    padding-top: 15px;
+    z-index: 30;
+}
+
+.hero-controls-vertical>div {
+    height: 25px;
+    justify-content: space-between;
+    width: calc(100% - 50px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-controls-vertical>div>div {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    left: -4vw;
+    padding-right: 70px;
+    position: relative;
+    width: calc(100% - 60px - 9.6vw);
+}
+
+.hero-control-arrows-vertical {
+    display: none;
+}
+
+/* Visually Hidden Utility */
+.vh {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.hero-controls-container-vertical {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+}
+
+.hero-info-vertical {
+    text-align: center;
+    color: #fff;
+    min-width: 700px;
+    max-width: 800px;
+}
+
+.hero-info-category-vertical {
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+.hero-info-title-vertical {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.hero-control-arrow-vertical {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.3s;
+    opacity: 0.7;
+    margin: 0 20px;
+}
+
+.hero-control-arrow-vertical:hover {
+    opacity: 1;
+}
+
+.hero-control-prev-vertical {
+    border-left: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+.hero-control-next-vertical {
+    border-right: 2px solid #fff;
+    transform: rotate(-45deg);
+}
+
+.hero-control-dot-vertical {
+    background: #fff;
+    border-radius: 50%;
+    display: block;
+    height: 1.33333vw;
+    margin-right: 8px;
+    transition: width .1s ease-out, background .1s ease-out;
+    width: 1.33333vw;
+    cursor: pointer;
+}
+
+.hero-control-dot-vertical.is-active {
+    background: hsla(0, 0%, 100%, .25);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: width .38s ease-out, background .38s ease-out;
+    width: 18.66667vw;
+}
+
+.hero-control-dot-vertical.is-active .hero-control-dot-inner-vertical {
+    background: #fff;
+    display: block;
+    height: 100%;
+    width: 0;
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.hero-items-vertical {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: 4vw;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.hero-wrapper-vertical {
+    height: 100%;
+    overflow: visible;
+    width: 100%;
+    display: flex;
+}
+
+.hero-item-vertical {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+    /* Mobile width for vertical video aspect ratio (9:16) */
+    width: 60vw;
+    flex-shrink: 0;
+    margin-right: 17px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.hero-item-vertical.swiper-slide-active {
+    opacity: 1;
+}
+
+.hero-item-image-vertical {
+    border-radius: 4px;
+    /* Mobile height for vertical video aspect ratio (9:16) */
+    height: 106vw;
+    margin-bottom: 3.73333vw;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.hero-item-image-vertical img,
+.hero-item-image-vertical video,
+.hero-item-image-vertical iframe {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+.hero-bg-vertical {
+    background: #262626;
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-bg-cover-vertical {
+    background: rgba(0, 0, 0, .4);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-bg-image-vertical {
+    filter: blur(10px);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-bg-image-vertical img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity .3s ease-out;
+    width: 100%;
+}
+
+.hero-bg-image-vertical img.is-active {
+    opacity: 1;
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 641px) {
+    .hero-vertical {
+        min-height: auto;
+        z-index: 30;
+    }
+
+    .hero-controls-vertical {
+        height: 38px;
+        padding-bottom: 0;
+        padding-top: 0;
+        width: 100%;
+    }
+
+    .hero-controls-vertical>div {
+        display: block;
+        height: 100%;
+        position: relative;
+        width: 830px;
+        margin: 0 auto;
+    }
+
+    .hero-controls-vertical>div>div {
+        padding-right: 48px;
+        width: 315px;
+        justify-content: flex-end;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-control-arrows-vertical {
+        right: 0;
+        top: 0;
+        transform: none;
+        height: 100%;
+        align-items: center;
+    }
+
+    .hero-control-dot-vertical {
+        height: 5px;
+        position: relative;
+        top: -1px;
+        width: 5px;
+    }
+
+    .hero-control-dot-vertical.is-active {
+        width: 70px;
+    }
+
+    .hero-items-vertical {
+        margin-bottom: 0;
+        /* Adjusted min-height for vertical videos */
+        min-height: 560px;
+        padding-top: 10px;
+    }
+
+    .hero-item-vertical {
+        /* Adjusted width for vertical videos (approx 9:16 of 533px height) */
+        width: 300px;
+    }
+
+    .hero-item-image-vertical {
+        /* Adjusted height for vertical videos */
+        height: 533px;
+        margin-bottom: 14px;
+        margin-top: 14px;
+        width: 100%;
+    }
+
+    .hero-info-title-vertical {
+        font-size: 1rem;
+        line-height: 1.25rem;
+        margin-bottom: 4px;
+    }
+
+    .hero-bg-image-vertical {
+        filter: blur(10px);
+    }
+
+    .hero-bg-image-vertical img {
+        transform: scale(1.02);
+    }
+}

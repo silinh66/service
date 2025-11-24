@@ -25,7 +25,7 @@ import {
 } from "@mui/icons-material";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { postService } from "../services/postService";
+import { postService, uploadService } from "../services/postService";
 
 const modules = {
   toolbar: [
@@ -85,6 +85,11 @@ export default function EditPost() {
   const [excerpt, setExcerpt] = useState("");
   const [featuredImage, setFeaturedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
+  const [videos, setVideos] = useState([]);
+  const [videoUrl, setVideoUrl] = useState("");
+  const [uploadingVideo, setUploadingVideo] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [videoFormat, setVideoFormat] = useState("");
   const [status, setStatus] = useState("draft");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -104,6 +109,8 @@ export default function EditPost() {
       setExcerpt(data.excerpt || "");
       setContent(data.content);
       setImagePreview(data.featured_image || "");
+      setVideos(data.videos || []);
+      setVideoFormat(data.video_format || "");
       setStatus(data.status);
       setError("");
     } catch (err) {
@@ -129,6 +136,104 @@ export default function EditPost() {
   const handleRemoveImage = () => {
     setFeaturedImage(null);
     setImagePreview("");
+  };
+
+  const handleAddVideo = () => {
+    if (videoUrl.trim()) {
+      // Xác định loại video (YouTube, Vimeo, hoặc link khác)
+      let videoType = "link";
+      if (videoUrl.includes("youtube.com") || videoUrl.includes("youtu.be")) {
+        videoType = "youtube";
+      } else if (videoUrl.includes("vimeo.com")) {
+        videoType = "vimeo";
+      }
+
+      setVideos([
+        ...videos,
+        { url: videoUrl.trim(), title: "", type: videoType },
+      ]);
+      setVideoUrl("");
+    }
+  };
+
+  const handleVideoFileUpload = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    // Kiểm tra định dạng file
+    const allowedTypes = [
+      "video/mp4",
+      "video/mpeg",
+      "video/quicktime",
+      "video/x-msvideo",
+      "video/x-ms-wmv",
+      "video/webm",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      setError(
+        "Định dạng video không hợp lệ! Chỉ chấp nhận MP4, MPEG, MOV, AVI, WMV, WebM"
+      );
+      return;
+    }
+
+    // Kiểm tra kích thước file (3GB)
+    if (file.size > 3 * 1024 * 1024 * 1024) {
+      setError("Video quá lớn! Kích thước tối đa là 3GB");
+      return;
+    }
+
+    try {
+      console.log("Starting video upload...", file.name, file.size);
+      setUploadingVideo(true);
+      setError("");
+
+      const response = await uploadService.uploadVideo(file, (progress) => {
+        console.log("Upload progress:", progress);
+        setUploadProgress(progress);
+      });
+
+      console.log("Video upload successful:", response);
+
+      // Thêm video đã upload vào danh sách
+      setVideos([
+        ...videos,
+        {
+          url: `http://localhost:5001${response.url}`,
+          title: file.name,
+          type: "upload",
+          filename: response.filename,
+        },
+      ]);
+
+      setUploadProgress(0);
+    } catch (err) {
+      console.error("Video upload error:", err);
+      setError(err.response?.data?.message || "Lỗi khi upload video");
+    } finally {
+      setUploadingVideo(false);
+    }
+  };
+
+  const handleRemoveVideo = async (index) => {
+    const video = videos[index];
+
+    // Nếu là video đã upload, xóa file trên server
+    if (video.type === "upload" && video.filename) {
+      try {
+        await uploadService.deleteVideo(video.filename);
+      } catch (err) {
+        console.error("Error deleting video:", err);
+      }
+    }
+
+    setVideos(videos.filter((_, i) => i !== index));
+  };
+
+  const handleVideoTitleChange = (index, title) => {
+    const updatedVideos = [...videos];
+    updatedVideos[index].title = title;
+    setVideos(updatedVideos);
   };
 
   const handleSubmit = async (publishStatus) => {
@@ -170,6 +275,8 @@ export default function EditPost() {
         content,
         excerpt,
         featured_image: imagePreview,
+        videos: videos.length > 0 ? videos : null,
+        video_format: videoFormat || null,
         status: publishStatus,
       };
 
@@ -342,6 +449,21 @@ export default function EditPost() {
               </Select>
             </FormControl>
 
+            {category === "Video Editing" && (
+              <FormControl fullWidth sx={{ mb: 3 }}>
+                <InputLabel>Định dạng video</InputLabel>
+                <Select
+                  value={videoFormat}
+                  label="Định dạng video"
+                  onChange={(e) => setVideoFormat(e.target.value)}
+                >
+                  <MenuItem value="">-- Chọn định dạng --</MenuItem>
+                  <MenuItem value="horizontal">📺 Ngang (Horizontal)</MenuItem>
+                  <MenuItem value="vertical">📱 Dọc (Vertical)</MenuItem>
+                </Select>
+              </FormControl>
+            )}
+
             <FormControl fullWidth>
               <InputLabel>Trạng thái</InputLabel>
               <Select
@@ -456,6 +578,219 @@ export default function EditPost() {
             >
               Chọn ảnh
             </Button>
+          </Paper>
+
+          <Paper sx={{ p: 3, mt: 3, boxShadow: 3 }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{ fontWeight: 600, mb: 2, color: "primary.main" }}
+            >
+              🎥 Video
+            </Typography>
+
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              Thêm video từ YouTube/Vimeo hoặc upload từ máy tính
+            </Typography>
+
+            <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
+              <TextField
+                fullWidth
+                size="small"
+                placeholder="Nhập URL video (YouTube, Vimeo...)"
+                value={videoUrl}
+                onChange={(e) => setVideoUrl(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleAddVideo();
+                  }
+                }}
+              />
+              <Button
+                variant="contained"
+                onClick={handleAddVideo}
+                disabled={!videoUrl.trim()}
+              >
+                Thêm
+              </Button>
+            </Box>
+
+            <Box sx={{ mb: 2 }}>
+              <input
+                id="video-upload"
+                type="file"
+                accept="video/*"
+                style={{ display: "none" }}
+                onChange={handleVideoFileUpload}
+                disabled={uploadingVideo}
+              />
+              <Button
+                fullWidth
+                variant="outlined"
+                startIcon={<UploadIcon />}
+                onClick={() => document.getElementById("video-upload").click()}
+                disabled={uploadingVideo}
+              >
+                {uploadingVideo
+                  ? `Đang upload... ${uploadProgress}%`
+                  : "Upload video từ máy tính"}
+              </Button>
+              {uploadingVideo && (
+                <Box sx={{ mt: 1 }}>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      height: 4,
+                      bgcolor: "grey.200",
+                      borderRadius: 2,
+                      overflow: "hidden",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: `${uploadProgress}%`,
+                        height: "100%",
+                        bgcolor: "primary.main",
+                        transition: "width 0.3s",
+                      }}
+                    />
+                  </Box>
+                </Box>
+              )}
+            </Box>
+
+            {videos.length > 0 && (
+              <Box sx={{ mt: 2 }}>
+                {videos.map((video, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      p: 2,
+                      mb: 2,
+                      border: "1px solid",
+                      borderColor: "divider",
+                      borderRadius: 1,
+                      bgcolor: "grey.50",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        mb: 1,
+                      }}
+                    >
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                      >
+                        <Typography variant="caption" color="primary">
+                          Video {index + 1}
+                        </Typography>
+                        {video.type === "youtube" && (
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              bgcolor: "error.main",
+                              color: "white",
+                              px: 1,
+                              py: 0.25,
+                              borderRadius: 1,
+                            }}
+                          >
+                            YouTube
+                          </Typography>
+                        )}
+                        {video.type === "vimeo" && (
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              bgcolor: "info.main",
+                              color: "white",
+                              px: 1,
+                              py: 0.25,
+                              borderRadius: 1,
+                            }}
+                          >
+                            Vimeo
+                          </Typography>
+                        )}
+                        {video.type === "upload" && (
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              bgcolor: "success.main",
+                              color: "white",
+                              px: 1,
+                              py: 0.25,
+                              borderRadius: 1,
+                            }}
+                          >
+                            Uploaded
+                          </Typography>
+                        )}
+                      </Box>
+                      <IconButton
+                        size="small"
+                        onClick={() => handleRemoveVideo(index)}
+                        color="error"
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </Box>
+                    <TextField
+                      fullWidth
+                      size="small"
+                      placeholder="Tiêu đề video (tùy chọn)"
+                      value={video.title}
+                      onChange={(e) =>
+                        handleVideoTitleChange(index, e.target.value)
+                      }
+                      sx={{ mb: 1 }}
+                    />
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        display: "block",
+                        color: "text.secondary",
+                        wordBreak: "break-all",
+                      }}
+                    >
+                      {video.url}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            )}
+
+            <Box
+              sx={{
+                mt: 2,
+                p: 1.5,
+                bgcolor: "info.lighter",
+                borderRadius: 1,
+                border: "1px solid",
+                borderColor: "info.light",
+              }}
+            >
+              <Typography
+                variant="caption"
+                display="block"
+                sx={{ fontWeight: 600, mb: 0.5 }}
+              >
+                💡 Hỗ trợ:
+              </Typography>
+              <Typography variant="caption" display="block">
+                • YouTube: https://www.youtube.com/watch?v=...
+              </Typography>
+              <Typography variant="caption" display="block">
+                • Vimeo: https://vimeo.com/...
+              </Typography>
+              <Typography variant="caption" display="block">
+                • Upload: MP4, MOV, AVI, WMV, WebM (max 3GB)
+              </Typography>
+            </Box>
           </Paper>
         </Grid>
       </Grid>

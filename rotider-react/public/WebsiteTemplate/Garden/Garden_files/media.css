@@ -1,0 +1,70 @@
+@media (max-width:425px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    video {
+        width: 100%;
+    }
+}
+@media (min-width:380px) and (max-width:425px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (max-width:380px) {
+    .container {
+        width: 100%;
+    }
+    .video-bg img {
+        left: 0px;
+        bottom: 3%;
+    }
+    .contact-time-list {
+        width: 100%;
+    }
+    iframe {
+        width: 100%;
+        height: 180px;
+        max-height: 100%;
+    }
+    .image-agery {
+        display: none;
+    }
+    .ander-about {
+        display: none;
+    }
+    .image-data-class {
+        margin: auto;
+    }
+    .counters {
+        justify-content: space-between;
+    }
+    .why-title {
+        font-size: 19px;
+        line-height: 28px;
+    }
+    .deta-meaning {
+        padding: 20px 10px;
+    }
+    .date-admin {
+        padding: 10px 10px;
+    }
+    .blog-title {
+        font-size: 19px;
+        line-height: 26px;
+    }
+    .prosses-title-meg {
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 15px;
+    }
+    .service-detail {
+        padding: 8px;
+    }
+}
+@media (min-width:280px) and (max-width:320px) {
+    .container {
+        width: 100%;
+    }
+}

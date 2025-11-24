@@ -1,0 +1,108 @@
+@media (max-width:425px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    video {
+        width: 100%;
+    }
+}
+@media (min-width:380px) and (max-width:425px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (max-width:380px) {
+    .container {
+        width: 100%;
+    }
+    .video-bg img {
+        left: 0px;
+        bottom: 3%;
+    }
+    .contact-time-list {
+        width: 100%;
+    }
+    iframe {
+        width: 100%;
+        height: 180px;
+        max-height: 100%;
+    }
+    .icon-two {
+        width: 50px;
+        height: 50px;
+        right: -2%;
+        top: 20%;
+    }
+    .icon-one {
+        width: 50px;
+        height: 50px;
+    }
+    .icon-tree {
+        width: 50px;
+        height: 50px;
+    }
+    .title-about {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        color: #040404;
+        margin-top: 10px;
+    }
+    .exper-about {
+        gap: 50px;
+    }
+    .title-menu {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        color: #003098;
+    }
+    .detail-design {
+        bottom: 5px;
+        padding: 8px;
+    }
+    .team-detail {
+        max-width: 130px;
+    }
+    .main-blog-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .design-test {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .design-test-name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .test-detail-name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .test-desc {
+        margin-top: 0px;
+    }
+    .title-data-services {
+        font-size: 17px;
+        line-height: 28px;
+    }
+    .faq-question p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@media (min-width:280px) and (max-width:320px) {
+    .container {
+        width: 100%;
+    }
+}

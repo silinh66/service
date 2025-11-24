@@ -1,46 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import HowItWorks from "../components/HowItWorks";
+import React, { Suspense } from 'react';
+import '../modern-home.css';
+
+// Lazy load components
+const SonySlider = React.lazy(() => import('../components/SonySlider'));
+const SliderVertical = React.lazy(() => import('../components/SliderVertical'));
+const WebsiteDesign = React.lazy(() => import('../components/WebsiteDesign'));
+const ContactSection = React.lazy(() => import('../components/ContactSection'));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div style={{
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000',
+    color: '#fff'
+  }}>
+    Loading...
+  </div>
+);
 
 const Home = () => {
   return (
-    <>
-      <Hero />
-      <Services />
-      <HowItWorks />
+    <div className="modern-home">
+      <Suspense fallback={<LoadingFallback />}>
+        <SonySlider />
+        <ContactSection />
+        <SliderVertical />
+        <WebsiteDesign />
+      </Suspense>
 
-      {/* Start An Order Section (Before Footer) */}
-      <section className="section" id="section_1715829444">
-        <div className="section-bg fill"></div>
-        <div className="section-content relative">
-          <div className="row" id="row-1880441741">
-            <div id="col-1839458169" className="col small-12 large-12">
-              <div className="col-inner text-center">
-                <p>
-                  <span style={{ fontSize: "120%", color: "#000000" }}>
-                    <strong>Start An Order</strong>
-                  </span>
-                </p>
-                <p>
-                  Join over 100+ agencies and companies already growing with
-                  ZOOZOO Media.
-                </p>
-                <Link
-                  to="/login"
-                  className="button primary lowercase color2"
-                  style={{ borderRadius: "99px" }}
-                >
-                  <span>Order Now</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <style>{` #section_1715829444 { padding-top: 30px; padding-bottom: 30px; } `}</style>
-      </section>
-    </>
+      {/* Start An Order Section - Commented out as per original file */}
+      {/* <div className="start-order-section">
+                 <div className="start-order-content">
+                     <h2>Ready to start your project?</h2>
+                     <p>Get professional video editing services today</p>
+                     <a href="/start-order" className="btn-start-order">Start an order</a>
+                 </div>
+             </div> */}
+    </div>
   );
 };
 

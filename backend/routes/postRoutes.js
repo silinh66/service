@@ -7,6 +7,7 @@ import {
   updatePost,
   deletePost,
   incrementViews,
+  updatePostOrder,
 } from "../controllers/postController.js";
 import { authenticate } from "../middleware/auth.js";
 
@@ -19,6 +20,7 @@ router.get("/:id", getPostById);
 router.post("/:id/views", incrementViews);
 
 // Protected routes
+router.put("/reorder", authenticate, updatePostOrder);
 router.post("/", authenticate, createPost);
 router.put("/:id", authenticate, updatePost);
 router.delete("/:id", authenticate, deletePost);

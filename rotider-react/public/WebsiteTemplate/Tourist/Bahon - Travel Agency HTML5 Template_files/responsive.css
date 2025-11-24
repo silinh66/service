@@ -1,0 +1,260 @@
+
+/*----------------------------------------*/
+/*  RESPONSIVE CSS START 
+/*----------------------------------------*/
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* header area start */
+    .main-menu ul li {
+      margin-right: 25px; }
+  
+    /* slider area start */
+    .slider-content h1 {
+      font-size: 49px; }
+  
+    .slider-content p {
+      padding-right: 30px; }
+  
+    /* about us area start */
+    .about-us {
+      margin-top: -130px; }
+  
+    .about-us-inner::after {
+      left: -20px;
+      width: 104%; }
+  
+    /* best money area start */
+    .best-money-content p {
+      padding-right: 0px; }
+  
+    .best-money-countdown {
+      left: 30px;
+      right: 30px; }
+  
+    .best-money-countdown ul li {
+      margin: 0 20px; }
+  
+    /* blog area start */
+    .aveter-info a {
+      margin-right: 20px; }
+  
+    .blog-content {
+      bottom: 16px;
+      right: 25px; }
+  
+    .comment-text {
+      margin-top: 40px; } }
+  /* medium device area */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* header area start */
+    .header-bottom {
+      padding-top: 15px; }
+  
+    .header-bottom-right {
+      margin-right: 70px; }
+  
+    .search-inner {
+      width: 80%; }
+  
+    /* slider area start */
+    .slider-content {
+      margin-top: 0; }
+  
+    .slider-content h1 {
+      font-size: 50px; }
+  
+    .slider-content p {
+      padding-right: 30px; }
+  
+    /* about us area start */
+    .about-us {
+      margin-top: -100px; }
+  
+    .about-us-inner::after {
+      left: -18px;
+      width: 105%; }
+  
+    /* best money area start */
+    .best-money-content p {
+      padding-right: 0px; }
+  
+    .best-money-img {
+      margin-top: 50px; }
+  
+    /* blog area start */
+    .aveter-info a {
+      margin-right: 20px; }
+  
+    .blog-inner .blog-text .blog-social ul::after, .blog-inner .blog-text .blog-social ul::before {
+      width: 32%; }
+  
+    .comment-text {
+      margin-top: 40px; }
+  
+    /* footer area start */
+    .footer-contact p {
+      padding-right: 30px; }
+  
+    .footer-policy {
+      text-align: left; } }
+  /* small device area */
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* common css start */
+    .sec-title h1 {
+      font-size: 34px;
+      line-height: 44px; }
+  
+    .sec-title p {
+      padding: 0; }
+  
+    /* header area start */
+    .header-bottom {
+      padding-top: 15px; }
+  
+    .header-bottom-right {
+      margin-right: 70px; }
+  
+    .search-inner {
+      width: 90%; }
+  
+    /* slider area start */
+    .slider-content {
+      margin-top: 0; }
+  
+    .slider-content h1 {
+      font-size: 40px;
+      line-height: 50px; }
+  
+    .slider-content p {
+      padding-right: 30px; }
+  
+    /* about us area start */
+    .about-us {
+      margin-top: -100px; }
+  
+    .about-us-inner::after {
+      left: -14px;
+      width: 104%; }
+  
+    /* best money area start */
+    .best-money-content p {
+      padding-right: 0px; }
+  
+    .best-money-img {
+      margin-top: 50px; }
+  
+    .best-money-countdown {
+      left: 30px;
+      right: 30px; }
+  
+    /* blog area start */
+    .aveter-info a {
+      margin-right: 20px; }
+  
+    .comment-text {
+      margin-top: 40px; }
+  
+    .blog-inner .blog-text .blog-social ul::after, .blog-inner .blog-text .blog-social ul::before {
+      width: 26%; }
+  
+    /* footer area start */
+    .footer-contact p {
+      padding-right: 30px; }
+  
+    .footer-policy {
+      text-align: left; } }
+  /* extra small device area */
+  @media (max-width: 575px) {
+    /* common css start */
+    .sec-title h1 {
+      font-size: 34px;
+      line-height: 44px;
+      margin-bottom: 12px; }
+  
+    .sec-title p {
+      padding: 0; }
+  
+    /* header area start */
+    .header-bottom {
+      padding-top: 15px; }
+  
+    .header-bottom-right {
+      margin-right: 70px; }
+  
+    .mean-container a.meanmenu-reveal {
+      top: -10px; }
+  
+    .search-inner {
+      width: 90%; }
+  
+    /* slider area start */
+    .slider-height {
+      min-height: 800px; }
+  
+    .slider-content {
+      margin-top: 0; }
+  
+    .slider-content h1 {
+      font-size: 30px;
+      line-height: 40px; }
+  
+    .slider-content p {
+      font-size: 14px;
+      padding-right: 30px; }
+  
+    /* about us area start */
+    .about-us {
+      margin-top: -100px; }
+  
+    .about-text {
+      margin-left: 0; }
+  
+    .about-us-inner::after {
+      left: -7px;
+      width: 103%; }
+  
+    /* best money area start */
+    .best-money-content p {
+      padding-right: 0px; }
+  
+    .best-money-img {
+      margin-top: 50px; }
+  
+    .best-money-countdown {
+      left: 30px;
+      right: 30px;
+      bottom: -100px; }
+  
+    /* blog area start */
+    .blog-content {
+      bottom: 0px; }
+  
+    .blog-content h1 {
+      font-size: 18px;
+      line-height: 22px; }
+  
+    .blog-content p {
+      display: none; }
+  
+    .aveter-info a {
+      margin-right: 20px; }
+  
+    .blog-inner .blog-text .user-quote {
+      margin: 35px 0px; }
+  
+    .comment-text {
+      margin-top: 40px; }
+  
+    .blog-inner .blog-text .blog-social ul {
+      margin: 0px; }
+  
+    .blog-inner .blog-text .blog-social ul::after, .blog-inner .blog-text .blog-social ul::before {
+      width: 15%; }
+  
+    /* footer area start */
+    .footer-contact p {
+      padding-right: 30px; }
+  
+    .footer-policy {
+      text-align: left; } }
+  
+  

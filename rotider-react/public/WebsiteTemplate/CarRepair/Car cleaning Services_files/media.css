@@ -1,0 +1,76 @@
+@media (max-width:425px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    video {
+        width: 100%;
+    }
+}
+@media (min-width:380px) and (max-width:425px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (max-width:380px) {
+    .container {
+        width: 100%;
+    }
+    .video-bg img {
+        left: 0px;
+        bottom: 3%;
+    }
+    .contact-time-list {
+        width: 100%;
+    }
+    iframe {
+        width: 100%;
+        height: 180px;
+        max-height: 100%;
+    }
+    .team-detail {
+        max-width: 140px;
+    }
+    .team-title {
+        font-size: 16px;
+    }
+    .main-title {
+        font-size: 17px;
+        line-height: 26px;
+    }
+    .main-desc {
+        margin-top: 5px;
+    }
+    .social-data {
+        width: 30px;
+        height: 30px;
+    }
+    .blog-title {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .service-title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .main-ander-service {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 10px;
+    }
+    .title-data-services {
+        font-size: 17px;
+        line-height: 28px;
+    }
+    .faq-question p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@media (min-width:280px) and (max-width:320px) {
+    .container {
+        width: 100%;
+    }
+}

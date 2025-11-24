@@ -1,0 +1,79 @@
+/* ContactSection.css */
+.contact-section-container {
+    width: 100%;
+    background-color: #fff;
+    font-family: "SST W55 Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000;
+    padding-bottom: 20px;
+}
+
+.cs-lang-toggle {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    font-size: 0.75rem;
+    color: #555;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cs-lang-active {
+    font-weight: bold;
+    color: #000;
+}
+
+.cs-content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    padding: 10px;
+    min-height: 80px;
+}
+
+.cs-label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 40px;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+    min-width: 120px;
+}
+
+.cs-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #555;
+    /* margin-bottom: 5px; */
+}
+
+.cs-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.cs-headline {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #1f1f1f;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .cs-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cs-label-container {
+        border-right: none;
+        margin-right: 0;
+        margin-bottom: 10px;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+}

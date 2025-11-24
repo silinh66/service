@@ -1,0 +1,407 @@
+[
+    {
+        "id": 101,
+        "title": "Why Everyone Needs a Personal Website",
+        "category": "Web Design & Digital Identity",
+        "date": "25 Nov 2025",
+        "excerpt": "In the digital age, social media is not enough. Discover why owning your own platform is crucial for long-term success and professional credibility.",
+        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 102,
+        "title": "Essential Components of a Personal Website",
+        "category": "Web Design & Digital Identity",
+        "date": "25 Nov 2025",
+        "excerpt": "From a killer 'About Me' page to a clear portfolio and contact form. Here is the checklist of must-have elements for your personal site.",
+        "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2064&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 2,
+        "title": "Guide to Cinematic Mobile Videography",
+        "category": "Video & Visuals",
+        "date": "23 Nov 2025",
+        "excerpt": "How to adjust camera settings, lighting, and angles on your smartphone to capture professional-quality footage.",
+        "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 3,
+        "title": "The Art of Storytelling in Video Editing: Retaining Viewers",
+        "category": "Video & Visuals",
+        "date": "22 Nov 2025",
+        "excerpt": "Story structure and pacing techniques to keep your videos engaging and hold the audience's attention until the very last second.",
+        "image": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 4,
+        "title": "Secrets to the 3-Second Hook: Going Viral",
+        "category": "Video & Visuals",
+        "date": "21 Nov 2025",
+        "excerpt": "How to create a compelling opening that grabs attention and keeps viewers watching your TikToks and Reels.",
+        "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 6,
+        "title": "How to Use Transitions Correctly: Don't Overdo It!",
+        "category": "Video & Visuals",
+        "date": "19 Nov 2025",
+        "excerpt": "Basic transitions (Cut, Fade, Dissolve) and when to use them for smooth, professional-looking videos.",
+        "image": "https://images.unsplash.com/photo-1574717432722-a033063a05ab?q=80&w=2070&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 7,
+        "title": "What are J-Cuts and L-Cuts? Techniques for Pro Video",
+        "category": "Video & Visuals",
+        "date": "18 Nov 2025",
+        "excerpt": "Audio editing techniques where audio overlaps with video to create natural and seamless dialogue scenes.",
+        "image": "https://images.unsplash.com/photo-1590845947698-8924d7409b56?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 8,
+        "title": "How Color Grading Affects Viewer Emotion",
+        "category": "Video & Visuals",
+        "date": "17 Nov 2025",
+        "excerpt": "Basic color theory for video. How to use color to guide the audience's emotions and set the mood.",
+        "image": "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 9,
+        "title": "Why Audio is More Important Than Visuals in Video",
+        "category": "Video & Visuals",
+        "date": "16 Nov 2025",
+        "excerpt": "Tips for handling noise and choosing background music. Why audiences forgive bad video but not bad audio.",
+        "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 10,
+        "title": "How to Choose Copyright-Free Background Music",
+        "category": "Video & Visuals",
+        "date": "15 Nov 2025",
+        "excerpt": "Sources for music and how to match it with your video to avoid copyright strikes or muted audio.",
+        "image": "https://images.unsplash.com/photo-1507838153414-b4b713384ebd?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 11,
+        "title": "What is B-roll? Why Your Video Needs It",
+        "category": "Video & Visuals",
+        "date": "14 Nov 2025",
+        "excerpt": "Explaining supplemental footage and how to shoot beautiful B-roll to make your videos more dynamic.",
+        "image": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 12,
+        "title": "Short-form Video Trends in 2025: What You Need to Know",
+        "category": "Video & Visuals",
+        "date": "13 Nov 2025",
+        "excerpt": "Update on the latest trends for TikTok, Reels, and Shorts so you don't get left behind.",
+        "image": "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 13,
+        "title": "How to Create Engaging Captions for Talking Videos",
+        "category": "Video & Visuals",
+        "date": "12 Nov 2025",
+        "excerpt": "The importance of captions and beautiful fonts to keep viewers engaged even when watching without sound.",
+        "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 14,
+        "title": "A-Z Video Editing Workflow to Save Time",
+        "category": "Video & Visuals",
+        "date": "11 Nov 2025",
+        "excerpt": "How to organize files, use proxies, and render efficiently to work faster and more effectively.",
+        "image": "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 15,
+        "title": "Basic Home Lighting Setup for Vloggers/KOLs",
+        "category": "Video & Visuals",
+        "date": "10 Nov 2025",
+        "excerpt": "Understanding Key light, Fill light, and Back light. How to set up beautiful lighting on a budget.",
+        "image": "https://images.unsplash.com/photo-1527011046414-4781f1f94f8c?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 16,
+        "title": "Why TikTok Isn't Enough: You Need a Personal Website",
+        "category": "Web Design & Digital Identity",
+        "date": "24 Nov 2025",
+        "excerpt": "The difference between owning your 'home' (web) and renting (social media). Don't let your hard work depend on algorithms.",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 17,
+        "title": "7 Benefits of a Portfolio Website for Freelancers",
+        "category": "Web Design & Digital Identity",
+        "date": "23 Nov 2025",
+        "excerpt": "Increase credibility, professionalism, find work easily, and negotiate higher rates with clients.",
+        "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 18,
+        "title": "How to Write a Killer 'About Me' Page",
+        "category": "Web Design & Digital Identity",
+        "date": "22 Nov 2025",
+        "excerpt": "A formula for writing an attractive, non-boring personal biography that connects with clients.",
+        "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 19,
+        "title": "13 Web Design Mistakes That Drive Customers Away",
+        "category": "Web Design & Digital Identity",
+        "date": "21 Nov 2025",
+        "excerpt": "Slow loading, font errors, non-responsive mobile design... Basic mistakes you need to avoid.",
+        "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 20,
+        "title": "Web Builder (Wix/Squarespace) vs Hand Coding: Which is Better?",
+        "category": "Web Design & Digital Identity",
+        "date": "20 Nov 2025",
+        "excerpt": "Comparing pros and cons. When to DIY and when to hire professional services.",
+        "image": "https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 21,
+        "title": "SEO for Beginners: How to Be Found on Google",
+        "category": "Web Design & Digital Identity",
+        "date": "19 Nov 2025",
+        "excerpt": "Optimizing keywords for your name and portfolio so clients can easily find you.",
+        "image": "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 22,
+        "title": "Personal Website Design Trends 2025: Minimalism Reigns",
+        "category": "Web Design & Digital Identity",
+        "date": "18 Nov 2025",
+        "excerpt": "Beautiful, modern, and sophisticated web templates to inspire your digital home.",
+        "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 23,
+        "title": "How to Choose a Professional Domain Name for Personal Branding",
+        "category": "Web Design & Digital Identity",
+        "date": "17 Nov 2025",
+        "excerpt": "Should you use yourname.com or a company name? .vn or .com? Advice on choosing the right domain.",
+        "image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 24,
+        "title": "Call to Action (CTA): The 'Contact' Button That Closes Deals",
+        "category": "Web Design & Digital Identity",
+        "date": "16 Nov 2025",
+        "excerpt": "How to place effective call-to-action buttons to increase conversion rates.",
+        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 25,
+        "title": "Why Your Website Needs to be Mobile Responsive",
+        "category": "Web Design & Digital Identity",
+        "date": "15 Nov 2025",
+        "excerpt": "The importance of mobile interfaces when the majority of users access via smartphones.",
+        "image": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 26,
+        "title": "Optimizing Website Images: Beautiful Without Slowing Down",
+        "category": "Web Design & Digital Identity",
+        "date": "14 Nov 2025",
+        "excerpt": "How to compress images and choose JPG/PNG/WebP formats for fast loading without sacrificing quality.",
+        "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 27,
+        "title": "Website Security: Basics to Avoid Being Hacked",
+        "category": "Web Design & Digital Identity",
+        "date": "13 Nov 2025",
+        "excerpt": "What is SSL and why do you need the green padlock to protect client information.",
+        "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 28,
+        "title": "The Power of Testimonials on Your Website",
+        "category": "Web Design & Digital Identity",
+        "date": "12 Nov 2025",
+        "excerpt": "How to display client feedback cleverly to increase trust and credibility.",
+        "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 29,
+        "title": "Color and Font Psychology in Personal Web Design",
+        "category": "Web Design & Digital Identity",
+        "date": "11 Nov 2025",
+        "excerpt": "Choosing colors that match your destiny or brand personality to create a strong impression.",
+        "image": "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 30,
+        "title": "Case Study: Analyzing 5 World-Class Personal Websites",
+        "category": "Web Design & Digital Identity",
+        "date": "10 Nov 2025",
+        "excerpt": "Learning from the websites of top experts to apply to your own.",
+        "image": "https://images.unsplash.com/photo-1481487484168-9b930d5b7d89?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 31,
+        "title": "Personal Branding Guide 2025: Where to Start?",
+        "category": "Personal Branding Strategy",
+        "date": "24 Nov 2025",
+        "excerpt": "A comprehensive roadmap for building a brand from zero to hero.",
+        "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 32,
+        "title": "How to Find Your Own Niche",
+        "category": "Personal Branding Strategy",
+        "date": "23 Nov 2025",
+        "excerpt": "How to stand out without serving everyone. Finding your unique selling point.",
+        "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 33,
+        "title": "5 Fatal Mistakes When Building a Personal Brand",
+        "category": "Personal Branding Strategy",
+        "date": "22 Nov 2025",
+        "excerpt": "Inconsistency, copying others, poor imagery... Mistakes that cost you points.",
+        "image": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 34,
+        "title": "What are Content Pillars? Never Run Out of Ideas",
+        "category": "Personal Branding Strategy",
+        "date": "21 Nov 2025",
+        "excerpt": "A method to build sustainable content pillars to maintain your social media presence.",
+        "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 35,
+        "title": "Self-Positioning: What Do You Want to Be Remembered For?",
+        "category": "Personal Branding Strategy",
+        "date": "20 Nov 2025",
+        "excerpt": "How to write a concise and impactful Brand Statement.",
+        "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 36,
+        "title": "Consistency: The Golden Key to Branding",
+        "category": "Personal Branding Strategy",
+        "date": "19 Nov 2025",
+        "excerpt": "Why your avatar, colors, and tone of voice need to be consistent everywhere to create a lasting impression.",
+        "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 37,
+        "title": "Imposter Syndrome and How to Overcome It",
+        "category": "Personal Branding Strategy",
+        "date": "18 Nov 2025",
+        "excerpt": "The fear of not being good enough when building a brand. How to confidently share value.",
+        "image": "https://images.unsplash.com/photo-1493836512294-502baa1986e2?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 38,
+        "title": "How to Monetize Your Personal Brand",
+        "category": "Personal Branding Strategy",
+        "date": "17 Nov 2025",
+        "excerpt": "Monetization models: Services, courses, affiliate marketing... from your personal brand.",
+        "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 39,
+        "title": "Building a Visual Identity for Non-Designers",
+        "category": "Personal Branding Strategy",
+        "date": "16 Nov 2025",
+        "excerpt": "Logo, color palette, fonts that represent your personality. Simple DIY design tips.",
+        "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 40,
+        "title": "Networking: How to Connect with Industry Influencers",
+        "category": "Personal Branding Strategy",
+        "date": "15 Nov 2025",
+        "excerpt": "Branding is not just online, it's about relationships. How to network effectively.",
+        "image": "https://images.unsplash.com/photo-1515169067750-d51a743808dd?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 41,
+        "title": "Why Personal Stories Sell Best",
+        "category": "Personal Branding Strategy",
+        "date": "14 Nov 2025",
+        "excerpt": "The power of vulnerability and authenticity in building trust.",
+        "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 42,
+        "title": "Distinguishing Personal Brand and Reputation",
+        "category": "Personal Branding Strategy",
+        "date": "13 Nov 2025",
+        "excerpt": "You can control your brand, but not necessarily your reputation. Understand the difference to manage better.",
+        "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 43,
+        "title": "Building Community Instead of Just Increasing Followers",
+        "category": "Personal Branding Strategy",
+        "date": "12 Nov 2025",
+        "excerpt": "The value of loyal fans vs. virtual follower counts. How to nurture your community.",
+        "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 44,
+        "title": "How to Take Professional Profile Photos (Headshots)",
+        "category": "Personal Branding Strategy",
+        "date": "11 Nov 2025",
+        "excerpt": "Posing and outfit guides for business photos to get an impressive profile picture.",
+        "image": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    },
+    {
+        "id": 45,
+        "title": "30-Day Plan to Build Your Brand on Social Media",
+        "category": "Personal Branding Strategy",
+        "date": "10 Nov 2025",
+        "excerpt": "A concrete action plan for beginners. One small task for each day.",
+        "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000&auto=format&fit=crop",
+        "link": "#"
+    }
+]

@@ -1,0 +1,309 @@
+.mf_finder_container_inner {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: calc(100% - 40px)
+}
+
+.mf_finder_searchBox_query_wrap .mf_finder_searchBox_suggest_items {
+  background-color: rgba(0,0,0,.8);
+}
+.mf_finder_searchBox_query_wrap .mf_finder_searchBox_suggest_item_cur {
+  background-color: rgba(80,80,80,.8);
+}
+
+.mf_finder_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.my_resp_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.my_resp_side {
+  width: 250px;
+}
+
+.my_resp_main {
+  width: calc(100% - 250px);
+  margin-left: 2.5rem;
+}
+
+.my_pageTitle {
+  margin-top: 0rem;
+}
+
+.my_toggle_area {
+  margin: 0rem;
+}
+
+.mf_finder_searchBox {
+  margin: 0rem;
+}
+
+.mf_finder_searchBox_links {
+  display:  flex;
+  flex-direction: row;
+  margin: 0rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.mf_finder_searchBox_sort, .mf_finder_searchBox_pagemax, .mf_finder_searchBox_imgsize {
+  border-bottom-style: none !important;
+} 
+
+.mf_finder_searchBox_category {
+  width: 100%;
+}
+
+.mf_finder_searchBox_links .mf_finder_searchBox_category_links,
+.mf_finder_searchBox_links .mf_finder_searchBox_imgsize_links {
+  /*padding-left: 7rem;*/
+  padding-right: 3rem;
+}
+.mf_finder_searchBox_links .mf_finder_searchBox_pagemax_links {
+  /*padding-left: 6rem;*/
+  padding-right: 3rem;
+}
+.mf_finder_searchBox_links .mf_finder_searchBox_sort_links {
+  /*padding-left: 5rem;*/
+  padding-right: 3rem;
+}
+
+.mf_finder_zubaken_wrapper {
+  width: 100%;
+  margin-top: 1rem;
+  border: #333 1px solid;
+  border-radius: 4px;
+}
+
+.mf_finder_zubaken {
+  background-color: transparent;
+}
+
+.mf_finder_zubaken:before {
+  content: "Recommendations";
+  margin-left: 1rem;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.mf_finder_zubaken_items {
+  margin: 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mf_finder_zubaken_item {
+  margin: 0.3em;
+}
+
+.mf_finder_zubaken_item .mf_finder_link {
+  display: flex;
+  flex-direction: column;
+}
+
+.mf_finder_zubaken_title_wrapper {
+  order: 1;
+}
+
+.mf_finder_zubaken_image img {
+  border-radius: 3px;
+  box-shadow: 0 0 8px #dddddd;
+}
+
+.mf_finder_drilldown,
+.mf_finder_keywordranking {
+  border: #333 1px solid;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.mf_finder_drilldown_head,
+.mf_finder_keywordranking_head {
+  width: 100%;
+  height: auto;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  color: #ffffff;
+  font-size: 11px;
+  text-align: center;
+  background-color: #333;
+}
+
+.mf_finder_drilldown_item_count:before {
+  content: "(";
+}
+
+.mf_finder_drilldown_item_count:after {
+  content: ")";
+}
+
+.mf_finder_drilldown_item_count {
+  padding: 0 6px 0 !important;
+  background-color: transparent;
+  color: #666666;
+  font-size: .9rem;
+}
+
+button.mf_finder_searchBox_submit {
+  color: transparent;
+  font-size: 0px;
+  background-image: url('https://www.sony.com/ja/template/2020/ja/img/ico_search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  background-color: #999;
+  transition: 0.32s background-color ease-out;
+  border-radius: 0;
+}
+
+.mf_finder_header {
+  width: 366px;
+}
+
+button.mf_finder_searchBox_submit span {
+  display: none;
+}
+
+.tmpl-headerSearch {
+  overflow: visible;
+}
+
+#tmpl-header .tmpl-headerSearch_input {
+  padding: 0rem;
+  width: 366px;
+}
+
+.is-to-top-fixed .to-top a {
+  position: absolute;
+}
+
+.mf_finder_organic_doc_title {
+  font-size: 1.2rem;
+}
+
+.mf_finder_organic_doc_title_wrapper{
+  margin-top: .65rem;
+}
+  .mf_finder_organic_pager{
+  margin-top: 1.5rem;
+}
+
+.sony_search_result_type_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.sony_search_result_type {
+  margin: 0rem;
+  font-size: 0.7rem;
+  width: fit-content;
+  min-width: 100px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #888;  
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mf_finder_zubaken_title {
+  margin-bottom: .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
+  height: auto;
+  display: -webkit-box;
+  white-space: normal;
+}
+
+.mf_finder_zubaken_wrapper.mf_imgsize_0 .mf_finder_zubaken_title,  
+.mf_finder_zubaken_wrapper.mf_imgsize_1 .mf_finder_zubaken_title,  
+.mf_finder_zubaken_wrapper.mf_imgsize_2 .mf_finder_zubaken_title {
+  width: 140px;
+  display: inline-block;
+}
+
+.mf_finder_zubaken_wrapper.mf_imgsize_3 .mf_finder_zubaken_title {
+  width: 250px;
+  display: inline-block;
+}
+
+@media screen and (min-width: 641px) {
+  .mf_finder_searchBox_submit:hover, .mf_finder_searchBox_submit:focus {
+    background-color: #2d61bf;
+  }
+
+  .mf_finder_container, .mf_finder_container_inner {
+    margin: 0 auto
+  }
+
+  .mf_finder_container_inner {
+    width: 1190px
+  }
+}
+
+
+@media screen and (max-width: 1023px) {
+  .my_resp_main {
+    width: 100%;
+    margin-left: 0rem;
+  }
+
+  .my_resp_side {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  
+  #tmpl-header .tmpl-headerSearch_input {
+    width: calc(115% - 64px);
+  }
+
+  .mf_finder_searchBox_links {
+    display:  block;
+    margin-bottom: 0.5rem;
+  }
+
+  .mf_finder_searchBox_items_wrapper {
+    margin-left: 0rem;
+  }
+  
+  .mf_finder_searchBox_sort, .mf_finder_searchBox_pagemax {
+    border-bottom-style: solid !important;
+  } 
+  
+  .mf_finder_organic_wrapper.mf_available_resultframe .mf_finder_organic_doc_zoom {
+    display: none;
+  }
+  
+  .mf_finder_relatedkeywords {
+    order: 2;
+  }
+
+  .mf_finder_zubaken_items {
+    margin: 1em;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mf_finder_zubaken_item{
+    padding: 0 0.3rem !important;
+    }
+  
+  .mf_finder_header {
+    width: 90%;
+  }
+  
+}
+.mf_finder_logo {
+  display: none;
+}

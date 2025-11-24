@@ -1,0 +1,1183 @@
+/*------------------------------------------------------------------
+Project:Coffee Template
+Author: The_Krishna        
+-------------------------------------------------------------------*/
+
+/*----------------Table of contents Start---------------------------
+1.Default css
+2.Hero css
+3.Blog css
+4.Menu css
+5.Social media css
+6.Feature css
+7.Offer css
+8.About css
+9.Inquiry css
+10.Contact css
+11.Bottom css
+12.Testimonial css
+13.Scanner modal popup css
+14.Share modal popup css
+15.Single menu css
+16.Blog modal css
+17.Preloader csss
+
+---------Table of contents End-----------------------------------*/
+
+/*------------------------ [Color codes] ------------------------                     
+Background: #453127, #faf3eb
+Content: #faf3eb, #000000, #ffffff  
+-------------------------------------------------------------------*/
+
+/************************ 1.Default css ***************************/
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	width: 100%;
+	height: 100%;
+}
+*, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+a:focus, a {
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+} 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
+}
+body {
+	max-width: 425px;
+	margin: 0 auto;
+	background: #453127;
+}
+svg{
+	vertical-align: middle;
+}
+input{
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+	border: none;
+	outline: none;
+	width: 100%;
+}
+textarea{
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+	resize: none;
+}
+ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+.overflow{
+	overflow-y: scroll;
+}
+.container{
+	padding: 0 16px;
+}
+.mt-30{
+	margin-top: 30px;
+}
+.mt-15{
+	margin-top: 15px;
+}
+.mt-20{
+	margin-top: 20px;
+}
+.mt-10{
+	margin-top: 10px;
+}
+.mt-5{
+	margin-top: 5px !important;
+}
+.pt-20{
+	padding-top: 20px;
+}
+.mlr-auto{
+	margin-left: auto;
+	margin-right: auto;
+}
+::-webkit-scrollbar { 
+	display: none; 
+}
+.purple-filter{
+	filter: brightness(0) saturate(100%) invert(40%) sepia(74%) saturate(6088%) hue-rotate(254deg) brightness(93%) contrast(97%);
+}
+.site-content{
+	width: 100%;
+	height: 100%;
+}
+
+/************************ 2.Hero css ***************************/
+.hero-banner{
+	position: relative;
+	background: #3b5454;
+}
+.shape2{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	filter: brightness(0) saturate(100%) invert(99%) sepia(99%) saturate(436%) hue-rotate(296deg) brightness(107%) contrast(96%);
+}
+.shape3{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.ceo-content {
+	position: relative;
+	background: #faf3eb;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+.hero-sec-main {
+	position: relative;
+}
+.hero-bottom-sec {
+	position: relative;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	flex-direction: column-reverse;
+}
+.client-name {
+	color: var(--11, #9f4920);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 36px;
+}
+.client-title {
+	color: var(--14, #000000);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 16px 0 16px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.header-logo {
+	width: 72px;
+	height: 72px;
+	border-radius: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ffffff;
+	backdrop-filter: blur(5px);
+}
+.custom-language-btn {
+	padding: 0;
+	margin: 0;
+	padding: 4px 8px 4px 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 32px;
+	border-width: 0 !important;
+	border-radius: 16px;
+	background: #9f4920 !important;
+	backdrop-filter: blur(5px);
+	color: var(--1, #FFF);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.dropdown-toggle::after {
+	content: url(../svg/up-arrow.svg) !important;
+	border: 0;
+	width: 24px;
+	height: 24px;
+	margin-left: auto;
+}
+.dropdown-item {
+	color: var(--14, #000000);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.flag-icon {
+	width: 25px;
+	height: 20px;
+	margin-right: 10px;
+}
+.dropdown-item:active,
+.dropdown-item:hover{
+	background: #faf3eb !important;
+	color: black!important;
+}
+.btn.show{
+	color: white !important;
+}
+.custom-language-btn:hover{
+	color: white !important;
+}
+.hero-bottom-sec img {
+	border-radius: 0px 40px;
+}
+.bottom-shape {
+	position: absolute;
+	width: 100%;
+	bottom: -1px;
+	color: white;
+}
+
+/************************ 3.Blog css ***************************/
+.blog-sec-content{
+	cursor: pointer;
+}
+.blog-sec-wrap {
+	text-align: center;
+	position: relative;
+}
+.blog-para {
+	padding: 8px;
+	background: #ffffff;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.date-content {
+	background: #9f4920;
+	width: fit-content;
+	padding: 10px;
+	margin: 0 auto;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	border-radius: 12px 0;
+}
+.date-content p {
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: white;
+}
+.blog-img img{
+	width: 100%;
+	border-radius: 12px;
+}
+.blog-para h4 {
+	color: #9f4920;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+.blog-para p {
+	color: #000000;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	text-align: center;
+}
+.blog-img {
+	position: relative;
+}
+.blog-img:before {
+	content: "";
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	border-radius: 12px;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.90) 100%);
+}
+
+/************************ 4.Menu css ***************************/
+.top-title h2 {
+	color: var(--11, #9f4920);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
+	text-transform: uppercase;
+}
+.top-title img{
+	width: 20px;
+	filter: brightness(0) saturate(100%) invert(30%) sepia(99%) saturate(423%) hue-rotate(335deg) brightness(94%) contrast(96%);
+}
+.top-title img:first-child{
+	margin-right: 8px;
+}
+.top-title img:last-child{
+	margin-left: 8px;
+}
+.menu2-descri {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.menupage5-drink-name {
+	color: var(--11, #000000);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+.menupage2-drink-price {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 30px;
+	color: #9f4920;
+}
+.menupage2-drink-para {
+	color: #000000;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.view-product a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 10px;
+	background: var(--20, #9f4920);
+	padding: 13px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	margin: 0 auto;
+	border-radius: 0px 12px;
+	border: 2px solid transparent;
+	transition: all .3s ease;
+}
+.view-product a:hover {
+    background: transparent;
+    border: 2px solid #9f4920;
+    color: #9f4920;
+    transition: all .3s ease;
+}
+.menu-img img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+.menu-sec {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	cursor: pointer;
+}
+
+/************************ 5.Social media css ***************************/
+.social-icon-content {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.social-icon-content-wrap {
+	background: transparent;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	position: relative;
+	transition: all .3s ease;
+	border: 2px solid #9f4920;	
+}
+.social-icon-para p {
+	color: #000000;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.social-icon-content-wrap {
+	background: transparent;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	position: relative;
+	transition: all .3s ease;
+	border: 2px solid #9f4920;
+}
+.social-icon-content-wrap:hover img{
+	filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(304deg) brightness(104%) contrast(102%);
+	transition: 0.36s;
+}
+.social-icon-content-wrap:hover {
+	background: #9f4920;
+	border: 2px solid transparent;
+	transition: all .3s ease;
+}
+
+/************************ 6.Feature css ***************************/
+.feature-img img {
+	filter: brightness(0) saturate(100%) invert(26%) sepia(95%) saturate(1055%) hue-rotate(352deg) brightness(91%) contrast(82%);
+	width: 60px;
+}
+.feature-content {
+	text-align: center;
+}
+.feature-content h3 {
+	color: var(--11, #000000);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+.feature-content p {
+	color: #000000;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+/************************ 7.Offer css ***************************/
+.offer-content{
+	background-image: url(../images/main-img/offer1.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 250px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.offer-content-bottom {
+	width: 100%;
+	text-align: center;
+}
+.offer-content-bottom h3 {
+	color: white;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px;
+}
+.offer-content-bottom p {
+	color: white;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.coffee-offer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+/************************ 8.About css ***************************/
+.about-us-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+.about-us-img img {
+	width: 50px;
+	height: 50px;
+	filter: brightness(0) saturate(100%) invert(26%) sepia(95%) saturate(1055%) hue-rotate(352deg) brightness(91%) contrast(82%);
+}
+.about-details h3 {
+	color: var(--11, #000000);
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 28px;
+}
+.about-details p {
+	color: #000000;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.about-img img {
+	border-radius: 8px;
+}
+
+/************************ 9.Inquiry css ***************************/
+.info-person ,
+.contact-content h4{
+	color: var(--14, #101828);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 14px;
+	width: 100%;
+	text-transform: uppercase;
+}
+.input-wrapper-form {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 6px;
+	width: 100%;
+}
+.input-wrapper-form input, 
+.input-wrapper-form textarea,
+.contact-content p {
+	color: var(--10, #dbdbdb);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+/************************ 10.Contact css ***************************/
+.contact-details {
+	display: flex;
+	gap: 12px;
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6);
+	background: var(--1, #FFF);
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 12px;
+}
+.contact-icon {
+	border-radius: 6px;
+	background: var(--2,#9f4920);
+	padding: 10px;
+	width: 44px;
+	height: 44px;
+}
+.contact-content p{
+	color: var(--2, #000) !important;
+	transition: all .3s ease;
+}
+.contact-content p:hover {
+    text-decoration: underline;
+    color: #9f4920 !important;
+    transition: all .3s ease;
+}
+.contact-list {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.contact-list .time-txt {
+	font-weight: 400;
+	width: 55%;
+}
+.days-txt {
+	font-weight: 500;
+}
+.contact-content {
+	width: 90%;
+}
+.days-txt,
+.contact-list .time-txt{
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	line-height: 26px;
+}
+
+/************************ 11.Bottom css ***************************/
+.add-to-contact-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.scan-btn {
+	width: 60px;
+	height: 60px;
+	background: var(--15, #9f4920);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.add-to-btn-sec {
+	display: flex;
+	align-items: center;
+	border-radius: 30px;
+	background: var(--2, #000);
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.32);
+	padding: 6px 6px 6px 30px;
+	justify-content: end;
+	width: fit-content;
+	gap: 8px;
+}
+.add-txt {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+.plus-btn {
+	border-radius: 24px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+.add-to-contact {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	max-width: 425px;
+	left: 0;
+	right: 0;
+	padding-bottom: 20px;
+}
+.footer p {
+	color: var(--2, #000);
+	text-align: center;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.map-img iframe {
+	width: 100%;
+	height: 250px;
+	border-radius: 12px;
+}
+.add-to-btn {
+	margin-left: auto;
+}
+.world-content h3 {
+	color: #ffffff;
+	font-family: Poppins;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+	text-align: center;
+}
+.world-content {
+	position: relative;
+}
+.world-content p {
+	color: #ffffff;
+	font-family: Poppins;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: center;
+}
+
+/************************ 12.Testimonial css ***************************/
+.testimonial-sec{
+	background-image: url(../images/main-img/testimonial-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.testimonial-img-sec {
+	position: relative;
+	width: fit-content;
+	margin: 0 auto;
+}
+.testimonial-img img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+.quote-icon {
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	background: #9f4920;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	top: 0;
+	right: -30px;
+}
+.quote-icon img {
+	width: 30px;
+}
+.testimonial-bottom-sec p {
+	color: #000000;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	text-align: center;
+}
+.tinfo h4 {
+	color: var(--11, #000000);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+.tinfo h5 {
+	color: #9f4920;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+.testimonial-sec .slick-dots {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	margin-top: 15px;
+}
+.testimonial-sec .slick-dots button {
+	display: block;
+	width: 10px;
+	height: 10px;
+	padding: 0;
+	border: none;
+	border-radius: 5px;
+	background: #000000;
+	text-indent: -9999px;
+}
+.testimonial-sec .slick-dots li.slick-active button{
+	background-color: #9f4920;
+	width: 30px;
+	height: 10px;
+}
+
+/************************ 13.Scanner modal popup css ***************************/
+#product-modal,
+#share-media-modal,
+#portfolio-modal,
+#blog-modal {
+	background: linear-gradient(180deg, rgb(18 21 28 / 66%) 0%, rgb(18 21 28 / 72%) 100%);
+	backdrop-filter: blur(4px);
+}
+#product-modal .modal-content,
+#share-media-modal .modal-content {
+	border-radius: 24px;
+}
+.scan-content {
+	text-align: center;
+	border: 2px solid #9f4920;
+	height: auto;
+	width: 250px;
+	margin: 0 auto;
+	padding: 12px;
+	border-radius: 8px;
+}
+.scanner img {
+	width: 100%;
+    height: auto;
+}
+.scan-txt {
+	padding: 14px;
+	background: #9f4920;
+	border-radius: 8px;
+}
+.scan-txt p {
+	color: var(--2, #fff);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.btn1 a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 8px;
+	background: #000000;
+	padding: 12px 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.qr-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+.btn1 {
+	width: 140px;
+}
+.modal-title{
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
+}
+
+/************************ 14.Share modal popup css ***************************/
+.social-media-content {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 16px;
+}
+.social-media-img {
+	width: 60px;
+	height: 60px;
+	background: transparent;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease; 
+}
+.social-media-img:hover {
+	background: #9f4920;
+	transition: all .3s ease;
+}
+.social-media-img img {
+	filter: brightness(0) saturate(100%) invert(0%) sepia(99%) saturate(3%) hue-rotate(13deg) brightness(99%) contrast(100%);
+	width: 30px;
+	height: 30px;
+}
+.social-media-img:hover.social-media-img img{
+	filter: brightness(0) saturate(100%) invert(100%) sepia(2%) saturate(7%) hue-rotate(323deg) brightness(104%) contrast(102%);
+	transition: all .3s ease;
+}
+
+/************************ 15.Single menu css ***************************/
+.menu-wrap {
+	background: #faf3eb;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	padding-bottom: 20px;
+	max-width: 425px;
+	left: 0;
+	right: 0;
+	position: relative;
+	margin: 0 auto;
+}
+.product-sec-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: space-between;
+}
+.buy-now a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 5px;
+	background: var(--15, #9f4920);
+	padding: 8px 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+}
+.product-title {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	text-transform: uppercase;
+}
+#product-modal {
+	background: linear-gradient(180deg, rgb(18 21 28 / 66%) 0%, rgb(18 21 28 / 72%) 100%);
+	backdrop-filter: blur(4px);
+}
+#product-modal .modal-content {
+	border-radius: 24px;
+}
+.modal-title {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
+}
+.btn-close {
+	opacity: 1;
+}
+.btn-close:focus {
+	box-shadow: none;
+}
+.custom-lbl-feedback {
+	color: var(--2, #000);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+.feedback-email input, 
+.custom-textarea-product, 
+.custom-select-subject select {
+	border-radius: 12px;
+	border: 1px solid var(--10, #A6A6A6) !important;
+	box-shadow: 5px 5px 10px 0px rgba(166, 166, 166, 0.20);
+	padding: 14px;
+	width: 100%;
+	color: var(--14, #737373);
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	margin-top: 5px;
+}
+.product-btn {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: end;
+}
+.discard-btn a {
+	background: #737373;
+	color: white;
+}
+
+/************************ 16.Blog modal css ***************************/
+.blog4-txt1 {
+	color: #9f4920;
+	font-size: 16px;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+	padding-right: 5px;
+}
+.blog4-date {
+	color: #9f4920;
+	font-size: 15px;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+	border-left: 2px solid;
+	padding-left: 8px;
+}
+.singleblog1-txt1 {
+	color: #000000;
+	font-family: Poppins;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 30px;
+}
+.singleblog1-txt2, .singleblog1-txt3 {
+	color:#000000;
+	font-family: Poppins;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.singleblog1-content2-sec {
+	background: rgb(159 73 32 / 10%);
+	padding: 20px;
+	border-left: 4px solid #9f4920;
+}
+.singleblog1-txt4 {
+	color: #000000;
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 30px;
+}
+.singleblog1-txt5 {
+	color: #9f4920;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+.singleblog1-content4-sec-full {
+	display: flex;
+	gap: 12px;
+}
+.singleblog1-content5-sec-full {
+	display: flex;
+	justify-content: space-between;
+}
+.blog-tags span {
+	color: #9f4920;
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+.blog-tags a {
+	color: #9f4920;
+	font-weight: 400;
+}
+.single-blogpage1-social-icon {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+.single-chefs-page-social-icon {
+	width: 36px;
+	height: 36px;
+	background: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid #9f4920;
+	transition: all .3s ease;
+}
+.single-chefs-page-social-icon:hover{
+	border-radius: 50%;
+	transition: all .3s ease;
+}
+.single-chefs-page-social-icon a {
+	height: 20px;
+	display: flex;
+}
+.background-img{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.shape3{
+	height: 100%;
+	width: 100%;
+}
+.shape4{
+	position: absolute;
+	left: 30px;
+	
+	top: 30px;
+}
+.shape5{
+	position: absolute;
+	left: -10%;
+	bottom:-10% ;
+}
+.shape6{
+	position: absolute;
+	right: -10%;
+	top: -10%;
+	transform: rotate(230deg);
+}
+
+/************************ 17.Preloader css ***************************/
+.preloader {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: auto;
+	background: #faf3eb;
+	z-index: 999;
+	text-align: center;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

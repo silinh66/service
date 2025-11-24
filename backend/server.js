@@ -17,7 +17,22 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
+import { Server } from "socket.io";
+import { createServer } from "http";
+
 const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "http://localhost:5174",
+    ],
+    credentials: true,
+  },
+});
+
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -42,6 +57,32 @@ app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
   next();
 });
+
+// Socket.io connection handling
+io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
+
+  socket.on("join_conversation", (conversationId) => {
+    socket.join(conversationId);
+    console.log(`User ${socket.id} joined conversation: ${conversationId}`);
+  });
+
+  socket.on("send_message", (data) => {
+    // data: { conversationId, message, sender, ... }
+    // Broadcast to everyone in the room except sender (or including sender if needed for confirmation)
+    // Usually we emit to the room so the other person receives it.
+    // The sender usually updates their UI optimistically or via API response.
+    // But for simplicity in real-time sync, we can broadcast to the room.
+    socket.to(data.conversationId).emit("receive_message", data);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
+  });
+});
+
+// Make io accessible in routes
+app.set("io", io);
 
 // Health check
 app.get("/health", (req, res) => {
@@ -81,7 +122,7 @@ const startServer = async () => {
       process.exit(1);
     }
 
-    const server = app.listen(PORT, () => {
+    const server = httpServer.listen(PORT, () => {
       console.log("\n🚀 ================================");
       console.log(`   Server is running on port ${PORT}`);
       console.log(`   http://localhost:${PORT}`);

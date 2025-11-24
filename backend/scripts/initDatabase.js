@@ -57,6 +57,7 @@ const initDatabase = async () => {
         content LONGTEXT NOT NULL,
         featured_image LONGTEXT,
         category VARCHAR(50) NOT NULL,
+        video_format ENUM('horizontal', 'vertical') NULL,
         status ENUM('draft', 'published') DEFAULT 'draft',
         views INT DEFAULT 0,
         author_id INT NOT NULL,
@@ -66,6 +67,7 @@ const initDatabase = async () => {
         FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
         INDEX idx_slug (slug),
         INDEX idx_category (category),
+        INDEX idx_video_format (video_format),
         INDEX idx_status (status),
         INDEX idx_author (author_id)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci

@@ -1,0 +1,360 @@
+/* General Styles */
+.our-story-page {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.text-blue {
+    color: #003366;
+}
+
+.text-orange {
+    color: #FF9900;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+/* Hero Section */
+.story-hero {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-color: #000;
+}
+
+.story-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.story-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.story-hero-content {
+    max-width: 800px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.story-hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.story-hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.story-btn-primary {
+    background-color: #FF9900;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.story-btn-primary:hover {
+    background-color: #e68a00;
+}
+
+.btn-large {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+/* Sections General */
+.story-section {
+    padding: 80px 0;
+}
+
+.story-heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* Vision & Mission */
+.story-vision-mission {
+    background-color: #fff;
+}
+
+.story-vision-header {
+    margin-bottom: 60px;
+}
+
+.story-text-block {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 800px;
+}
+
+.story-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.story-mission-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-subheading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.story-list {
+    list-style: none;
+    padding: 0;
+}
+
+.story-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.story-list li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: #FF9900;
+    font-size: 0.8rem;
+}
+
+/* Core Values */
+.story-core-values {
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.story-bg-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.story-values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.story-values-list {
+    list-style: none;
+    padding: 0;
+}
+
+.story-values-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.story-values-list li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: #FF9900;
+    font-size: 0.7rem;
+}
+
+.story-values-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Section */
+.story-team {
+    background-color: #fff;
+    padding-top: 60px;
+}
+
+.story-intro-text {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.story-heading-large {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.story-desc-text {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.story-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.story-team-card {
+    text-align: center;
+}
+
+.story-team-avatar {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.story-team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-team-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.story-team-role {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.story-team-desc {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* Team Slider Section */
+.story-team-slider-section {
+    background-color: #f4f6f8;
+    padding-bottom: 100px;
+}
+
+.story-swiper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-slide-image {
+    width: 100%;
+    height: 500px;
+}
+
+.story-slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+
+    .story-mission-grid,
+    .story-values-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .story-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .story-hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .story-team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-hero-title {
+        font-size: 2rem;
+    }
+
+    .story-heading {
+        font-size: 2rem;
+    }
+}
