@@ -144,7 +144,7 @@ const SonySlider = () => {
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         {fullscreenVideo.type === 'upload' && (
                             <video
-                                src={fullscreenVideo.url}
+                                src={getOptimizedImageUrl(fullscreenVideo.url)}
                                 controls
                                 autoPlay
                                 style={{ width: '100%', height: '100%' }}
@@ -230,7 +230,7 @@ const SlideVideo = ({ video, thumbnail, onOpen }) => {
                         isHovered && (
                             <video
                                 ref={videoRef}
-                                src={video.url}
+                                src={getOptimizedImageUrl(video.url)}
                                 muted
                                 loop
                                 autoPlay

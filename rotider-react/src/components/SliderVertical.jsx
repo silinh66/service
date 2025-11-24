@@ -137,7 +137,7 @@ const SliderVertical = () => {
                     <div className="modal-content" onClick={e => e.stopPropagation()} style={{ aspectRatio: '9/16', maxHeight: '90vh' }}>
                         {fullscreenVideo.type === 'upload' && (
                             <video
-                                src={fullscreenVideo.url}
+                                src={getOptimizedImageUrl(fullscreenVideo.url)}
                                 controls
                                 autoPlay
                                 style={{ width: '100%', height: '100%' }}
@@ -223,7 +223,7 @@ const SlideVideo = ({ video, thumbnail, onOpen }) => {
                         isHovered && (
                             <video
                                 ref={videoRef}
-                                src={video.url}
+                                src={getOptimizedImageUrl(video.url)}
                                 muted
                                 loop
                                 autoPlay

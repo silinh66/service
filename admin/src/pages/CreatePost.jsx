@@ -170,7 +170,7 @@ export default function CreatePost() {
       setVideos([
         ...videos,
         {
-          url: `http://localhost:5001${response.url}`,
+          url: response.url, // Use relative URL returned by backend
           title: file.name,
           type: "upload",
           filename: response.filename,
