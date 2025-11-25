@@ -5,6 +5,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+import ChangePassword from './pages/ChangePassword';
 import CreateOrder from './pages/CreateOrder';
 import PostDetail from './pages/PostDetail';
 import MyOrder from './pages/MyOrder';
@@ -45,6 +48,9 @@ function App() {
                     </Route>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route path="/reset-password" element={<ResetPassword />} />
+                    <Route path="/change-password" element={<ChangePassword />} />
                     <Route path="/create-order" element={<CreateOrder />} />
                     <Route path="/my-order" element={<MyOrder />} />
                     <Route path="/services" element={<Services />} />

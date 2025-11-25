@@ -245,6 +245,37 @@
     opacity: 1;
 }
 
+/* Mobile Responsiveness for SliderVertical */
+@media (max-width: 768px) {
+    .hero-items-vertical {
+        height: 88.88vw;
+        /* 9:16 Aspect Ratio for 50vw width */
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+    }
+
+    .hero-item-vertical {
+        width: 70vw;
+        /* Reduce width to fit better */
+        height: 100vw;
+        margin-right: 0;
+    }
+
+    .hero-controls-vertical>div>div {
+        justify-content: center;
+        width: 100%;
+        left: 0;
+    }
+
+    .hero-info-vertical {
+        min-width: auto;
+        max-width: 100%;
+        padding: 0 10px;
+        text-align: center;
+    }
+}
+
 /* Desktop Styles */
 @media screen and (min-width: 641px) {
     .hero-vertical {

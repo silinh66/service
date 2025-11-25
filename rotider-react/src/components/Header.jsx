@@ -34,7 +34,11 @@ const Header = () => {
                                 <ul className="mobile-nav nav nav-left ">
                                     <li className="nav-icon has-icon">
                                         <a href="#" onClick={toggleMenu} className="is-small" aria-label="Menu" aria-controls="main-menu" aria-expanded={isMenuOpen}>
-                                            <i className="icon-menu"></i>
+                                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#fff' }}>
+                                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                                            </svg>
                                         </a>
                                     </li>
                                 </ul>
@@ -46,41 +50,8 @@ const Header = () => {
                                     <li id="menu-item-808" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808 active menu-item-design-default">
                                         <Link to="/" aria-current="page" className="nav-top-link">Home page</Link>
                                     </li>
-                                    <li id="menu-item-38" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38 menu-item-design-default has-dropdown">
-                                        <a href="#" className="nav-top-link" aria-expanded="false" aria-haspopup="menu">Service</a>
-                                        <ul className="sub-menu nav-dropdown nav-dropdown-default">
-                                            <li id="menu-item-1307" className="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-1307 nav-dropdown-col">
-                                                <a href="/product-category/photo-editing/">Photo Editing</a>
-                                                <ul className="sub-menu nav-column nav-dropdown-default">
-                                                    <li id="menu-item-2202" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2202"><a href="/hdr/">HDR</a></li>
-                                                    <li id="menu-item-2205" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2205"><a href="/twilight/">Twilight</a></li>
-                                                    <li id="menu-item-2200" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2200"><a href="/day-to-dusk/">Day to Dusk</a></li>
-                                                    <li id="menu-item-2201" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2201"><a href="/flash/">Flash</a></li>
-                                                    <li id="menu-item-2204" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2204"><a href="/single/">Single</a></li>
-                                                    <li id="menu-item-2203" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2203"><a href="/remove/">Remove</a></li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-item-1309" className="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-1309 nav-dropdown-col">
-                                                <a href="/product-category/video-editing/">Video Editing</a>
-                                                <ul className="sub-menu nav-column nav-dropdown-default">
-                                                    <li id="menu-item-2198" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2198"><a href="/drone-videography/">Drone Videography</a></li>
-                                                    <li id="menu-item-2199" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2199"><a href="/standard/">Standard</a></li>
-                                                    <li id="menu-item-2196" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2196"><a href="/advanced/">Advanced</a></li>
-                                                    <li id="menu-item-2197" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2197"><a href="/high-end/">High-End</a></li>
-                                                    <li id="menu-item-2195" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2195"><a href="/add-on-effect/">Add On Effect</a></li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-item-1308" className="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-1308 nav-dropdown-col">
-                                                <a href="/product-category/virtual-service/">Virtual Staging Service</a>
-                                                <ul className="sub-menu nav-column nav-dropdown-default">
-                                                    <li id="menu-item-2604" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2604"><a href="/3d-floor-plan/">3D Floor Plan</a></li>
-                                                    <li id="menu-item-2193" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2193"><a href="/virtual-renovation/">Virtual Renovation</a></li>
-                                                    <li id="menu-item-2192" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2192"><a href="/virtual-staging/">Virtual Staging</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-791" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-791 menu-item-design-default"><a href="/our-story/" className="nav-top-link">Our Story</a></li>
+
+                                    {/* <li id="menu-item-791" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-791 menu-item-design-default"><a href="/our-story/" className="nav-top-link">Our Story</a></li> */}
                                     <li id="menu-item-2153" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153 menu-item-design-default"><Link to="/login" className="nav-top-link">Order</Link></li>
                                     <li id="menu-item-809" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-809 menu-item-design-default"><a href="/blog/" className="nav-top-link">Blog</a></li>
                                     <li id="menu-item-810" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-810 menu-item-design-default"><a href="/contact-us/" className="nav-top-link">Contact us</a></li>
@@ -111,18 +82,12 @@ const Header = () => {
                 <div className="sidebar-menu no-scrollbar ">
                     <ul className="nav nav-sidebar nav-vertical nav-uppercase" data-tab="1">
                         <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><Link to="/" aria-current="page">Home page</Link></li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38 has-child" aria-expanded="false">
-                            <a href="#">Service</a>
-                            <button className="toggle" aria-label="Toggle"><i className="icon-angle-down"></i></button>
-                            <ul className="sub-menu nav-sidebar-ul children">
-                                {/* ... Submenu items ... */}
-                                {/* Simplified for brevity, should match desktop structure but for mobile */}
-                                <li className="menu-item"><a href="/product-category/photo-editing/">Photo Editing</a></li>
-                                <li className="menu-item"><a href="/product-category/video-editing/">Video Editing</a></li>
-                                <li className="menu-item"><a href="/product-category/virtual-service/">Virtual Staging Service</a></li>
-                            </ul>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-791"><a href="/our-story/">Our Story</a></li>
+
+                        {/* <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38" aria-expanded="false">
+                            <a href="/service">Service</a>
+
+                        </li> */}
+                        {/* <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-791"><a href="/our-story/">Our Story</a></li> */}
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153"><Link to="/login">Order</Link></li>
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-809"><a href="/blog/">Blog</a></li>
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-810"><a href="/contact-us/">Contact us</a></li>

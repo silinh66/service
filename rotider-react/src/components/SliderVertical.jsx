@@ -114,7 +114,7 @@ const SliderVertical = () => {
                 </a>
 
                 <div className="hero-info-vertical">
-                    <div className="hero-info-category-vertical">Instagram reels, Youtube shorts and Tiktoks</div>
+                    <div style={{ color: '#ff7e27ff' }} className="hero-info-category-vertical">Instagram reels, Youtube shorts and Tiktoks - $39</div>
                     <div className="hero-info-title-vertical">{posts[activeIndex]?.title}</div>
                 </div>
 

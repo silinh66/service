@@ -284,6 +284,43 @@
     opacity: 1;
 }
 
+/* Mobile Responsiveness for SonySlider */
+@media (max-width: 768px) {
+    .hero-item {
+        width: 90vw;
+        /* Almost full width to center nicely */
+        margin-right: 15px;
+    }
+
+    .hero-items {
+        height: 56.25vw;
+        /* 16:9 Aspect Ratio based on viewport width */
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+    }
+
+    .hero-item {
+        width: 85vw;
+        /* Center nicely */
+        margin-right: 0;
+        height: 100%;
+    }
+
+    .hero-controls>div>div {
+        justify-content: center;
+        width: 100%;
+        left: 0;
+    }
+
+    .hero-info {
+        min-width: auto;
+        max-width: 100%;
+        padding: 0 10px;
+        text-align: center;
+    }
+}
+
 /* Desktop Styles */
 @media screen and (min-width: 641px) {
     .hero {

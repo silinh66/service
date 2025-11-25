@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Form } from 'antd';
+import { Form, message } from 'antd';
+import { authService } from '../services/authService';
 import logoWhite from '../assets/logo-white.png';
 import './Login.css';
 
@@ -8,11 +9,20 @@ const Login = () => {
     const navigate = useNavigate();
     const [passwordVisible, setPasswordVisible] = useState(false);
 
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-        // Simulate login logic
-        localStorage.setItem('user', JSON.stringify({ email: values.email }));
-        navigate('/create-order');
+    const [loading, setLoading] = useState(false);
+
+    const onFinish = async (values) => {
+        setLoading(true);
+        try {
+            const response = await authService.login(values.email, values.password);
+            localStorage.setItem('user', JSON.stringify(response.user));
+            localStorage.setItem('token', response.token); // Save token if needed for authenticated requests
+            navigate('/create-order');
+        } catch (error) {
+            message.error(error.response?.data?.message || 'Login failed');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -79,7 +89,9 @@ const Login = () => {
                             </div>
                         </Form.Item>
 
-                        <button type="submit" className="login-submit-btn">LOG IN</button>
+                        <button type="submit" className="login-submit-btn" disabled={loading}>
+                            {loading ? 'LOGGING IN...' : 'LOG IN'}
+                        </button>
 
                         <div className="login-links">
                             <p>Don't have an account? <Link to="/register" className="login-link-text">Sign up here</Link></p>

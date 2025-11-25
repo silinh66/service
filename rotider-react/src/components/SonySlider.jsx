@@ -120,7 +120,7 @@ const SonySlider = () => {
                 </a>
 
                 <div className="hero-info">
-                    <div className="hero-info-category">Professional Video Editing for Viral YouTube</div>
+                    <div style={{ color: '#ff7e27ff' }} className="hero-info-category">Professional Video Editing for Viral - $55</div>
                     <div className="hero-info-title">{posts[activeIndex]?.title}</div>
                     {/* <div className="hero-info-desc">{posts[activeIndex]?.excerpt}</div> */}
                 </div>

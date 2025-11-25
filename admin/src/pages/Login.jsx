@@ -11,9 +11,16 @@ import {
   InputAdornment,
   IconButton,
   CircularProgress,
+  Link,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  Visibility,
+  VisibilityOff,
+  Person as PersonIcon,
+  VpnKey as KeyIcon,
+} from "@mui/icons-material";
 import { authService } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -21,6 +28,7 @@ export default function Login({ onLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,25 +55,63 @@ export default function Login({ onLogin }) {
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        justifyContent: "center",
+        backgroundImage: "url('/bg-login.jpg')", // Assuming there's a background image or dark overlay
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundColor: "#1a1a2e", // Fallback dark color
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.6)", // Dark overlay
+          zIndex: 1,
+        },
       }}
     >
-      <Container maxWidth="sm">
-        <Card sx={{ borderRadius: 4, boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
+      <Container maxWidth="sm" sx={{ position: "relative", zIndex: 2 }}>
+        {/* Logo Area */}
+        <Box sx={{ textAlign: "center", mb: 4 }}>
+          {/* Placeholder for Logo */}
+          <Typography
+            variant="h4"
+            sx={{
+              color: "white",
+              fontWeight: "bold",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 1,
+            }}
+          >
+            {/* You can replace this with an actual <img> tag if you have the logo asset */}
+            <Box component="span" sx={{ fontSize: "2rem" }}>🦌</Box> ROTIDER MEDIA
+          </Typography>
+        </Box>
+
+        <Card
+          sx={{
+            borderRadius: 4,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+            maxWidth: 500,
+            mx: "auto",
+            p: 2,
+          }}
+        >
           <CardContent sx={{ p: 4 }}>
-            <Box sx={{ textAlign: "center", mb: 4 }}>
-              <Typography
-                variant="h4"
-                component="h1"
-                gutterBottom
-                sx={{ fontWeight: 700 }}
-              >
-                ZOOZOO CMS
-              </Typography>
-              <Typography variant="body1" color="text.secondary">
-                Đăng nhập vào trang quản trị
-              </Typography>
-            </Box>
+            <Typography
+              variant="h5"
+              component="h1"
+              align="center"
+              gutterBottom
+              sx={{ fontWeight: 700, mb: 4, color: "#333" }}
+            >
+              Login Account
+            </Typography>
 
             {error && (
               <Alert severity="error" sx={{ mb: 3 }}>
@@ -76,16 +122,30 @@ export default function Login({ onLogin }) {
             <form onSubmit={handleSubmit}>
               <TextField
                 fullWidth
-                label="Tên đăng nhập"
+                placeholder="Email"
                 variant="outlined"
                 margin="normal"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PersonIcon />
+                    </InputAdornment>
+                  ),
+                  sx: { borderRadius: 2, bgcolor: "#fff" },
+                }}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": { borderColor: "#e0e0e0" },
+                    "&:hover fieldset": { borderColor: "#bdbdbd" },
+                  },
+                }}
               />
               <TextField
                 fullWidth
-                label="Mật khẩu"
+                placeholder="Password"
                 type={showPassword ? "text" : "password"}
                 variant="outlined"
                 margin="normal"
@@ -93,44 +153,82 @@ export default function Login({ onLogin }) {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <KeyIcon sx={{ transform: "rotate(135deg)" }} />
+                    </InputAdornment>
+                  ),
                   endAdornment: (
                     <InputAdornment position="end">
                       <IconButton
                         onClick={() => setShowPassword(!showPassword)}
                         edge="end"
                       >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   ),
+                  sx: { borderRadius: 2, bgcolor: "#fff" },
+                }}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": { borderColor: "#e0e0e0" },
+                    "&:hover fieldset": { borderColor: "#bdbdbd" },
+                  },
                 }}
               />
+
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 size="large"
                 disabled={loading}
-                sx={{ mt: 3, py: 1.5, fontSize: "1rem", fontWeight: 600 }}
+                sx={{
+                  mt: 3,
+                  py: 1.5,
+                  fontSize: "1rem",
+                  fontWeight: 700,
+                  bgcolor: "#ffc107", // Yellow color
+                  color: "#fff",
+                  borderRadius: 50, // Rounded button
+                  "&:hover": {
+                    bgcolor: "#ffb300",
+                  },
+                  textTransform: "uppercase",
+                  boxShadow: "none",
+                }}
               >
                 {loading ? (
                   <CircularProgress size={24} color="inherit" />
                 ) : (
-                  "Đăng nhập"
+                  "Log In"
                 )}
               </Button>
             </form>
 
-            <Box sx={{ mt: 3, p: 2, bgcolor: "info.lighter", borderRadius: 2 }}>
-              <Typography variant="caption" display="block" gutterBottom>
-                <strong>Demo credentials:</strong>
+            <Box sx={{ mt: 3, textAlign: "center" }}>
+              <Typography variant="body2" color="text.secondary">
+                Don't have an account?{" "}
+                <Link
+                  href="#"
+                  underline="hover"
+                  sx={{ color: "#333", fontWeight: 600 }}
+                >
+                  Sign up here
+                </Link>
               </Typography>
-              <Typography variant="caption" display="block">
-                Username: <strong>admin</strong>
-              </Typography>
-              <Typography variant="caption" display="block">
-                Password: <strong>admin123</strong>
-              </Typography>
+              <Box sx={{ mt: 1 }}>
+                <Link
+                  component="button"
+                  variant="body2"
+                  onClick={() => navigate("/forgot-password")}
+                  underline="hover"
+                  sx={{ color: "#333", fontWeight: 600 }}
+                >
+                  Forgot password?
+                </Link>
+              </Box>
             </Box>
           </CardContent>
         </Card>

@@ -10,6 +10,8 @@ import Orders from './pages/Orders';
 import OrderDetail from './pages/OrderDetail';
 import Messages from './pages/Messages';
 import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import { useState, useEffect } from 'react';
 
 const theme = createTheme({
@@ -82,13 +84,25 @@ function App() {
       <CssBaseline />
       <Router>
         <Routes>
-          <Route 
-            path="/login" 
+          <Route
+            path="/login"
             element={
               isAuthenticated ? <Navigate to="/" /> : <Login onLogin={handleLogin} />
-            } 
+            }
           />
-          
+          <Route
+            path="/forgot-password"
+            element={
+              isAuthenticated ? <Navigate to="/" /> : <ForgotPassword />
+            }
+          />
+          <Route
+            path="/reset-password"
+            element={
+              isAuthenticated ? <Navigate to="/" /> : <ResetPassword />
+            }
+          />
+
           {isAuthenticated ? (
             <Route path="/" element={<AdminLayout onLogout={handleLogout} />}>
               <Route index element={<Dashboard />} />
