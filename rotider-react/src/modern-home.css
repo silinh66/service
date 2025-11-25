@@ -351,10 +351,7 @@
         left: 0 !important;
     }
 
-    width: 100%;
-    overflow: hidden;
-    margin-left: 0;
-    margin-right: 0;
+
 }
 
 .hero-items,
@@ -408,5 +405,4 @@
 .mobile-sidebar .sub-menu .menu-item a {
     text-align: center !important;
     justify-content: center !important;
-}
 }
