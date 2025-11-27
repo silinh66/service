@@ -28,6 +28,10 @@ const io = new Server(httpServer, {
       "http://localhost:5173",
       "http://localhost:3000",
       "http://localhost:5174",
+      "https://zoozoostudio.com",
+      "https://www.zoozoostudio.com",
+      "https://admin.zoozoostudio.com",
+      "https://service.zoozoostudio.com"
     ],
     credentials: true,
   },
@@ -42,8 +46,10 @@ app.use(
       "http://localhost:5173",
       "http://localhost:3000",
       "http://localhost:5174",
-      "https://service.zoozoostudio.com",
-      "https://admin.zoozoostudio.com"
+      "https://zoozoostudio.com",
+      "https://www.zoozoostudio.com",
+      "https://admin.zoozoostudio.com",
+      "https://service.zoozoostudio.com"
     ],
     credentials: true,
   })
