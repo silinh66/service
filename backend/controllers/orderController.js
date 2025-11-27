@@ -7,6 +7,27 @@ export const getAllOrders = async (req, res) => {
     let query = "SELECT * FROM orders WHERE 1=1";
     const params = [];
 
+    // Filter by user role
+    if (req.user.role !== 'admin') {
+      let userEmail = req.user.email;
+
+      // If email is missing in token (old token), fetch from DB
+      if (!userEmail) {
+        const [users] = await pool.query("SELECT email FROM users WHERE id = ?", [req.user.id]);
+        if (users.length > 0) {
+          userEmail = users[0].email;
+        }
+      }
+
+      if (userEmail) {
+        query += " AND customer_email = ?";
+        params.push(userEmail);
+      } else {
+        // Fallback if email cannot be found
+        return res.json([]);
+      }
+    }
+
     if (status && status !== "all") {
       query += " AND status = ?";
       params.push(status);

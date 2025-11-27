@@ -419,7 +419,7 @@
 
 .modal-close {
     position: absolute;
-    top: 20px;
+    top: 60px;
     right: 20px;
     background: none;
     border: none;
@@ -433,4 +433,5 @@
     width: 90%;
     max-width: 1000px;
     aspect-ratio: 16/9;
+    margin-top: 40px;
 }

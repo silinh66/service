@@ -73,7 +73,7 @@ export const sendOrderCreatedEmails = async (order) => {
             
             <p>ZOOZOOSTUDIO has sent you a payment request via PayPal. Please check your PayPal account to proceed with the payment.</p>
             
-            <p><a href="${process.env.FRONTEND_URL || 'http://localhost:5173'}/my-order?openPaymentFor=${order.id}" style="color: #0056b3;">Check your Paypal Invoice here</a></p>
+            <p><a href="${process.env.NODE_ENV === 'production' ? 'https://zoozoostudio.com' : (process.env.FRONTEND_URL || 'http://localhost:5173')}/my-order?openPaymentFor=${order.id}" style="color: #0056b3;">Check your Paypal Invoice here</a></p>
             
             <p><strong>Here are the details of your order for your reference:</strong></p>
             
