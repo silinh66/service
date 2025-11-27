@@ -18,7 +18,7 @@ const Messages = () => {
     };
 
     useEffect(() => {
-        const newSocket = io('http://localhost:5001');
+        const newSocket = io(import.meta.env.VITE_SOCKET_URL);
         setSocket(newSocket);
 
         return () => newSocket.close();
@@ -48,7 +48,7 @@ const Messages = () => {
         const fetchConversations = async () => {
             if (user?.email) {
                 try {
-                    const response = await fetch(`http://localhost:5001/api/messages/customer/${user.email}`);
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/messages/customer/${user.email}`);
                     const data = await response.json();
                     if (Array.isArray(data) && data.length > 0) {
                         setConversations(data);
@@ -57,7 +57,7 @@ const Messages = () => {
                         setActiveConversation(mostRecent);
 
                         // Fetch messages for the active conversation
-                        const msgResponse = await fetch(`http://localhost:5001/api/messages/public/${mostRecent.conversation_id}`);
+                        const msgResponse = await fetch(`${import.meta.env.VITE_API_URL}/messages/public/${mostRecent.conversation_id}`);
                         const msgData = await msgResponse.json();
                         setMessages(msgData);
                     }
@@ -77,7 +77,7 @@ const Messages = () => {
         if (!activeConversation) {
             try {
                 console.log("Creating conversation...");
-                const response = await fetch('http://localhost:5001/api/messages/conversations', {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/messages/conversations`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -109,7 +109,7 @@ const Messages = () => {
         } else {
             // Send to existing conversation
             try {
-                const response = await fetch(`http://localhost:5001/api/messages/conversations/${activeConversation.conversation_id}/customer`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/messages/conversations/${activeConversation.conversation_id}/customer`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -140,7 +140,7 @@ const Messages = () => {
         try {
             setLoading(true);
             const token = localStorage.getItem('token'); // Assuming token is stored
-            const response = await fetch('http://localhost:5001/api/uploads/images', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/uploads/images`, {
                 method: 'POST',
                 headers: {
                     // 'Authorization': `Bearer ${token}` // Add auth if needed
@@ -169,7 +169,7 @@ const Messages = () => {
         if (!activeConversation) return;
 
         try {
-            const response = await fetch(`http://localhost:5001/api/messages/conversations/${activeConversation.conversation_id}/customer`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/messages/conversations/${activeConversation.conversation_id}/customer`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -202,7 +202,7 @@ const Messages = () => {
                     try {
                         setLoading(true);
                         const token = localStorage.getItem('token');
-                        const response = await fetch('http://localhost:5001/api/uploads/images', {
+                        const response = await fetch(`${import.meta.env.VITE_API_URL}/uploads/images`, {
                             method: 'POST',
                             headers: {
                                 'Authorization': `Bearer ${token}`
@@ -281,7 +281,7 @@ const Messages = () => {
                                         >
                                             {msg.attachment_url ? (
                                                 <img
-                                                    src={`http://localhost:5001${msg.attachment_url}`}
+                                                    src={`${import.meta.env.VITE_SOCKET_URL}${msg.attachment_url}`}
                                                     alt="Attachment"
                                                     className="max-w-full rounded-lg mb-2"
                                                     style={{ maxHeight: '200px' }}

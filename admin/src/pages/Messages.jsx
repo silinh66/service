@@ -33,7 +33,7 @@ const Messages = () => {
 
   // Initialize Socket.io
   useEffect(() => {
-    const newSocket = io('http://localhost:5001');
+    const newSocket = io(import.meta.env.VITE_SOCKET_URL);
     setSocket(newSocket);
 
     newSocket.on('new_conversation', (conversation) => {
@@ -48,7 +48,7 @@ const Messages = () => {
     const fetchConversations = async () => {
       try {
         const token = localStorage.getItem('adminToken');
-        const response = await axios.get('http://localhost:5001/api/messages/conversations', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/messages/conversations`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setConversations(response.data);
@@ -68,7 +68,7 @@ const Messages = () => {
       const fetchMessages = async () => {
         try {
           const token = localStorage.getItem('adminToken');
-          const response = await axios.get(`http://localhost:5001/api/messages/conversations/${activeConversationId}`, {
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/messages/conversations/${activeConversationId}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           setMessages(response.data);
@@ -119,7 +119,7 @@ const Messages = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.post('http://localhost:5001/api/uploads/images', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/uploads/images`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
@@ -150,7 +150,7 @@ const Messages = () => {
 
           try {
             const token = localStorage.getItem('adminToken');
-            const response = await axios.post('http://localhost:5001/api/uploads/images', formData, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/uploads/images`, formData, {
               headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: `Bearer ${token}`
@@ -176,7 +176,7 @@ const Messages = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.post(`http://localhost:5001/api/messages/conversations/${activeConversationId}`, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/messages/conversations/${activeConversationId}`, {
         message: "Sent an image",
         attachment_url: imageUrl
       }, {
@@ -193,7 +193,7 @@ const Messages = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.post(`http://localhost:5001/api/messages/conversations/${activeConversationId}`, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/messages/conversations/${activeConversationId}`, {
         message: newMessage
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -303,7 +303,7 @@ const Messages = () => {
                     {msg.attachment_url && (
                       <Box
                         component="img"
-                        src={`http://localhost:5001${msg.attachment_url}`}
+                        src={`${import.meta.env.VITE_SOCKET_URL}${msg.attachment_url}`}
                         alt="Attachment"
                         sx={{
                           maxWidth: '100%',

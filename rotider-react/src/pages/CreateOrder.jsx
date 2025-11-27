@@ -134,7 +134,7 @@ const CreateOrder = () => {
         }
       }
 
-      const response = await fetch("http://localhost:5001/api/orders", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

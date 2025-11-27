@@ -52,7 +52,7 @@ export default function AdminLayout({ onLogout }) {
 
   useEffect(() => {
     // Initialize socket connection
-    const socket = io("http://localhost:5001"); // Adjust URL if needed
+    const socket = io(import.meta.env.VITE_SOCKET_URL); // Adjust URL if needed
 
     socket.on("connect", () => {
       console.log("Connected to socket server");

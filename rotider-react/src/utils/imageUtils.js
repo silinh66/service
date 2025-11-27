@@ -11,7 +11,7 @@ export const getOptimizedImageUrl = (url, width) => {
 
     // If the URL is a relative path (starts with /), prepend the backend URL
     if (url.startsWith('/')) {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+        const apiUrl = import.meta.env.VITE_API_URL;
         // Remove '/api' from the end to get the base URL
         const baseUrl = apiUrl.replace(/\/api$/, '');
         return `${baseUrl}${url}`;

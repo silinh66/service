@@ -199,7 +199,7 @@ export default function EditPost() {
       setVideos([
         ...videos,
         {
-          url: `http://localhost:5001${response.url}`,
+          url: `${import.meta.env.VITE_SOCKET_URL}${response.url}`,
           title: file.name,
           type: "upload",
           filename: response.filename,

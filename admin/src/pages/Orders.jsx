@@ -59,7 +59,7 @@ export default function Orders() {
     loadOrders();
 
     // Socket listener for real-time updates
-    const socket = io("http://localhost:5001");
+    const socket = io(import.meta.env.VITE_SOCKET_URL);
     socket.on("new_order", (newOrder) => {
       setOrders((prevOrders) => [newOrder, ...prevOrders]);
     });
