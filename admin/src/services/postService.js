@@ -21,7 +21,7 @@ export const uploadService = {
       formData.append("fileName", fileName);
       formData.append("uploadId", uploadId);
 
-      response = await apiClient.post("/upload/videos/chunk", formData, {
+      response = await apiClient.post("/uploads/videos/chunk", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -44,7 +44,7 @@ export const uploadService = {
   },
 
   deleteVideo: async (filename) => {
-    const response = await apiClient.delete(`/upload/videos/${filename}`);
+    const response = await apiClient.delete(`/uploads/videos/${filename}`);
     return response.data;
   },
 };
