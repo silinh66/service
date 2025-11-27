@@ -34,7 +34,7 @@ const Login = () => {
                 className="login-bg-image"
             />
             <div className="login-content-wrapper">
-                {/* <img src={logoWhite} alt="Rotider Media" className="login-logo" /> */}
+                {/* <img src={logoWhite} alt="ZOOZOO STUDIO" className="login-logo" /> */}
                 <span className="login-logo" style={{ color: '#fff', fontWeight: 'bold', fontSize: 30 }}>ZOOZOOSTUDIO</span>
 
                 <div className="login-card">

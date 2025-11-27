@@ -72,7 +72,7 @@ const DashboardLayout = ({ children }) => {
                                     focusable="false"
                                     data-prefix="fas"
                                     data-icon="receipt"
-                                    className={`svg-inline--fa fa-receipt fa-fw w-5 h-4 ${isActive('/my-order') ? 'text-black' : 'text-orange-500'}`}
+                                    className={`svg-inline--fa fa-receipt fa-fw w-5 h-4 ${isActive('/my-order') ? 'text-[#4081f7]' : 'text-black'}`}
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 384 512"
@@ -82,7 +82,7 @@ const DashboardLayout = ({ children }) => {
                                         d="M14 2.2C22.5-1.7 32.5-.3 39.6 5.8L80 40.4 120.4 5.8c9-7.7 22.3-7.7 31.2 0L192 40.4 232.4 5.8c9-7.7 22.3-7.7 31.2 0L304 40.4 344.4 5.8c7.1-6.1 17.1-7.5 25.6-3.6s14 12.4 14 21.8l0  464c0 9.4-5.5 17.9-14 21.8s-18.5 2.5-25.6-3.6L304 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L192 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L80 471.6 39.6 506.2c-7.1 6.1-17.1 7.5-25.6 3.6S0 497.4 0  488L0 24C0 14.6 5.5 6.1 14 2.2zM96 144c-8.8 0-16 7.2-16 16s7.2 16 16 16l192 0c8.8 0 16-7.2 16-16s-7.2-16-16-16L96 144zM80 352c0 8.8 7.2 16 16 16l192 0c8.8 0 16-7.2 16-16s-7.2-16-16-16L96 336c-8.8 0-16 7.2-16 16zM96 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l192 0c8.8 0 16-7.2 16-16s-7.2-16-16-16L96 240z"
                                     ></path>
                                 </svg>
-                                <span className="text-black">My Order</span>
+                                <span className={isActive('/my-order') ? 'text-[#4081f7]' : 'text-black'}>My Order</span>
                             </Link>
                             <Link
                                 className={`px-5 py-3 space-x-3 rounded-lg text-sm flex items-center ${isActive('/create-order') ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
@@ -94,7 +94,7 @@ const DashboardLayout = ({ children }) => {
                                     focusable="false"
                                     data-prefix="fas"
                                     data-icon="cart-shopping"
-                                    className={`svg-inline--fa fa-cart-shopping fa-fw w-5 h-4 ${isActive('/create-order') ? 'text-black' : 'text-orange-500'}`}
+                                    className={`svg-inline--fa fa-cart-shopping fa-fw w-5 h-4 ${isActive('/create-order') ? 'text-[#4081f7]' : 'text-black'}`}
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 576 512"
@@ -104,15 +104,15 @@ const DashboardLayout = ({ children }) => {
                                         d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
                                     ></path>
                                 </svg>
-                                <span className="text-black">Create Order</span>
+                                <span className={isActive('/create-order') ? 'text-[#4081f7]' : 'text-black'}>Create Order</span>
                             </Link>
                             <Link
                                 className={`px-5 py-3 space-x-3 rounded-lg text-sm flex items-center ${isActive('/services') ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
                                 to="/services"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 52 52" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"><path d="M17.05,2H8A6.08,6.08,0,0,0,2,8.09v5.68a6,6,0,0,0,6,6.09h9.05a6,6,0,0,0,6-6.09V8.09A6,6,0,0,0,17.05,2ZM13.79,15H11.3a4.06,4.06,0,0,1,0-8.12h2.49a4.06,4.06,0,1,1,0,8.12Z" /><path d="M34.42,19.86h9a6,6,0,0,0,6-6.09V8.09a6,6,0,0,0-6-6.09h-9a6,6,0,0,0-6,6.09v5.68A6,6,0,0,0,34.42,19.86Zm3.25-13h2.49a4.06,4.06,0,1,1,0,8.12H37.67a4.06,4.06,0,0,1,0-8.12Z" /><path d="M17.05,24.73H8a6.08,6.08,0,0,0-6,6.09v5.69a6.06,6.06,0,0,0,6,6.08h9.05a6.06,6.06,0,0,0,6-6.08V30.82A6,6,0,0,0,17.05,24.73Zm-3.26,13H11.3a4.06,4.06,0,0,1,0-8.12h2.49a4.06,4.06,0,1,1,0,8.12Z" /><path d="M39.18,24.73c-6,0-10.81,4.47-10.81,10.05,0,6.94,7.74,13.3,10.13,15a1.17,1.17,0,0,0,1.42,0C42.31,48,50,41.72,50,34.78,50,29.2,45.16,24.73,39.18,24.73Zm0,14.2a4.4,4.4,0,0,1-4.55-4.21,4.57,4.57,0,0,1,9.11,0A4.4,4.4,0,0,1,39.18,38.93Z" /></svg>
-                                <span className="text-black">Services</span>
+                                <svg className={isActive('/services') ? 'text-[#4081f7]' : 'text-black'} fill="currentColor" width="24px" height="24px" viewBox="0 0 52 52" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"><path d="M17.05,2H8A6.08,6.08,0,0,0,2,8.09v5.68a6,6,0,0,0,6,6.09h9.05a6,6,0,0,0,6-6.09V8.09A6,6,0,0,0,17.05,2ZM13.79,15H11.3a4.06,4.06,0,0,1,0-8.12h2.49a4.06,4.06,0,1,1,0,8.12Z" /><path d="M34.42,19.86h9a6,6,0,0,0,6-6.09V8.09a6,6,0,0,0-6-6.09h-9a6,6,0,0,0-6,6.09v5.68A6,6,0,0,0,34.42,19.86Zm3.25-13h2.49a4.06,4.06,0,1,1,0,8.12H37.67a4.06,4.06,0,0,1,0-8.12Z" /><path d="M17.05,24.73H8a6.08,6.08,0,0,0-6,6.09v5.69a6.06,6.06,0,0,0,6,6.08h9.05a6.06,6.06,0,0,0,6-6.08V30.82A6,6,0,0,0,17.05,24.73Zm-3.26,13H11.3a4.06,4.06,0,0,1,0-8.12h2.49a4.06,4.06,0,1,1,0,8.12Z" /><path d="M39.18,24.73c-6,0-10.81,4.47-10.81,10.05,0,6.94,7.74,13.3,10.13,15a1.17,1.17,0,0,0,1.42,0C42.31,48,50,41.72,50,34.78,50,29.2,45.16,24.73,39.18,24.73Zm0,14.2a4.4,4.4,0,0,1-4.55-4.21,4.57,4.57,0,0,1,9.11,0A4.4,4.4,0,0,1,39.18,38.93Z" /></svg>
+                                <span className={isActive('/services') ? 'text-[#4081f7]' : 'text-black'}>Services</span>
                             </Link>
                             <Link
                                 className={`px-5 py-3 space-x-3 rounded-lg text-sm flex items-center ${isActive('/messages') ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
@@ -124,7 +124,7 @@ const DashboardLayout = ({ children }) => {
                                     focusable="false"
                                     data-prefix="fas"
                                     data-icon="comment-dots"
-                                    className={`svg-inline--fa fa-comment-dots fa-fw w-5 h-4 ${isActive('/messages') ? 'text-black' : 'text-orange-500'}`}
+                                    className={`svg-inline--fa fa-comment-dots fa-fw w-5 h-4 ${isActive('/messages') ? 'text-[#4081f7]' : 'text-black'}`}
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"
@@ -134,7 +134,7 @@ const DashboardLayout = ({ children }) => {
                                         d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3c0 0 0 0 0 0c0 0 0 0 0 0s0 0 0 0s0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"
                                     ></path>
                                 </svg>
-                                <span className="text-black">Messages</span>
+                                <span className={isActive('/messages') ? 'text-[#4081f7]' : 'text-black'}>Messages</span>
                             </Link>
                             <Link
                                 className={`px-5 py-3 space-x-3 rounded-lg text-sm flex items-center ${isActive('/payments') ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
@@ -146,7 +146,7 @@ const DashboardLayout = ({ children }) => {
                                     focusable="false"
                                     data-prefix="fas"
                                     data-icon="wallet"
-                                    className={`svg-inline--fa fa-wallet fa-fw w-5 h-4 ${isActive('/payments') ? 'text-black' : 'text-orange-500'}`}
+                                    className={`svg-inline--fa fa-wallet fa-fw w-5 h-4 ${isActive('/payments') ? 'text-[#4081f7]' : 'text-black'}`}
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"
@@ -156,7 +156,7 @@ const DashboardLayout = ({ children }) => {
                                         d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L80 128c-8.8 0-16-7.2-16-16s7.2-16 16-16l368 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L64 32zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
                                     ></path>
                                 </svg>
-                                <span className="text-black">Payments</span>
+                                <span className={isActive('/payments') ? 'text-[#4081f7]' : 'text-black'}>Payments</span>
                             </Link>
                         </div>
                     </div>
@@ -175,7 +175,7 @@ const DashboardLayout = ({ children }) => {
                                     focusable="false"
                                     data-prefix="fas"
                                     data-icon="user"
-                                    className={`svg-inline--fa fa-user fa-fw w-5 h-4 ${isActive('/my-account') ? 'text-black' : 'text-orange-500'}`}
+                                    className={`svg-inline--fa fa-user fa-fw w-5 h-4 ${isActive('/my-account') ? 'text-[#4081f7]' : 'text-black'}`}
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
@@ -185,7 +185,7 @@ const DashboardLayout = ({ children }) => {
                                         d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
                                     ></path>
                                 </svg>
-                                <span className="text-black">My Account</span>
+                                <span className={isActive('/my-account') ? 'text-[#4081f7]' : 'text-black'}>My Account</span>
                             </Link>
                             <Link
                                 className={`px-5 py-3 space-x-3 rounded-lg text-sm flex items-center ${isActive('/change-password') ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
@@ -197,7 +197,7 @@ const DashboardLayout = ({ children }) => {
                                     focusable="false"
                                     data-prefix="fas"
                                     data-icon="lock"
-                                    className={`svg-inline--fa fa-lock fa-fw w-5 h-4 ${isActive('/change-password') ? 'text-black' : 'text-orange-500'}`}
+                                    className={`svg-inline--fa fa-lock fa-fw w-5 h-4 ${isActive('/change-password') ? 'text-[#4081f7]' : 'text-black'}`}
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
@@ -207,7 +207,7 @@ const DashboardLayout = ({ children }) => {
                                         d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"
                                     ></path>
                                 </svg>
-                                <span className="text-black">Change Password</span>
+                                <span className={isActive('/change-password') ? 'text-[#4081f7]' : 'text-black'}>Change Password</span>
                             </Link>
                         </div>
                     </div>

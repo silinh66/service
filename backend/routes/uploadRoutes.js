@@ -138,4 +138,26 @@ router.delete("/videos/:filename", authenticate, (req, res) => {
   }
 });
 
+import { imageUpload } from "../middleware/imageUpload.js";
+
+// Image upload endpoint
+router.post("/images", authenticate, imageUpload.single("image"), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No image uploaded" });
+    }
+
+    const imageUrl = `/uploads/images/${req.file.filename}`;
+
+    res.status(200).json({
+      message: "Image uploaded successfully",
+      filename: req.file.filename,
+      url: imageUrl,
+    });
+  } catch (error) {
+    console.error("Upload image error:", error);
+    res.status(500).json({ message: "Error uploading image" });
+  }
+});
+
 export default router;

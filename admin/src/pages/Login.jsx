@@ -89,7 +89,7 @@ export default function Login({ onLogin }) {
             }}
           >
             {/* You can replace this with an actual <img> tag if you have the logo asset */}
-            <Box component="span" sx={{ fontSize: "2rem" }}>🦌</Box> ROTIDER MEDIA
+            <Box component="span" sx={{ fontSize: "2rem" }}>🦌</Box> ZOOZOOSTUDIO
           </Typography>
         </Box>
 

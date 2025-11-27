@@ -20,7 +20,7 @@ const Header = () => {
             <header id="header" className="header has-transparent has-transparent has-sticky sticky-jump transparent">
                 <div className="header-wrapper">
                     <div id="masthead" className="header-main nav-dark">
-                        <div className="header-inner flex-row container logo-left medium-logo-center" role="navigation">
+                        <div className="header-inner flex-row container header-centered medium-logo-center" role="navigation">
 
                             {/* Logo */}
                             <div id="logo" className="flex-col logo">
@@ -44,9 +44,9 @@ const Header = () => {
                                 </ul>
                             </div>
 
-                            {/* Left Elements */}
-                            <div className="flex-col hide-for-medium flex-left flex-grow">
-                                <ul className="header-nav header-nav-main nav nav-left nav-spacing-xlarge nav-uppercase">
+                            {/* Center Elements (Logo + Menu) */}
+                            <div className="flex-col hide-for-medium">
+                                <ul className="header-nav header-nav-main nav nav-center nav-spacing-xlarge nav-uppercase">
                                     <li id="menu-item-808" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808 active menu-item-design-default">
                                         <Link to="/" aria-current="page" className="nav-top-link">Home page</Link>
                                     </li>
@@ -59,11 +59,7 @@ const Header = () => {
                                 </ul>
                             </div>
 
-                            {/* Right Elements */}
-                            <div className="flex-col hide-for-medium flex-right">
-                                <ul className="header-nav header-nav-main nav nav-right nav-spacing-xlarge nav-uppercase">
-                                </ul>
-                            </div>
+
 
                             {/* Mobile Right Elements */}
                             <div className="flex-col show-for-medium flex-right">

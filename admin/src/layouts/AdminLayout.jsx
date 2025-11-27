@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import {
   Box,
@@ -16,6 +16,9 @@ import {
   Avatar,
   Menu,
   MenuItem,
+  Snackbar,
+  Alert,
+  Badge,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
@@ -25,7 +28,9 @@ import {
   Message as MessageIcon,
   Logout as LogoutIcon,
   AccountCircle as AccountIcon,
+  Notifications as NotificationsIcon,
 } from "@mui/icons-material";
+import { io } from "socket.io-client";
 
 const drawerWidth = 260;
 
@@ -39,8 +44,71 @@ const menuItems = [
 export default function AdminLayout({ onLogout }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [notificationAnchorEl, setNotificationAnchorEl] = useState(null);
+  const [notification, setNotification] = useState({ open: false, message: "", severity: "info" });
+  const [notificationsList, setNotificationsList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    // Initialize socket connection
+    const socket = io("http://localhost:5001"); // Adjust URL if needed
+
+    socket.on("connect", () => {
+      console.log("Connected to socket server");
+    });
+
+    socket.on("new_order", (data) => {
+      const message = `Đơn hàng mới #${data.order_number} từ ${data.customer_name}`;
+      setNotification({
+        open: true,
+        message: message,
+        severity: "success",
+      });
+
+      setNotificationsList((prev) => [
+        {
+          id: Date.now(),
+          message: message,
+          orderId: data.id,
+          type: 'order',
+          read: false,
+          time: new Date(),
+        },
+        ...prev,
+      ]);
+      // Play sound if desired
+    });
+
+    socket.on("new_message", (data) => {
+      const message = `Tin nhắn mới từ ${data.sender_name}`;
+      setNotification({
+        open: true,
+        message: message,
+        severity: "info",
+      });
+
+      setNotificationsList((prev) => [
+        {
+          id: Date.now(),
+          message: message,
+          conversationId: data.conversation_id,
+          type: 'message',
+          read: false,
+          time: new Date(),
+        },
+        ...prev,
+      ]);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -50,8 +118,25 @@ export default function AdminLayout({ onLogout }) {
     setAnchorEl(event.currentTarget);
   };
 
+  const handleNotificationMenuOpen = (event) => {
+    setNotificationAnchorEl(event.currentTarget);
+  };
+
   const handleMenuClose = () => {
     setAnchorEl(null);
+    setNotificationAnchorEl(null);
+  };
+
+  const handleNotificationClick = (notification) => {
+    handleMenuClose();
+    // Mark as read
+    setNotificationsList(prev => prev.map(n => n.id === notification.id ? { ...n, read: true } : n));
+
+    if (notification.type === 'order' && notification.orderId) {
+      navigate(`/orders/${notification.orderId}`);
+    } else if (notification.type === 'message') {
+      navigate('/messages');
+    }
   };
 
   const handleLogout = () => {
@@ -59,6 +144,8 @@ export default function AdminLayout({ onLogout }) {
     onLogout();
     navigate("/login");
   };
+
+  const unreadCount = notificationsList.filter(n => !n.read).length;
 
   const drawer = (
     <Box>
@@ -159,6 +246,18 @@ export default function AdminLayout({ onLogout }) {
           >
             Admin Panel
           </Typography>
+
+          <IconButton
+            size="large"
+            aria-label="show new notifications"
+            color="inherit"
+            onClick={handleNotificationMenuOpen}
+          >
+            <Badge badgeContent={unreadCount} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+
           <IconButton
             onClick={handleProfileMenuOpen}
             size="large"
@@ -171,6 +270,8 @@ export default function AdminLayout({ onLogout }) {
               A
             </Avatar>
           </IconButton>
+
+          {/* Profile Menu */}
           <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
@@ -196,6 +297,46 @@ export default function AdminLayout({ onLogout }) {
               </ListItemIcon>
               Đăng xuất
             </MenuItem>
+          </Menu>
+
+          {/* Notifications Menu */}
+          <Menu
+            anchorEl={notificationAnchorEl}
+            open={Boolean(notificationAnchorEl)}
+            onClose={handleMenuClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            PaperProps={{
+              style: {
+                maxHeight: 400,
+                width: '350px',
+              },
+            }}
+          >
+            <Typography sx={{ p: 2, fontWeight: 600 }}>Thông báo</Typography>
+            <Divider />
+            {notificationsList.length === 0 ? (
+              <MenuItem onClick={handleMenuClose}>
+                <Typography variant="body2" color="text.secondary">Không có thông báo mới</Typography>
+              </MenuItem>
+            ) : (
+              notificationsList.map((notif) => (
+                <MenuItem key={notif.id} onClick={() => handleNotificationClick(notif)}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Typography variant="body2" sx={{ fontWeight: 600 }}>{notif.message}</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {notif.time.toLocaleTimeString()}
+                    </Typography>
+                  </Box>
+                </MenuItem>
+              ))
+            )}
           </Menu>
         </Toolbar>
       </AppBar>
@@ -247,6 +388,17 @@ export default function AdminLayout({ onLogout }) {
         <Toolbar />
         <Outlet />
       </Box>
+
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={10000}
+        onClose={handleCloseNotification}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }

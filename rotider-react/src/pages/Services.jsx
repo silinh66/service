@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import DashboardLayout from "../components/DashboardLayout";
 
 const Services = () => {
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState("VIDEO EDITING");
 
     const allServices = [
@@ -12,7 +14,7 @@ const Services = () => {
             id: 3,
             title: "Standard",
             subtitle: "VIDEO EDITING",
-            price: "$39.00",
+            price: "$0.50",
             description: "Instagram reels, Youtube shorts and Tiktoks Video duration: 60s.",
             image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2670&auto=format&fit=crop",
             tag: "STANDARD PACKAGE EDITING SERVICE",
@@ -125,6 +127,12 @@ const Services = () => {
                                 <Button
                                     type="primary"
                                     className="w-full bg-blue-500 hover:bg-blue-600 border-none text-white font-bold h-10 rounded-md uppercase tracking-wide"
+                                    onClick={() => navigate("/create-order", {
+                                        state: {
+                                            category: service.category,
+                                            serviceTitle: service.title
+                                        }
+                                    })}
                                 >
                                     Order now
                                 </Button>

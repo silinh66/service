@@ -47,22 +47,22 @@ export const sendMessage = async (req, res) => {
     await connection.beginTransaction();
 
     const { conversationId } = req.params;
-    const { message } = req.body;
+    const { message, attachment_url } = req.body;
 
-    if (!message) {
-      return res.status(400).json({ message: "Message is required" });
+    if (!message && !attachment_url) {
+      return res.status(400).json({ message: "Message or attachment is required" });
     }
 
     // Insert message
     const [result] = await connection.query(
-      "INSERT INTO messages (conversation_id, sender_type, sender_name, message) VALUES (?, ?, ?, ?)",
-      [conversationId, "admin", req.user.username, message]
+      "INSERT INTO messages (conversation_id, sender_type, sender_name, message, attachment_url) VALUES (?, ?, ?, ?, ?)",
+      [conversationId, "admin", req.user.username, message || "", attachment_url || null]
     );
 
     // Update conversation
     await connection.query(
       "UPDATE conversations SET last_message = ?, updated_at = NOW() WHERE conversation_id = ?",
-      [message, conversationId]
+      [message || "Sent an attachment", conversationId]
     );
 
     await connection.commit();
@@ -74,7 +74,8 @@ export const sendMessage = async (req, res) => {
       conversation_id: conversationId,
       sender_type: "admin",
       sender_name: req.user.username,
-      message,
+      message: message || "",
+      attachment_url: attachment_url || null,
       created_at: new Date(),
     });
 
@@ -125,6 +126,17 @@ export const createConversation = async (req, res) => {
       updated_at: new Date(),
     });
 
+    // Also emit new_message for notification
+    io.emit("new_message", {
+      id: Date.now(), // Temp ID or fetch real one if needed, but for notif it's fine
+      conversation_id: conversationId,
+      sender_type: "customer",
+      sender_name: customer_name,
+      message,
+      created_at: new Date(),
+      is_new_conversation: true
+    });
+
     res.status(201).json({
       message: "Conversation created successfully",
       conversationId,
@@ -142,36 +154,42 @@ export const sendCustomerMessage = async (req, res) => {
     await connection.beginTransaction();
 
     const { conversationId } = req.params;
-    const { message, customer_name } = req.body;
+    const { message, customer_name, attachment_url } = req.body;
 
-    if (!message) {
-      return res.status(400).json({ message: "Message is required" });
+    if (!message && !attachment_url) {
+      return res.status(400).json({ message: "Message or attachment is required" });
     }
 
     // Insert message
     const [result] = await connection.query(
-      "INSERT INTO messages (conversation_id, sender_type, sender_name, message) VALUES (?, ?, ?, ?)",
-      [conversationId, "customer", customer_name || "Customer", message]
+      "INSERT INTO messages (conversation_id, sender_type, sender_name, message, attachment_url) VALUES (?, ?, ?, ?, ?)",
+      [conversationId, "customer", customer_name || "Customer", message || "", attachment_url || null]
     );
 
     // Update conversation
     await connection.query(
-      "UPDATE conversations SET last_message = ?, updated_at = NOW() WHERE conversation_id = ?",
-      [message, conversationId]
+      "UPDATE conversations SET last_message = ?, unread_count = unread_count + 1, updated_at = NOW() WHERE conversation_id = ?",
+      [message || "Sent an attachment", conversationId]
     );
 
     await connection.commit();
 
     // Emit socket event
     const io = req.app.get("io");
-    io.to(conversationId).emit("receive_message", {
+    const messageData = {
       id: result.insertId,
       conversation_id: conversationId,
       sender_type: "customer",
       sender_name: customer_name || "Customer",
-      message,
+      message: message || "",
+      attachment_url: attachment_url || null,
       created_at: new Date(),
-    });
+    };
+
+    io.to(conversationId).emit("receive_message", messageData);
+
+    // Emit global event for admin notifications
+    io.emit("new_message", messageData);
 
     res.status(201).json({
       message: "Message sent successfully",

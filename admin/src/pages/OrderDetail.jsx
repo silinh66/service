@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   Box,
@@ -24,6 +24,8 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  CircularProgress,
+  Alert,
 } from "@mui/material";
 import {
   ArrowBack as BackIcon,
@@ -39,6 +41,7 @@ import {
   Download as DownloadIcon,
   Upload as UploadIcon,
 } from "@mui/icons-material";
+import { orderService } from "../services/orderService";
 
 const statusConfig = {
   pending: { label: "Chờ xử lý", color: "info" },
@@ -50,47 +53,29 @@ const statusConfig = {
 export default function OrderDetail() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [status, setStatus] = useState("processing");
+  const [order, setOrder] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [status, setStatus] = useState("");
   const [note, setNote] = useState("");
   const [openStatusDialog, setOpenStatusDialog] = useState(false);
 
-  // Mock order data - replace with API call
-  const order = {
-    id,
-    orderNumber: "ORD-2025-001",
-    customer: {
-      name: "Nguyễn Văn A",
-      email: "nguyenvana@email.com",
-      phone: "+84 123 456 789",
-      address: "123 Nguyễn Huệ, Quận 1, TP.HCM",
-    },
-    service: "Photo Editing",
-    package: "Premium",
-    description:
-      "Cần chỉnh sửa 50 ảnh bất động sản, yêu cầu chất lượng cao, màu sắc sáng, loại bỏ các vật dụng không cần thiết.",
-    amount: "500,000đ",
-    status: "processing",
-    priority: "high",
-    createdDate: "2025-11-10 14:30",
-    deadline: "2025-11-15",
-    files: [
-      { name: "house_photo_1.jpg", size: "2.4 MB" },
-      { name: "house_photo_2.jpg", size: "3.1 MB" },
-      { name: "requirements.pdf", size: "156 KB" },
-    ],
-    timeline: [
-      {
-        date: "2025-11-10 14:30",
-        event: "Đơn hàng được tạo",
-        user: "Khách hàng",
-      },
-      {
-        date: "2025-11-10 15:00",
-        event: "Đơn hàng được xác nhận",
-        user: "Admin",
-      },
-      { date: "2025-11-10 16:00", event: "Bắt đầu xử lý", user: "Editor Team" },
-    ],
+  useEffect(() => {
+    loadOrderDetails();
+  }, [id]);
+
+  const loadOrderDetails = async () => {
+    try {
+      setLoading(true);
+      const data = await orderService.getOrderById(id);
+      setOrder(data);
+      setStatus(data.status);
+    } catch (err) {
+      setError("Không thể tải thông tin đơn hàng");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleStatusChange = (newStatus) => {
@@ -98,12 +83,42 @@ export default function OrderDetail() {
     setOpenStatusDialog(true);
   };
 
-  const handleUpdateStatus = () => {
-    console.log("Updating status to:", status);
-    console.log("Note:", note);
-    setOpenStatusDialog(false);
-    alert("Cập nhật trạng thái thành công!");
+  const handleUpdateStatus = async () => {
+    try {
+      // Implement update status API call here
+      // await orderService.updateOrderStatus(id, status, note);
+      console.log("Updating status to:", status);
+      console.log("Note:", note);
+
+      // Optimistic update
+      setOrder({ ...order, status: status });
+
+      setOpenStatusDialog(false);
+      alert("Cập nhật trạng thái thành công!");
+    } catch (err) {
+      console.error("Failed to update status:", err);
+      alert("Cập nhật thất bại");
+    }
   };
+
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (error || !order) {
+    return (
+      <Box sx={{ p: 3 }}>
+        <Alert severity="error">{error || "Không tìm thấy đơn hàng"}</Alert>
+        <Button startIcon={<BackIcon />} onClick={() => navigate("/orders")} sx={{ mt: 2 }}>
+          Quay lại
+        </Button>
+      </Box>
+    );
+  }
 
   return (
     <Box>
@@ -124,7 +139,7 @@ export default function OrderDetail() {
               Chi tiết đơn hàng
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {order.orderNumber}
+              {order.order_number}
             </Typography>
           </Box>
         </Box>
@@ -154,8 +169,8 @@ export default function OrderDetail() {
                 Trạng thái đơn hàng
               </Typography>
               <Chip
-                label={statusConfig[order.status].label}
-                color={statusConfig[order.status].color}
+                label={statusConfig[order.status]?.label || order.status}
+                color={statusConfig[order.status]?.color || "default"}
                 size="medium"
               />
             </Box>
@@ -201,20 +216,22 @@ export default function OrderDetail() {
                   Dịch vụ
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                  {order.service}
+                  {order.category}
                 </Typography>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body2" color="text.secondary" gutterBottom>
                   Gói
                 </Typography>
-                <Chip label={order.package} color="primary" size="small" />
+                <Chip label={order.main_service} color="primary" size="small" />
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body2" color="text.secondary" gutterBottom>
                   Ngày tạo
                 </Typography>
-                <Typography variant="body1">{order.createdDate}</Typography>
+                <Typography variant="body1">
+                  {new Date(order.created_at).toLocaleString("vi-VN")}
+                </Typography>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body2" color="text.secondary" gutterBottom>
@@ -224,15 +241,38 @@ export default function OrderDetail() {
                   variant="body1"
                   sx={{ color: "error.main", fontWeight: 600 }}
                 >
-                  {order.deadline}
+                  {/* Calculate deadline or show if available */}
+                  {order.deadline || "N/A"}
                 </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="body2" color="text.secondary" gutterBottom>
-                  Mô tả yêu cầu
+                  Chi tiết dịch vụ
                 </Typography>
-                <Typography variant="body1">{order.description}</Typography>
+                <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
+                  {order.service_details}
+                </Typography>
               </Grid>
+              {order.instructions && (
+                <Grid item xs={12}>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>
+                    Hướng dẫn thêm
+                  </Typography>
+                  <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
+                    {order.instructions}
+                  </Typography>
+                </Grid>
+              )}
+              {order.product_url && (
+                <Grid item xs={12}>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>
+                    Link sản phẩm
+                  </Typography>
+                  <a href={order.product_url} target="_blank" rel="noopener noreferrer">
+                    {order.product_url}
+                  </a>
+                </Grid>
+              )}
             </Grid>
           </Paper>
 
@@ -246,9 +286,10 @@ export default function OrderDetail() {
               File đính kèm
             </Typography>
             <List>
-              {order.files.map((file, index) => (
+              {/* Assuming files are stored as JSON string or array in DB, adjust if needed */}
+              {/* For now, showing placeholder if no files structure is defined in previous steps */}
+              {order.sample ? (
                 <ListItem
-                  key={index}
                   sx={{
                     border: "1px solid",
                     borderColor: "divider",
@@ -256,18 +297,20 @@ export default function OrderDetail() {
                     mb: 1,
                   }}
                   secondaryAction={
-                    <IconButton edge="end">
+                    <IconButton edge="end" href={order.sample} target="_blank">
                       <DownloadIcon />
                     </IconButton>
                   }
                 >
-                  <ListItemText primary={file.name} secondary={file.size} />
+                  <ListItemText primary="File mẫu (Sample)" secondary={order.sample} />
                 </ListItem>
-              ))}
+              ) : (
+                <Typography variant="body2" color="text.secondary">Không có file đính kèm</Typography>
+              )}
             </List>
           </Paper>
 
-          {/* Timeline */}
+          {/* Timeline - Placeholder as backend might not support full timeline yet */}
           <Paper sx={{ p: 3 }}>
             <Typography
               variant="h6"
@@ -277,27 +320,25 @@ export default function OrderDetail() {
               Lịch sử thay đổi
             </Typography>
             <List>
-              {order.timeline.map((item, index) => (
-                <ListItem key={index} sx={{ pl: 0 }}>
-                  <Box sx={{ mr: 2 }}>
-                    <Avatar
-                      sx={{ bgcolor: "primary.main", width: 32, height: 32 }}
-                    >
-                      <CalendarIcon fontSize="small" />
-                    </Avatar>
-                  </Box>
-                  <ListItemText
-                    primary={item.event}
-                    secondary={
-                      <Box>
-                        <Typography variant="caption" color="text.secondary">
-                          {item.date} • {item.user}
-                        </Typography>
-                      </Box>
-                    }
-                  />
-                </ListItem>
-              ))}
+              <ListItem sx={{ pl: 0 }}>
+                <Box sx={{ mr: 2 }}>
+                  <Avatar
+                    sx={{ bgcolor: "primary.main", width: 32, height: 32 }}
+                  >
+                    <CalendarIcon fontSize="small" />
+                  </Avatar>
+                </Box>
+                <ListItemText
+                  primary="Đơn hàng được tạo"
+                  secondary={
+                    <Box>
+                      <Typography variant="caption" color="text.secondary">
+                        {new Date(order.created_at).toLocaleString("vi-VN")} • Khách hàng
+                      </Typography>
+                    </Box>
+                  }
+                />
+              </ListItem>
             </List>
           </Paper>
         </Grid>
@@ -317,7 +358,7 @@ export default function OrderDetail() {
                 <PersonIcon sx={{ mr: 2, color: "text.secondary" }} />
                 <ListItemText
                   primary="Tên khách hàng"
-                  secondary={order.customer.name}
+                  secondary={order.customer_name}
                   primaryTypographyProps={{
                     variant: "caption",
                     color: "text.secondary",
@@ -334,7 +375,7 @@ export default function OrderDetail() {
                 <EmailIcon sx={{ mr: 2, color: "text.secondary" }} />
                 <ListItemText
                   primary="Email"
-                  secondary={order.customer.email}
+                  secondary={order.customer_email}
                   primaryTypographyProps={{
                     variant: "caption",
                     color: "text.secondary",
@@ -345,38 +386,7 @@ export default function OrderDetail() {
                   }}
                 />
               </ListItem>
-              <Divider />
-              <ListItem sx={{ px: 0, py: 1 }}>
-                <PhoneIcon sx={{ mr: 2, color: "text.secondary" }} />
-                <ListItemText
-                  primary="Số điện thoại"
-                  secondary={order.customer.phone}
-                  primaryTypographyProps={{
-                    variant: "caption",
-                    color: "text.secondary",
-                  }}
-                  secondaryTypographyProps={{
-                    variant: "body2",
-                    color: "text.primary",
-                  }}
-                />
-              </ListItem>
-              <Divider />
-              <ListItem sx={{ px: 0, py: 1 }}>
-                <LocationIcon sx={{ mr: 2, color: "text.secondary" }} />
-                <ListItemText
-                  primary="Địa chỉ"
-                  secondary={order.customer.address}
-                  primaryTypographyProps={{
-                    variant: "caption",
-                    color: "text.secondary",
-                  }}
-                  secondaryTypographyProps={{
-                    variant: "body2",
-                    color: "text.primary",
-                  }}
-                />
-              </ListItem>
+              {/* Phone and Address are not in the createOrder payload shown earlier, add if available */}
             </List>
           </Paper>
 
@@ -402,10 +412,14 @@ export default function OrderDetail() {
                 variant="h4"
                 sx={{ fontWeight: 700, color: "success.main" }}
               >
-                {order.amount}
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(order.amount || 0)}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                Đã thanh toán
+                {/* Assuming paid if created via PayPal flow, or pending */}
+                {order.status === 'pending' ? 'Chờ thanh toán' : 'Đã thanh toán'}
               </Typography>
             </Box>
           </Paper>

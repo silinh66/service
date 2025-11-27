@@ -28,8 +28,10 @@ import {
   Visibility as ViewIcon,
   Search as SearchIcon,
   Person as PersonIcon,
+  CheckCircle as CheckCircleIcon,
 } from "@mui/icons-material";
 import { orderService } from "../services/orderService";
+import { io } from "socket.io-client";
 
 const statusConfig = {
   pending: { label: "Chờ xử lý", color: "info" },
@@ -55,6 +57,26 @@ export default function Orders() {
 
   useEffect(() => {
     loadOrders();
+
+    // Socket listener for real-time updates
+    const socket = io("http://localhost:5001");
+    socket.on("new_order", (newOrder) => {
+      setOrders((prevOrders) => [newOrder, ...prevOrders]);
+    });
+
+    socket.on("order_payment_success", (updatedOrder) => {
+      setOrders((prevOrders) =>
+        prevOrders.map((order) =>
+          order.id === updatedOrder.id
+            ? { ...order, status: updatedOrder.status, amount: updatedOrder.amount }
+            : order
+        )
+      );
+    });
+
+    return () => {
+      socket.disconnect();
+    };
   }, []);
 
   const loadOrders = async () => {
@@ -76,7 +98,7 @@ export default function Orders() {
       order.order_number?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       order.customer_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       order.customer_email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.service_type?.toLowerCase().includes(searchQuery.toLowerCase());
+      order.category?.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesStatus =
       filterStatus === "all" || order.status === filterStatus;
@@ -176,6 +198,7 @@ export default function Orders() {
                 <TableCell align="right">Giá trị</TableCell>
                 <TableCell>Ưu tiên</TableCell>
                 <TableCell>Trạng thái</TableCell>
+                <TableCell>Thanh toán</TableCell>
                 <TableCell>Ngày tạo</TableCell>
                 <TableCell align="center">Thao tác</TableCell>
               </TableRow>
@@ -215,10 +238,10 @@ export default function Orders() {
                       </Box>
                     </Box>
                   </TableCell>
-                  <TableCell>{order.service_type}</TableCell>
+                  <TableCell>{order.category}</TableCell>
                   <TableCell>
                     <Chip
-                      label={order.package_type}
+                      label={order.main_service}
                       size="small"
                       variant="outlined"
                     />
@@ -230,8 +253,8 @@ export default function Orders() {
                     >
                       {new Intl.NumberFormat("vi-VN", {
                         style: "currency",
-                        currency: "VND",
-                      }).format(order.total_amount)}
+                        currency: "USD", // Changed to USD as per previous context, or keep VND if that's the system default. Keeping USD for consistency with PayPal.
+                      }).format(order.amount || 0)}
                     </Typography>
                   </TableCell>
                   <TableCell>
@@ -256,6 +279,26 @@ export default function Orders() {
                     />
                   </TableCell>
                   <TableCell>
+                    <Chip
+                      label={
+                        ["processing", "completed"].includes(order.status)
+                          ? "Đã thanh toán"
+                          : "Chưa thanh toán"
+                      }
+                      size="small"
+                      color={
+                        ["processing", "completed"].includes(order.status)
+                          ? "success"
+                          : "default"
+                      }
+                      variant={
+                        ["processing", "completed"].includes(order.status)
+                          ? "filled"
+                          : "outlined"
+                      }
+                    />
+                  </TableCell>
+                  <TableCell>
                     {new Date(order.created_at).toLocaleDateString("vi-VN")}
                   </TableCell>
                   <TableCell align="center">
@@ -269,6 +312,35 @@ export default function Orders() {
                     >
                       <ViewIcon fontSize="small" />
                     </IconButton>
+                    {order.status === "processing" && (
+                      <IconButton
+                        size="small"
+                        color="success"
+                        title="Hoàn thành đơn hàng"
+                        onClick={async (e) => {
+                          e.stopPropagation();
+                          if (
+                            window.confirm(
+                              "Bạn có chắc chắn muốn hoàn thành đơn hàng này?"
+                            )
+                          ) {
+                            try {
+                              await orderService.updateOrderStatus(
+                                order.id,
+                                "completed",
+                                "Đã hoàn thành thủ công bởi Admin"
+                              );
+                              loadOrders();
+                            } catch (err) {
+                              console.error("Failed to complete order:", err);
+                              alert("Có lỗi xảy ra khi cập nhật trạng thái");
+                            }
+                          }
+                        }}
+                      >
+                        <CheckCircleIcon fontSize="small" />
+                      </IconButton>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}

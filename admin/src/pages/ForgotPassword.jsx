@@ -79,7 +79,7 @@ export default function ForgotPassword() {
                             gap: 1,
                         }}
                     >
-                        <Box component="span" sx={{ fontSize: "2rem" }}>🦌</Box> ROTIDER MEDIA
+                        <Box component="span" sx={{ fontSize: "2rem" }}>🦌</Box> ZOOZOOSTUDIO
                     </Typography>
                 </Box>
 

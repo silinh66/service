@@ -128,6 +128,107 @@ const Messages = () => {
         }
     };
 
+    const fileInputRef = useRef(null);
+
+    const handleFileSelect = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+            setLoading(true);
+            const token = localStorage.getItem('token'); // Assuming token is stored
+            const response = await fetch('http://localhost:5001/api/uploads/images', {
+                method: 'POST',
+                headers: {
+                    // 'Authorization': `Bearer ${token}` // Add auth if needed
+                },
+                body: formData
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                // Send message with attachment
+                await sendMessageWithAttachment(data.url);
+            } else {
+                console.error("Upload failed:", data);
+                alert("Failed to upload image");
+            }
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            alert("Error uploading image");
+        } finally {
+            setLoading(false);
+            if (fileInputRef.current) fileInputRef.current.value = '';
+        }
+    };
+
+    const sendMessageWithAttachment = async (imageUrl) => {
+        if (!activeConversation) return;
+
+        try {
+            const response = await fetch(`http://localhost:5001/api/messages/conversations/${activeConversation.conversation_id}/customer`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: "Sent an image",
+                    customer_name: user?.full_name || user?.email || 'Guest',
+                    attachment_url: imageUrl
+                })
+            });
+
+            if (response.ok) {
+                scrollToBottom();
+            }
+        } catch (error) {
+            console.error("Error sending image message:", error);
+        }
+    };
+
+    const handlePaste = async (e) => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf('image') !== -1) {
+                const file = items[i].getAsFile();
+                if (file) {
+                    // Reuse the file upload logic
+                    const formData = new FormData();
+                    formData.append('image', file);
+
+                    try {
+                        setLoading(true);
+                        const token = localStorage.getItem('token');
+                        const response = await fetch('http://localhost:5001/api/uploads/images', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: formData
+                        });
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            await sendMessageWithAttachment(data.url);
+                        } else {
+                            console.error("Upload failed:", data);
+                            alert("Failed to upload pasted image");
+                        }
+                    } catch (error) {
+                        console.error("Error uploading pasted image:", error);
+                    } finally {
+                        setLoading(false);
+                    }
+                }
+                e.preventDefault(); // Prevent pasting the image binary string into input
+                return;
+            }
+        }
+    };
+
     return (
         <DashboardLayout>
             <div className="flex h-[calc(100vh-100px)] bg-white rounded-lg shadow-sm overflow-hidden">
@@ -138,6 +239,7 @@ const Messages = () => {
                     </div>
                     <div className="flex-1 overflow-y-auto p-4">
                         <button
+                            style={{ color: '#fff' }}
                             className="w-full bg-blue-600 text-black py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors mb-4"
                             onClick={() => setActiveConversation(null)}
                         >
@@ -147,6 +249,16 @@ const Messages = () => {
                         {conversations.length === 0 && (
                             <p className="text-gray-500 text-center mt-4">No conversations.</p>
                         )}
+                        {conversations.map(conv => (
+                            <div
+                                key={conv.conversation_id}
+                                onClick={() => setActiveConversation(conv)}
+                                className={`p-3 border-b cursor-pointer hover:bg-gray-50 ${activeConversation?.conversation_id === conv.conversation_id ? 'bg-blue-50' : ''}`}
+                            >
+                                <p className="font-semibold">{conv.customer_name || conv.customer_email}</p>
+                                <p className="text-sm text-gray-500 truncate">{conv.last_message}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -167,6 +279,14 @@ const Messages = () => {
                                                 : 'bg-blue text-gray-800 border border-gray-200 rounded-bl-none'
                                                 }`}
                                         >
+                                            {msg.attachment_url ? (
+                                                <img
+                                                    src={`http://localhost:5001${msg.attachment_url}`}
+                                                    alt="Attachment"
+                                                    className="max-w-full rounded-lg mb-2"
+                                                    style={{ maxHeight: '200px' }}
+                                                />
+                                            ) : null}
                                             <p>{msg.message}</p>
                                             <span className={`text-xs block mt-1 ${msg.sender_type === 'customer' ? 'text-blue-100' : 'text-gray-400'
                                                 }`}>
@@ -178,17 +298,37 @@ const Messages = () => {
                                 <div ref={messagesEndRef} />
                             </div>
                             <div className="p-4 bg-white border-t border-gray-200">
-                                <div className="flex gap-2">
+                                <div className="flex gap-2 items-center">
+                                    <input
+                                        type="file"
+                                        ref={fileInputRef}
+                                        onChange={handleFileSelect}
+                                        className="hidden"
+                                        accept="image/*"
+                                    />
+                                    <button
+                                        onClick={() => fileInputRef.current?.click()}
+                                        className="p-2 text-gray-500 hover:text-blue-600 transition-colors"
+                                        title="Send Image"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                            <polyline points="21 15 16 10 5 21"></polyline>
+                                        </svg>
+                                    </button>
                                     <input
                                         type="text"
                                         value={newMessage}
                                         onChange={(e) => setNewMessage(e.target.value)}
+                                        onPaste={handlePaste}
                                         placeholder="Type a message..."
                                         className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                                         onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                                     />
                                     <button
                                         onClick={handleSendMessage}
+                                        style={{ color: '#fff' }}
                                         className="bg-blue-600 text-black px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                                     >
                                         SEND
@@ -213,6 +353,7 @@ const Messages = () => {
                                 />
                                 <button
                                     onClick={handleSendMessage}
+                                    style={{ color: '#fff' }}
                                     className="w-full bg-blue-600 text-black py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
                                 >
                                     START CONVERSATION

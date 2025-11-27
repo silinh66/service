@@ -103,7 +103,7 @@ export default function ResetPassword() {
                             gap: 1,
                         }}
                     >
-                        <Box component="span" sx={{ fontSize: "2rem" }}>🦌</Box> ROTIDER MEDIA
+                        <Box component="span" sx={{ fontSize: "2rem" }}>🦌</Box> ZOOZOO STUDIO
                     </Typography>
                 </Box>
 

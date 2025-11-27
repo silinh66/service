@@ -406,3 +406,52 @@
     text-align: center !important;
     justify-content: center !important;
 }
+
+/* Centered Header Styles with Logo Left */
+/* Centered Header Styles with Logo Left - Desktop Only */
+@media (min-width: 769px) {
+    .header-centered {
+        /* Remove positioning context from container to avoid conflicts */
+        position: static !important;
+    }
+
+    /* Pin Logo to Screen Left using Fixed Positioning */
+    .header-centered #logo {
+        position: fixed !important;
+        left: 30px !important;
+        top: 35px !important;
+        /* Center of 70px header */
+        transform: translateY(-50%);
+        margin: 0 !important;
+        z-index: 1002;
+        /* High z-index */
+        width: auto !important;
+    }
+
+    /* Pin Menu to Screen Center using Fixed Positioning */
+    .header-centered .flex-col.hide-for-medium {
+        position: fixed !important;
+        left: 50%;
+        top: 35px !important;
+        /* Center of 70px header */
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+        width: auto !important;
+        display: flex !important;
+        justify-content: center;
+    }
+
+    .header-centered .nav-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 !important;
+    }
+
+    /* Ensure Logo text is visible and styled correctly */
+    .header-centered .header-logo-text {
+        font-size: 1.5rem;
+        white-space: nowrap;
+    }
+}

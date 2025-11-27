@@ -96,7 +96,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/messages", messageRoutes);
-app.use("/api/upload", uploadRoutes);
+app.use("/api/uploads", uploadRoutes);
 
 // 404 handler
 app.use((req, res) => {
