@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import compression from "compression";
 import { testConnection } from "./config/database.js";
 
 // Import routes
@@ -41,6 +42,7 @@ const io = new Server(httpServer, {
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+app.use(compression()); // Enable Gzip compression
 app.use(
   cors({
     origin: [
@@ -66,7 +68,12 @@ if (!fs.existsSync(uploadsPath)) {
   fs.mkdirSync(uploadsPath, { recursive: true });
 }
 console.log("Serving static files from:", uploadsPath);
-app.use("/uploads", express.static(uploadsPath));
+app.use("/uploads", express.static(uploadsPath, {
+  maxAge: "1d", // Cache for 1 day
+  setHeaders: (res, path) => {
+    res.setHeader("Cache-Control", "public, max-age=86400"); // Explicit header
+  }
+}));
 
 // Debug route to list files (remove in production)
 app.get("/api/debug/uploads", (req, res) => {

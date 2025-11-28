@@ -11,7 +11,17 @@ const PORT = 5001;
 console.log("__dirname:", __dirname);
 console.log("Serving static from:", path.join(__dirname, "uploads"));
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+import compression from "compression";
+
+// ...
+
+app.use(compression());
+app.use("/uploads", express.static(path.join(__dirname, "uploads"), {
+    maxAge: "1d",
+    setHeaders: (res, path) => {
+        res.setHeader("Cache-Control", "public, max-age=86400");
+    }
+}));
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
