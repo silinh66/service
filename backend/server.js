@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 import { testConnection } from "./config/database.js";
 
 // Import routes
@@ -58,7 +59,33 @@ app.use(express.json({ limit: "3072mb" }));
 app.use(express.urlencoded({ extended: true, limit: "3072mb" }));
 
 // Serve static files (uploaded videos and images)
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// Serve static files (uploaded videos and images)
+const uploadsPath = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadsPath)) {
+  console.log("Creating uploads directory:", uploadsPath);
+  fs.mkdirSync(uploadsPath, { recursive: true });
+}
+console.log("Serving static files from:", uploadsPath);
+app.use("/uploads", express.static(uploadsPath));
+
+// Debug route to list files (remove in production)
+app.get("/api/debug/uploads", (req, res) => {
+  try {
+    const imagesPath = path.join(uploadsPath, "images");
+    if (!fs.existsSync(imagesPath)) {
+      return res.json({ message: "Images directory does not exist", path: imagesPath });
+    }
+    const files = fs.readdirSync(imagesPath);
+    res.json({
+      message: "List of files in uploads/images",
+      path: imagesPath,
+      count: files.length,
+      files: files.slice(0, 50) // Limit to 50 files
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // Request logging
 app.use((req, res, next) => {
