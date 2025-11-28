@@ -52,14 +52,26 @@ const SliderVertical = () => {
                 <div className="hero-bg-cover-vertical"></div>
                 <div className="hero-bg-image-vertical">
                     {posts.map((post, index) => {
+                        // Optimization: Only render the active image and its neighbors
+                        const total = posts.length;
+                        const isActive = index === activeIndex;
+                        const isNext = index === (activeIndex + 1) % total;
+                        const isPrev = index === (activeIndex - 1 + total) % total;
+
+                        if (!isActive && !isNext && !isPrev) return null;
+
                         return (
                             <img
                                 key={post.id}
                                 src={getOptimizedImageUrl(post.featured_image)}
                                 alt=""
-                                loading="lazy"
+                                loading="eager"
                                 className={index === activeIndex ? 'is-active' : ''}
-                                style={{ opacity: index === activeIndex ? 1 : 0, transition: 'opacity 0.5s ease-in-out' }}
+                                style={{
+                                    opacity: index === activeIndex ? 1 : 0,
+                                    transition: 'opacity 0.5s ease-in-out',
+                                    zIndex: index === activeIndex ? 2 : 1
+                                }}
                             />
                         );
                     })}
