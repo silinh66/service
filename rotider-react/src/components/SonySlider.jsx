@@ -56,16 +56,28 @@ const SonySlider = () => {
                 <div className="hero-bg-cover"></div>
                 <div className="hero-bg-image">
                     {posts.map((post, index) => {
-                        // Always render all background images to ensure smooth transitions and avoid missing images during loop
-                        // Opacity handles the visibility
+                        // Optimization: Only render the active image and its neighbors to save bandwidth/memory
+                        // We need to handle the loop logic for neighbors
+                        const total = posts.length;
+                        const isActive = index === activeIndex;
+                        const isNext = index === (activeIndex + 1) % total;
+                        const isPrev = index === (activeIndex - 1 + total) % total;
+
+                        // Only render if it's the active one, or the immediate next/prev for transition/preload
+                        if (!isActive && !isNext && !isPrev) return null;
+
                         return (
                             <img
                                 key={post.id}
                                 src={getOptimizedImageUrl(post.featured_image)}
                                 alt=""
-                                loading="lazy"
-                                className={index === activeIndex ? 'is-active' : ''}
-                                style={{ opacity: index === activeIndex ? 1 : 0, transition: 'opacity 0.5s ease-in-out' }}
+                                loading="eager" // Load these eagerly as they are needed immediately
+                                className={isActive ? 'is-active' : ''}
+                                style={{
+                                    opacity: isActive ? 1 : 0,
+                                    transition: 'opacity 0.5s ease-in-out',
+                                    zIndex: isActive ? 2 : 1 // Ensure active is on top
+                                }}
                             />
                         );
                     })}
