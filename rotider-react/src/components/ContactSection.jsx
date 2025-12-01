@@ -5,9 +5,7 @@ const ContactSection = () => {
     return (
         <div className="contact-section-container">
             <div className="cs-lang-toggle">
-                <span className="cs-lang-active">English</span>
-                <span style={{ margin: '0 5px' }}>/</span>
-                <span>Japanese</span>
+
             </div>
             <div className="cs-content">
                 <div className="cs-label-container">
