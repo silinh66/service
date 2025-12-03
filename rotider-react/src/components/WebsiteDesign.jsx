@@ -52,9 +52,9 @@ const WebsiteDesign = () => {
     return (
         <div className="website-design-container">
             <div className="wd-header">
-                <h2 className="wd-title">We welcome video editors, web designers, and project managers </h2>
+                <h2 className="wd-title">ZOOZOOSTUDIO - Elevating Your Personal Brand</h2>
                 <p className="wd-description">
-                    Help individuals, professionals, content creators, and small businesses tell clear, engaging stories through videos and websites full of personal touches, ready for higher conversion rates.
+                    We are dedicated to helping professionals and creators tell their unique stories. Through custom personal websites and engaging video editing, we craft a digital presence that is professional, impactful, and authentically yours.
                 </p>
             </div>
 

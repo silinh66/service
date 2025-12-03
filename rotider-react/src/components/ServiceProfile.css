@@ -1,0 +1,552 @@
+.service-profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: "SST W20 Bold", Arial, "Helvetica Neue", sans-serif !important;
+    font-weight: 500 !important;
+    color: #141e0c;
+    background-color: #fff;
+}
+
+/* Header Section */
+.sp-header {
+    margin-bottom: 24px;
+}
+
+.sp-title {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #141e0c;
+}
+
+.sp-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: #5e6d55;
+    flex-wrap: wrap;
+}
+
+.sp-user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sp-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #e0e0e0;
+}
+
+.sp-username {
+    font-weight: 600;
+    color: #108a00;
+    /* Green color for username */
+}
+
+.sp-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #141e0c;
+    font-weight: 600;
+}
+
+.sp-star {
+    color: #141e0c;
+    /* Black star */
+}
+
+.sp-reviews {
+    color: #5e6d55;
+}
+
+.sp-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #001e00;
+    font-weight: 600;
+    /* background: #f2fcf2; removed background */
+    padding: 2px 0;
+}
+
+.sp-badge-icon {
+    color: #3c8224;
+    /* Top rated icon color */
+}
+
+/* Main Layout */
+.sp-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    /* Increased gap */
+}
+
+/* Left Column - Visuals */
+.sp-visuals {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.sp-main-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f9f9f9;
+    aspect-ratio: 16/9;
+    /* margin-bottom: 8px; */
+}
+
+.sp-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Thumbnails */
+.sp-thumbnails {
+    display: flex;
+    gap: 12px;
+}
+
+.sp-thumbnail {
+    width: 100px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border: 2px solid transparent;
+}
+
+.sp-thumbnail.active {
+    opacity: 1;
+    border-color: #141e0c;
+}
+
+.sp-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sp-thumbnail-video-icon {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    color: white;
+    font-size: 12px;
+}
+
+/* Pro Banner */
+.sp-pro-banner {
+    background-color: #f2f7ff;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.sp-pro-icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.sp-pro-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #141e0c;
+}
+
+.sp-pro-content p {
+    font-size: 14px;
+    color: #141e0c;
+    margin-bottom: 12px;
+}
+
+.sp-pro-link {
+    color: #108a00;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid #108a00;
+    padding: 6px 12px;
+    border-radius: 16px;
+}
+
+.sp-pro-link:hover {
+    background-color: #f2fcf2;
+}
+
+/* Project Details */
+.sp-section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #141e0c;
+}
+
+.sp-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #141e0c;
+    margin-bottom: 32px;
+}
+
+.sp-description p {
+    margin-bottom: 16px;
+}
+
+.sp-description a {
+    color: #108a00;
+    text-decoration: underline;
+}
+
+.sp-meta-list {
+    margin-bottom: 40px;
+}
+
+.sp-meta-item {
+    margin-bottom: 8px;
+}
+
+.sp-meta-label {
+    font-weight: 600;
+    color: #141e0c;
+    margin-right: 8px;
+}
+
+.sp-meta-value {
+    color: #5e6d55;
+}
+
+/* Comparison Table */
+.sp-comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 40px;
+    border: 1px solid #e4ebe4;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.sp-comparison-table th,
+.sp-comparison-table td {
+    padding: 16px 24px;
+    text-align: center;
+    border-bottom: 1px solid #e4ebe4;
+    font-size: 16px;
+    color: #141e0c;
+}
+
+/* Header Styles */
+.sp-comparison-table thead tr th {
+    background-color: #fff;
+    border-bottom: 1px solid #e4ebe4;
+    vertical-align: top;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.sp-comparison-table th:first-child {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    width: 35%;
+}
+
+/* Column Headers (Starter, Standard, Advanced) */
+.sp-comparison-table th:not(:first-child) {
+    font-size: 16px;
+    color: #141e0c;
+}
+
+/* Price in Header */
+.sp-comparison-table th span {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 8px;
+    color: #141e0c;
+}
+
+/* Zebra Striping */
+.sp-comparison-table tbody tr:nth-child(odd) {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #1f1f1f
+        /* Light gray for odd rows */
+}
+
+.sp-comparison-table tbody tr:nth-child(even) {
+    background-color: #fff;
+    /* White for even rows */
+}
+
+/* First Column Styles */
+.sp-comparison-table tbody td:first-child {
+    text-align: left;
+    color: #141e0c;
+    /* Remove specific background so it inherits row color */
+    background-color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 4px;
+    text-decoration-color: #999;
+}
+
+/* Remove bottom border for the last row */
+.sp-comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Checkmark Styles */
+.sp-check {
+    color: #141e0c;
+    font-size: 18px;
+}
+
+/* Add-ons */
+.sp-addons {
+    border-top: 1px solid #e4ebe4;
+    padding-top: 24px;
+}
+
+.sp-addon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.sp-addon-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.sp-addon-info p {
+    font-size: 12px;
+    color: #5e6d55;
+}
+
+.sp-addon-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #141e0c;
+}
+
+
+/* Right Column - Pricing */
+.sp-pricing-card {
+    border: 1px solid #d5e0d5;
+    border-radius: 16px;
+    padding: 24px;
+    background: #fff;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.sp-compare-link {
+    color: #108a00;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Tier Selector (Radio Style) */
+.sp-tier-selector {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    gap: 12px;
+}
+
+.sp-tier-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.sp-radio-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.sp-radio-circle.active {
+    border-color: #108a00;
+    border-width: 2px;
+}
+
+.sp-radio-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #108a00;
+    border-radius: 50%;
+}
+
+.sp-tier-name {
+    font-size: 14px;
+    color: #141e0c;
+    margin-bottom: 4px;
+}
+
+.sp-tier-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #141e0c;
+}
+
+/* Package Details */
+.sp-package-header {
+    margin-bottom: 24px;
+}
+
+.sp-package-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #141e0c;
+}
+
+.sp-package-desc {
+    font-size: 14px;
+    color: #141e0c;
+    line-height: 1.5;
+}
+
+/* Card Features List */
+.sp-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.sp-card-feature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #141e0c;
+}
+
+.feature-label {
+    /* text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 4px;
+    text-decoration-color: #999; */
+}
+
+.feature-value {
+    font-weight: 400;
+}
+
+.feature-check {
+    color: #108a00;
+    font-weight: bold;
+}
+
+/* Delivery Date Info */
+.sp-delivery-date {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+}
+
+.sp-clock-icon {
+    font-size: 20px;
+}
+
+.sp-date-text {
+    font-weight: 600;
+    font-size: 14px;
+    color: #141e0c;
+    margin-bottom: 4px;
+}
+
+.sp-date-subtext {
+    font-size: 12px;
+    color: #5e6d55;
+}
+
+/* Buttons */
+.sp-cta-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #108a00;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 12px;
+}
+
+.sp-cta-button:hover {
+    background-color: #14a800;
+}
+
+.sp-secondary-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fff;
+    color: #108a00;
+    border: 1px solid #108a00;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sp-secondary-button:hover {
+    background-color: #f2fcf2;
+}
+
+@media (max-width: 768px) {
+    .sp-content {
+        grid-template-columns: 1fr;
+    }
+}

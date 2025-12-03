@@ -28,7 +28,7 @@ const Footer = () => {
 
         {/* Column 4: Contact & Social */}
         <div className="footer-column">
-          <h3 className="footer-heading">ZOOZOO STUDIO</h3>
+          <h3 className="footer-heading">ZOOZOOSTUDIO</h3>
 
           <div className="footer-social">
             <a href="https://www.facebook.com/ZOOZOOmedia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -49,7 +49,7 @@ const Footer = () => {
             <p>zoozoostudio@gmail.com</p>
             <p>sale.zoozoostudio@gmail.com</p>
             <p>WhatsApp: (+84) 356943330</p>
-            <p>LK VA03A Khu đô Thị Hoàng Thành Villas, Đại Mỗ, Hà Nội</p>
+            <p>LK VA03A Khu do thi Hoang Thanh Villas, Dai Mo, Ha Noi</p>
             <p>Working from Monday to Saturday</p>
             <p>6AM - 11PM</p>
           </div>

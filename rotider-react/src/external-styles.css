@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6251,7 +6252,7 @@ Version: 3.3
 */
 
 /*************** ADD CUSTOM CSS HERE.   ***************/
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
 
 .transparent .header-main {
   height: 80px !important;

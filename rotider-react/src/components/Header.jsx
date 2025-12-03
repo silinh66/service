@@ -52,7 +52,7 @@ const Header = () => {
                                     </li>
 
                                     {/* <li id="menu-item-791" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-791 menu-item-design-default"><a href="/our-story/" className="nav-top-link">Our Story</a></li> */}
-                                    <li id="menu-item-2153" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153 menu-item-design-default"><Link to="/login" className="nav-top-link">Order</Link></li>
+                                    <li id="menu-item-2153" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153 menu-item-design-default"><Link to="/login" className="nav-top-link">Order now</Link></li>
                                     <li id="menu-item-809" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-809 menu-item-design-default"><a href="/blog/" className="nav-top-link">Blog</a></li>
                                     <li id="menu-item-810" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-810 menu-item-design-default"><a href="/contact-us/" className="nav-top-link">Contact us</a></li>
                                     <li id="menu-item-3753" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-3753 menu-item-design-default"><Link to="/login" className="nav-top-link">Login</Link></li>
@@ -84,7 +84,7 @@ const Header = () => {
 
                         </li> */}
                         {/* <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-791"><a href="/our-story/">Our Story</a></li> */}
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153"><Link to="/login">Order</Link></li>
+                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153"><Link to="/login">Order now</Link></li>
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-809"><a href="/blog/">Blog</a></li>
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-810"><a href="/contact-us/">Contact us</a></li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-3753"><Link to="/login">Login</Link></li>

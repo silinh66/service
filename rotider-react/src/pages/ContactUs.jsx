@@ -8,12 +8,12 @@ const ContactUs = () => {
             <div className="contact-hero">
                 <div className="contact-hero-overlay"></div>
                 <img
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+                    src="/contact-hero-video.png"
                     alt="Contact Hero"
                     className="contact-hero-bg"
                 />
                 <div className="contact-hero-content">
-                    <h1 className="contact-hero-title">
+                    <h1 style={{ color: "white" }} className="contact-hero-title">
                         <span className="text-orange">HOW</span><br />
                         to contact us?
                     </h1>
@@ -30,7 +30,7 @@ const ContactUs = () => {
                         </div>
                         <div className="contact-info-item">
                             <h4>Base office</h4>
-                            <p>LK VA03A Khu đô Thị Hoàng Thành Villas, Đại Mỗ, Hà Nội</p>
+                            <p>LK VA03A Khu do thi Hoang Thanh Villas, Dai Mo, Ha Noi</p>
                         </div>
                         <div className="contact-info-item">
                             <h4>Work hour</h4>

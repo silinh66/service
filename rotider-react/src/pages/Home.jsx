@@ -5,6 +5,7 @@ import '../modern-home.css';
 const SonySlider = React.lazy(() => import('../components/SonySlider'));
 const SliderVertical = React.lazy(() => import('../components/SliderVertical'));
 const WebsiteDesign = React.lazy(() => import('../components/WebsiteDesign'));
+const ServiceProfile = React.lazy(() => import('../components/ServiceProfile'));
 const ContactSection = React.lazy(() => import('../components/ContactSection'));
 
 // Loading fallback component
@@ -28,6 +29,7 @@ const Home = () => {
         <SonySlider />
         <ContactSection />
         <SliderVertical />
+        <ServiceProfile />
         <WebsiteDesign />
       </Suspense>
 
