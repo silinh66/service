@@ -546,7 +546,54 @@
 }
 
 @media (max-width: 768px) {
+    .service-profile-container {
+        padding: 20px 16px;
+    }
+
     .sp-content {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    /* Move pricing card to top on mobile if desired, or keep as is. 
+       Based on standard e-commerce, visuals usually come first, then pricing. 
+       If user wants pricing first, we can use order: -1; */
+
+    .sp-left-column {
+        width: 100%;
+    }
+
+    .sp-pricing-card {
+        position: static;
+        /* Remove sticky on mobile */
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    .sp-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-right: -16px;
+        /* Allow scrolling to edge */
+        padding-right: 16px;
+    }
+
+    .sp-comparison-table {
+        min-width: 600px;
+        /* Ensure table doesn't squish */
+    }
+
+    .sp-tier-selector {
+        gap: 8px;
+    }
+
+    .sp-tier-option {
+        padding: 8px 4px;
+    }
+
+    .sp-tier-price {
+        font-size: 18px;
     }
 }

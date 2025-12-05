@@ -133,66 +133,68 @@ const ServiceProfile = () => {
                     {/* What's included Table */}
                     <div className="sp-whats-included" id="whats-included">
                         {/* <h3 className="sp-section-title">What's included</h3> */}
-                        <table className="sp-comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Service Tiers</th>
-                                    <th>Starter<span>$39</span></th>
-                                    <th>Standard<span>$55</span></th>
-                                    <th>Advanced<span>$250</span></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Delivery Time</td>
-                                    <td>{tiers.starter.deliveryTime}</td>
-                                    <td>{tiers.standard.deliveryTime}</td>
-                                    <td>{tiers.advanced.deliveryTime}</td>
-                                </tr>
-                                <tr>
-                                    <td>Number of Revisions</td>
-                                    <td>{tiers.starter.revisions}</td>
-                                    <td>{tiers.standard.revisions}</td>
-                                    <td>{tiers.advanced.revisions}</td>
-                                </tr>
-                                <tr>
-                                    <td>Footage Provided (Minutes)</td>
-                                    <td>{tiers.starter.footage}</td>
-                                    <td>{tiers.standard.footage}</td>
-                                    <td>{tiers.advanced.footage}</td>
-                                </tr>
-                                <tr>
-                                    <td>Running Time (Minutes)</td>
-                                    <td>{tiers.starter.runningTime}</td>
-                                    <td>{tiers.standard.runningTime}</td>
-                                    <td>{tiers.advanced.runningTime}</td>
-                                </tr>
-                                <tr>
-                                    <td>Color Grading</td>
-                                    <td><span className="sp-check">✓</span></td>
-                                    <td><span className="sp-check">✓</span></td>
-                                    <td><span className="sp-check">✓</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Sound Design & Mixing</td>
-                                    <td><span className="sp-check">✓</span></td>
-                                    <td><span className="sp-check">✓</span></td>
-                                    <td><span className="sp-check">✓</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Motion Graphics</td>
-                                    <td style={{ fontSize: '14px' }}>{tiers.starter.motionGraphics}</td>
-                                    <td style={{ fontSize: '14px' }}>{tiers.standard.motionGraphics}</td>
-                                    <td style={{ fontSize: '14px' }}>{tiers.advanced.motionGraphics}</td>
-                                </tr>
-                                <tr>
-                                    <td>Subtitles</td>
-                                    <td><span className="sp-check">✓</span></td>
-                                    <td><span className="sp-check">✓</span></td>
-                                    <td><span className="sp-check">✓</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div className="sp-table-wrapper">
+                            <table className="sp-comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Service Tiers</th>
+                                        <th>Starter<span>$39</span></th>
+                                        <th>Standard<span>$55</span></th>
+                                        <th>Advanced<span>$250</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Delivery Time</td>
+                                        <td>{tiers.starter.deliveryTime}</td>
+                                        <td>{tiers.standard.deliveryTime}</td>
+                                        <td>{tiers.advanced.deliveryTime}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number of Revisions</td>
+                                        <td>{tiers.starter.revisions}</td>
+                                        <td>{tiers.standard.revisions}</td>
+                                        <td>{tiers.advanced.revisions}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Footage Provided (Minutes)</td>
+                                        <td>{tiers.starter.footage}</td>
+                                        <td>{tiers.standard.footage}</td>
+                                        <td>{tiers.advanced.footage}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Running Time (Minutes)</td>
+                                        <td>{tiers.starter.runningTime}</td>
+                                        <td>{tiers.standard.runningTime}</td>
+                                        <td>{tiers.advanced.runningTime}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Color Grading</td>
+                                        <td><span className="sp-check">✓</span></td>
+                                        <td><span className="sp-check">✓</span></td>
+                                        <td><span className="sp-check">✓</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sound Design & Mixing</td>
+                                        <td><span className="sp-check">✓</span></td>
+                                        <td><span className="sp-check">✓</span></td>
+                                        <td><span className="sp-check">✓</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Motion Graphics</td>
+                                        <td style={{ fontSize: '14px' }}>{tiers.starter.motionGraphics}</td>
+                                        <td style={{ fontSize: '14px' }}>{tiers.standard.motionGraphics}</td>
+                                        <td style={{ fontSize: '14px' }}>{tiers.advanced.motionGraphics}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Subtitles</td>
+                                        <td><span className="sp-check">✓</span></td>
+                                        <td><span className="sp-check">✓</span></td>
+                                        <td><span className="sp-check">✓</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     {/* Optional Add-ons */}
