@@ -2,6 +2,8 @@
 .contact-us-page {
     font-family: 'Inter', sans-serif;
     color: #333;
+    padding-top: 80px;
+    /* Adjust based on header height to prevent overlap */
 }
 
 .contact-container {
@@ -17,11 +19,12 @@
 /* Hero Section */
 .contact-hero {
     position: relative;
-    height: 500px;
+    /* height: 500px; */
     display: flex;
     align-items: center;
     color: white;
     background-color: #000;
+
 }
 
 .contact-hero-bg {

@@ -15,6 +15,11 @@ const Header = () => {
         }
     };
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+        document.body.classList.remove('off-canvas-active');
+    };
+
     return (
         <>
             <header id="header" className="header has-transparent has-transparent has-sticky sticky-jump transparent">
@@ -77,17 +82,17 @@ const Header = () => {
             <div id="main-menu" className={`mobile-sidebar no-scrollbar ${isMenuOpen ? 'mfp-ready' : 'mfp-hide'}`} style={{ display: isMenuOpen ? 'block' : 'none' }}>
                 <div className="sidebar-menu no-scrollbar ">
                     <ul className="nav nav-sidebar nav-vertical nav-uppercase" data-tab="1">
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><Link to="/" aria-current="page">Home page</Link></li>
+                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><Link to="/" aria-current="page" onClick={closeMenu}>Home page</Link></li>
 
                         {/* <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38" aria-expanded="false">
                             <a href="/service">Service</a>
 
                         </li> */}
                         {/* <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-791"><a href="/our-story/">Our Story</a></li> */}
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153"><Link to="/login">Order now</Link></li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-809"><a href="/blog/">Blog</a></li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-810"><a href="/contact-us/">Contact us</a></li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-3753"><Link to="/login">Login</Link></li>
+                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2153"><Link to="/login" onClick={closeMenu}>Order now</Link></li>
+                        <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-809"><a href="/blog/" onClick={closeMenu}>Blog</a></li>
+                        <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-810"><a href="/contact-us/" onClick={closeMenu}>Contact us</a></li>
+                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-3753"><Link to="/login" onClick={closeMenu}>Login</Link></li>
                     </ul>
                 </div>
             </div>
